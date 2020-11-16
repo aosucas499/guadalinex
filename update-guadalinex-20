@@ -65,4 +65,5 @@ sudo rm *.deb
 
 #echo 'APT::Get::AllowUnauthenticated "true";' > 99myown
 #sudo cp 99myown /etc/apt/apt.conf.d/
+sudo apt -o Acquire::AllowInsecureRepositories=yes update -y --allow-unauthenticated
 sudo apt -o Acquire::AllowInsecureRepositories=yes upgrade -y --allow-unauthenticated
