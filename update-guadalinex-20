@@ -51,11 +51,12 @@ case $op in
 	echo -e "\n"
 	echo "El usuario fue creado satisfactoriamente"; break;;
 
-[3]* ) echo "Selecionada opción 2"; break;;
+[3]* ) break;;
 esac
 done
 
 #Descargamos e instalamos los repositorios de Educaandos
 #deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focal educaandos main
 wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
-sudo dpkg -i apt upgrade -y
+dpkg -i cga-sourceslist-config_0.3-2_all.deb 
+sudo apt --allow-authenticated update && apt --allow-unauthenticated upgrade -y
