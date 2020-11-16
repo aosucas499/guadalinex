@@ -1,0 +1,32 @@
+#!/bin/bash
+clear
+
+echo ""
+echo "Creamos un usuario con derechos de administrador distinto de root. Por ejemplo, admin."
+echo ""
+echo "Este script tiene que ser ejecutado con usuario root"
+echo ""
+sleep 2
+#Crear usuario administrador
+echo "Ingrese el nombre del nuevo usuario administrador, distinto de root."
+read usuario
+if [ "$usuario" == "" ] ; then
+  echo -e "\n"
+  echo "El nombre no puede estar vacío"
+  echo -e "\n"
+  exit 1
+fi
+sudo useradd -m -d /home/$usuario -G sudo $usuario
+if [ "$?" != 0 ] ; then
+   echo -e "\n"
+  echo "Ha ocurrido un error, asegurese de que los datos ingresados son correctos."
+  exit 1
+fi
+echo -e "\n"
+echo "Ingrese una contraseña para $usuario"
+sudo passwd $usuario
+echo -e "\n"
+echo "El usuario fue creado satisfactoriamente"
+#Descargamos e instalamos los repositorios de Educaandos
+#deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focal educaandos main
+wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
