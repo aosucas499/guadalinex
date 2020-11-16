@@ -60,4 +60,8 @@ done
 #deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focal educaandos main
 wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
 dpkg -i cga-sourceslist-config_0.3-2_all.deb 
-sudo apt update && apt --allow-unauthenticated upgrade -y
+
+#Añadimos al sistema la opción de instalar paquetes sin clave pública
+echo 'APT::Get::AllowUnauthenticated "true";' > 99myown
+sudo cp 99myown /etc/apt/apt.conf.d/
+sudo apt update && apt upgrade -y
