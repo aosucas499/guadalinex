@@ -65,4 +65,4 @@ dpkg -i cga-sourceslist-config_0.3-2_all.deb
 
 #echo 'APT::Get::AllowUnauthenticated "true";' > 99myown
 #sudo cp 99myown /etc/apt/apt.conf.d/
-sudo apt update && sudo apt -o Acquire::AllowInsecureRepositories=yes upgrade -y
+sudo apt -o Acquire::AllowInsecureRepositories=yes upgrade -y
