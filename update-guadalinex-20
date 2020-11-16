@@ -32,6 +32,7 @@ case $op in
 
 	#Crear usuario administrador
 	echo "Ingrese el nombre del nuevo usuario administrador, distinto de root."
+	echo ""
 	read usuario
 	if [ "$usuario" == "" ] ; then
   	echo -e "\n"
@@ -59,4 +60,4 @@ done
 #deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focal educaandos main
 wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
 dpkg -i cga-sourceslist-config_0.3-2_all.deb 
-sudo apt --allow-authenticated update && apt --allow-unauthenticated upgrade -y
+sudo apt update && apt --allow-unauthenticated upgrade -y
