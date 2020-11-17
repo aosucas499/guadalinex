@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # variables
+distribucion=$(lsb_release -cs)
 
 #wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/apps-guadalinex-20
 #Menu opciones
@@ -17,12 +18,9 @@ echo   	" 1. Instalar repositorios Ubuntu 20 Focal"
 echo	""
 echo 	" 2. Desinstalar repositorios Ubuntu 20 Focal"
 echo	""
-echo	" 3. Instalar Qshutdown - App para apagar el sistema a una hora determinada"
-echo 	     "EN ESTE CASO A LAS 14:01 L-V"
+echo	" 3. Instalar Apagado automático a las 14:01 L-V (app qshutdown)"
 echo	""
-echo 	" 4. Instalar Warpinator - App para pasar archivos de un pc a otro en red local"
-echo 	""
-echo	" 5. Instalar Docker" 
+echo	" 4. Instalar Docker" 
 echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo 	""
 echo	"Este script tiene que ser ejecutado sin sudo:  ./apps-guadalinex" 
@@ -39,7 +37,7 @@ case $op in
 [1]* ) 		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
 		sudo mv focal.list /etc/apt/sources.list.d/
 		sudo apt update
-		sudo apt install git -y; break;;
+		sudo apt install git curl -y; break;;
 
 [2]* ) 		sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update; break;;
@@ -53,11 +51,26 @@ case $op in
 		sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/; break;;		
 		#screen -d -m qshutdown
 
-#[4]* )		
+[4]* )		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
+                sudo mv focal.list /etc/apt/sources.list.d/
+                sudo apt update
+		#clear
+		sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+		sudo apt install -f
+		sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+		sudo echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $distribucion stable" > docker.list
+		sudo mv docker.list /etc/apt/sources.list.d/
+		sudo apt-key fingerprint 0EBFCD88
+		sudo apt update
+		#clear
+		sudo apt install docker-ce docker-ce-cli containerd.io -y
+		sudo usermod -aG docker $USER
+		sudo usermod -aG docker usuario
+		sleep 30; break;;									
 
 
 
-[5]* ) 		break;; 
+#[5]* ) 		;break;; 
 
 esac
 done
