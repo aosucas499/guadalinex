@@ -40,7 +40,7 @@ case $op in
   	echo -e "\n"
   	exit 1
 	fi
-	sudo useradd -m -d /home/$usuario -G root,sudo,adm,cdrom,dip,plugdev,lpadmin,sambashare $usuario -s /bin/bash
+	sudo useradd -m -d /home/$usuario -G sudo,adm,cdrom,dip,plugdev,lpadmin,sambashare $usuario -s /bin/bash
 	if [ "$?" != 0 ] ; then
    	echo -e "\n"
   	echo "Ha ocurrido un error, asegurese de que los datos ingresados son correctos."
