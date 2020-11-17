@@ -2,28 +2,33 @@
 
 # variables
 
-clear
 #wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/apps-guadalinex-20
 #Menu opciones
-echo    "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo 	""
-echo 	"Este script tiene que ser ejecutado sin sudo:  ./apps-guadalinex" 
-echo 	""
-echo 	"Cuando algún comando de administrador sea necesario se le pedirá la contraseña"
-echo    "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-echo	""
-echo	""
-sleep 5
-clear
+echo    ""
+echo    ""
+echo    ""
+echo    ""
+echo    ""
 echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo 	" 0. Salir"
+echo	""
 echo   	" 1. Instalar repositorios Ubuntu 20 Focal"
+echo	""
 echo 	" 2. Desinstalar repositorios Ubuntu 20 Focal"
+echo	""
 echo	" 3. Instalar Qshutdown - App para apagar el sistema a una hora determinada"
-echo 	" 4. Instalar Systemback - App para clonar el sistema e instalar en otro PC" 
+echo 	     "EN ESTE CASO A LAS 14:01 L-V"
+echo	""
+echo 	" 4. Instalar Warpinator - App para pasar archivos de un pc a otro en red local"
+echo 	""
+echo	" 5. Instalar Docker" 
 echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo 	""
-echo 	""
+echo	"Este script tiene que ser ejecutado sin sudo:  ./apps-guadalinex" 
+echo    ""
+echo    "Cuando algún comando de administrador sea necesario se le pedirá la contraseña"
+echo    ""
 while true; do
 echo 	""
 echo	""
@@ -33,10 +38,11 @@ case $op in
 [0]* ) 		exit;;
 [1]* ) 		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
 		sudo mv focal.list /etc/apt/sources.list.d/
-		sudo apt update; continue;;
+		sudo apt update
+		sudo apt install git -y; break;;
 
 [2]* ) 		sudo rm /etc/apt/sources.list.d/focal.list
-		sudo apt update; continue;;
+		sudo apt update; break;;
 
 [3]* )		sudo apt update
 		sudo apt install qshutdown
@@ -44,12 +50,16 @@ case $op in
 		sudo mkdir /home/usuario/.qshutdown
 		cp qshutdown.conf ~/.qshutdown/
 		sudo cp qshutdown.conf /home/usuario/.qshutdown/
-		sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/		
+		sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/; break;;		
 		#screen -d -m qshutdown
 
+#[4]* )		
 
+
+
+[5]* ) 		break;; 
 
 esac
 done
-
+./apps-guadalinex-20
 
