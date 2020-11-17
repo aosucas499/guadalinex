@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# variables
+
+clear
+#wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/apps-guadalinex-20
+#Menu opciones
+echo    "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo 	""
+echo 	"Este script tiene que ser ejecutado sin sudo:  ./apps-guadalinex" 
+echo 	""
+echo 	"Cuando algún comando de administrador sea necesario se le pedirá la contraseña"
+echo    "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo	""
+echo	""
+sleep 5
+clear
+echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo 	" 0. Salir"
+echo   	" 1. Instalar repositorios Ubuntu 20 Focal"
+echo 	" 2. Desinstalar repositorios Ubuntu 20 Focal"
+echo	" 3. Instalar Qshutdown - App para apagar el sistema a una hora determinada"
+echo 	" 4. Instalar Systemback - App para clonar el sistema e instalar en otro PC" 
+echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo 	""
+echo 	""
+while true; do
+echo 	""
+echo	""
+read -p "Seleccione una opción: " op
+case $op in
+
+[0]* ) 		exit;;
+[1]* ) 		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
+		sudo mv focal.list /etc/apt/sources.list.d/
+		sudo apt update; continue;;
+
+[2]* ) 		sudo rm /etc/apt/sources.list.d/focal.list
+		sudo apt update; continue;;
+
+[3]* )		sudo apt update
+		sudo apt install qshutdown
+		mkdir ~/.qshutdown
+		sudo mkdir /home/usuario/.qshutdown
+		cp qshutdown.conf ~/.qshutdown/
+		sudo cp qshutdown.conf /home/usuario/.qshutdown/
+		sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/		
+		#screen -d -m qshutdown
+
+
+
+esac
+done
+
+

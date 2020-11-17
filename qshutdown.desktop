@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=qshutdown
+Name[de_DE]=qshutdown
+Exec=qshutdown
+Terminal=false
+Type=Application
+Icon=red_glasses
+Categories=Utility
