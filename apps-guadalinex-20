@@ -20,7 +20,9 @@ echo 	" 2. Desinstalar repositorios Ubuntu 20 Focal"
 echo	""
 echo	" 3. Instalar Apagado automático a las 14:01 L-V (app qshutdown)"
 echo	""
-echo	" 4. Instalar Docker" 
+echo	" 4. Instalar Docker"
+echo	""
+echo	" 5. Instalar corrección de hora en equipos conectados por wifi"  
 echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo 	""
 echo	"Este script tiene que ser ejecutado sin sudo:  ./apps-guadalinex" 
@@ -42,7 +44,9 @@ case $op in
 [2]* ) 		sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update; break;;
 
-[3]* )		sudo apt update
+[3]* )		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
+                sudo mv focal.list /etc/apt/sources.list.d/
+                sudo apt update
 		sudo apt install qshutdown
 		mkdir ~/.qshutdown
 		sudo mkdir /home/usuario/.qshutdown
@@ -68,11 +72,16 @@ case $op in
 		sudo usermod -aG docker usuario
 		sleep 30; break;;									
 
-
-
-#[5]* ) 		;break;; 
+[5]* )		sudo cp fix-ntp /usr/bin
+		sudo chmod +x /usr/bin/fix-ntp
+		sudo chown root:root zz-fix-ntp
+		sudo chmod 0440 zz-fix-ntp
+		sudo cp zz-fix-ntp /etc/sudoers.d/ 
+		sudo cp fix-ntp.desktop /etc/xdg/autostart/;break;; 
 
 esac
 done
-./apps-guadalinex-20
+#./apps-guadalinex-20
+
+
 

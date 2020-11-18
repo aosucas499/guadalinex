@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Exec=sudo fix-ntp
+NoDisplay=false
+Hidden=false
+Name[es_ES]=fix-ntp
+Comment[es_ES]=Repara la hora en pc conectado a la wifi Andared.
+
+
+
+
