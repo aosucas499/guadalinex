@@ -23,6 +23,8 @@ echo	""
 echo	" 4. Instalar Docker"
 echo	""
 echo	" 5. Instalar corrección de hora en equipos conectados por wifi"  
+echo	""
+echo	" 6. Instalar drivers pizarra Promethean y programa activinspire"
 echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo 	""
 echo	"Este script tiene que ser ejecutado sin sudo:  ./apps-guadalinex" 
@@ -50,8 +52,8 @@ case $op in
 		sudo apt install qshutdown
 		mkdir ~/.qshutdown
 		sudo mkdir /home/usuario/.qshutdown
-		cp qshutdown.conf ~/.qshutdown/
-		sudo cp qshutdown.conf /home/usuario/.qshutdown/
+		cp ./qshutdown/qshutdown.conf ~/.qshutdown/
+		sudo cp ./qshutdown/qshutdown.conf /home/usuario/.qshutdown/
 		sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/; break;;		
 		#screen -d -m qshutdown
 
@@ -72,12 +74,25 @@ case $op in
 		sudo usermod -aG docker usuario
 		sleep 30; break;;									
 
-[5]* )		sudo cp fix-ntp /usr/bin
+[5]* )		sudo cp ./ntp/fix-ntp /usr/bin
 		sudo chmod +x /usr/bin/fix-ntp
-		sudo chown root:root zz-fix-ntp
-		sudo chmod 0440 zz-fix-ntp
-		sudo cp zz-fix-ntp /etc/sudoers.d/ 
-		sudo cp fix-ntp.desktop /etc/xdg/autostart/;break;; 
+		sudo chown root:root ./ntp/zz-fix-ntp
+		sudo chmod 0440 ./ntp/zz-fix-ntp
+		sudo cp ./ntp/zz-fix-ntp /etc/sudoers.d/ 
+		sudo cp ./ntp/fix-ntp.desktop /etc/xdg/autostart/;break;; 
+
+[6]* )          sudo echo deb [arch=amd64] http://activsoftware.co.uk/linux/repos/driver/ubuntu bionic oss non-oss > promethean.list
+                sudo echo deb [arch=amd64] http://activsoftware.co.uk/linux/repos/ubuntu bionic non-oss >> promethean.list
+                sudo mv promethean.list /etc/apt/sources.list.d/
+                #wget http://activsoftware.co.uk/linux/repos/driver/PrometheanLtd.asc
+		sudo apt-key add ./promethean/PrometheanLtd.asc
+		#wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.4_amd64.deb
+		sudo dpkg -i ./promethean/libssl1.0.0_1.0.2n-1ubuntu5.4_amd64.deb
+		sudo apt update
+		sudo apt install activdriver activtools -y
+		#sudo apt install activ-meta-es -y
+		#wget http://centros.edu.guadalinex.org/Edu/fenixscpdi/pool/main/a/activinspire-licence/activinspire-licence_0.1-3_all.deb
+		#sudo dpkg -i ./promethean/activinspire-licence_0.1-3_all.deb
 
 esac
 done
