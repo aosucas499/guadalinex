@@ -1,5 +1,5 @@
 #!/bin/bash
-
+clear
 # variables
 distribucion=$(lsb_release -cs)
 
@@ -24,7 +24,11 @@ echo	" 4. Instalar Docker"
 echo	""
 echo	" 5. Instalar corrección de hora en equipos conectados por wifi"  
 echo	""
-echo	" 6. Instalar drivers pizarra Promethean y programa activinspire"
+echo	" 6. Instalar apliación de pizarra Openboard"
+echo	""
+echo 	" 7. Instalar navegador Chrome"
+echo	""
+echo 	" 8. Instalar aplicación blinklearning - Usado en libros de Oxford"
 echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo 	""
 echo	"Este script tiene que ser ejecutado sin sudo:  ./apps-guadalinex" 
@@ -37,18 +41,22 @@ echo	""
 read -p "Seleccione una opción: " op
 case $op in
 
-[0]* ) 		exit;;
-[1]* ) 		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
+[0]* ) 	exit;;
+		
+		# Instalar repositorios Ubuntu focal 20
+[1]* ) 	sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
 		sudo mv focal.list /etc/apt/sources.list.d/
 		sudo apt update
 		sudo apt install git curl -y; break;;
 
-[2]* ) 		sudo rm /etc/apt/sources.list.d/focal.list
+		# Desinstalar repositorios Ubuntu focal 20
+[2]* ) 	sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update; break;;
 
+		# Instalar qshutdown con apagado a las 14:01 de L-V en la sesión administrador y usuario=usuario
 [3]* )		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
-                sudo mv focal.list /etc/apt/sources.list.d/
-                sudo apt update
+              	sudo mv focal.list /etc/apt/sources.list.d/
+             	sudo apt update
 		sudo apt install qshutdown
 		mkdir ~/.qshutdown
 		sudo mkdir /home/usuario/.qshutdown
@@ -56,10 +64,11 @@ case $op in
 		sudo cp ./qshutdown/qshutdown.conf /home/usuario/.qshutdown/
 		sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/; break;;		
 		#screen -d -m qshutdown
-
+		
+		# Instalar docker
 [4]* )		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
-                sudo mv focal.list /etc/apt/sources.list.d/
-                sudo apt update
+              	sudo mv focal.list /etc/apt/sources.list.d/
+             	sudo apt update
 		#clear
 		sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
 		sudo apt install -f
@@ -74,29 +83,59 @@ case $op in
 		sudo usermod -aG docker usuario
 		sleep 30; break;;									
 
+		# Instalar corrección de hora en equipos conectados por wifi
 [5]* )		sudo cp ./ntp/fix-ntp /usr/bin
 		sudo chmod +x /usr/bin/fix-ntp
 		sudo chown root:root ./ntp/zz-fix-ntp
 		sudo chmod 0440 ./ntp/zz-fix-ntp
 		sudo cp ./ntp/zz-fix-ntp /etc/sudoers.d/ 
 		sudo cp ./ntp/fix-ntp.desktop /etc/xdg/autostart/;break;; 
-
-[6]* )          sudo echo deb [arch=amd64] http://activsoftware.co.uk/linux/repos/driver/ubuntu bionic oss non-oss > promethean.list
-                sudo echo deb [arch=amd64] http://activsoftware.co.uk/linux/repos/ubuntu bionic non-oss >> promethean.list
-                sudo mv promethean.list /etc/apt/sources.list.d/
-                #wget http://activsoftware.co.uk/linux/repos/driver/PrometheanLtd.asc
-		sudo apt-key add ./promethean/PrometheanLtd.asc
-		#wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.4_amd64.deb
-		sudo dpkg -i ./promethean/libssl1.0.0_1.0.2n-1ubuntu5.4_amd64.deb
+		
+		# Instalar openboard
+[6]* )		sudo apt update        	
+		sudo apt install openboard -y;break;;
+		
+		# Instalar navegador Chrome
+[7]* )		wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+		sudo echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > chrome.list
+		sudo mv chrome.list /etc/apt/sources.list.d/
 		sudo apt update
-		sudo apt install activdriver activtools -y
+		sudo apt install google-chrome-stable;break;;
+
+		# Instalar apliación blinklearning
+[8]* )		wget https://blinklearning1.blob.core.windows.net/installers/blinkoffline/blinkoffline.sh 
+		chmod +x blinkoffline.sh
+		./blinkoffline.sh
+		echo ""
+		echo "Introduce la contraseña del usuario = usuario"
+		echo ""
+           	su usuario -c ./blinkoffline.sh 				
+		sudo rm ~/Escritorio/blink* && sudo rm /home/usuario/Escritorio/blin*
+		rm blinkoffline.sh;break;;
+		
+
+
+
+
+
+
+		# Instalar drivers pizarra Promethean y programa activinspire
+		#sudo echo deb [arch=amd64] http://activsoftware.co.uk/linux/repos/driver/ubuntu bionic oss non-oss > promethean.list
+             	#sudo echo deb [arch=amd64] http://activsoftware.co.uk/linux/repos/ubuntu bionic non-oss >> promethean.list
+             	#sudo mv promethean.list /etc/apt/sources.list.d/
+             	#wget http://activsoftware.co.uk/linux/repos/driver/PrometheanLtd.asc
+		#sudo apt-key add ./promethean/PrometheanLtd.asc
+		#wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.4_amd64.deb
+		#sudo dpkg -i ./promethean/libssl1.0.0_1.0.2n-1ubuntu5.4_amd64.deb
+		#sudo apt update
+		#sudo apt install activdriver activtools -y
 		#sudo apt install activ-meta-es -y
 		#wget http://centros.edu.guadalinex.org/Edu/fenixscpdi/pool/main/a/activinspire-licence/activinspire-licence_0.1-3_all.deb
 		#sudo dpkg -i ./promethean/activinspire-licence_0.1-3_all.deb
 
 esac
 done
-#./apps-guadalinex-20
+./apps-guadalinex-20
 
 
 
