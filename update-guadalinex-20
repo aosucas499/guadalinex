@@ -51,7 +51,7 @@ case $op in
   	exit 1
 	fi
 	sudo groupadd -r admin
-	sudo useradd -m -d /home/$usuario -G sudo,admin,adm,cdrom,dip,plugdev,lpadmin,sambashare $usuario -s /bin/bash
+	sudo useradd -m -d /home/$usuario -g admin -G sudo,adm,cdrom,dip,plugdev,lpadmin,sambashare $usuario -s /bin/bash
 	if [ "$?" != 0 ] ; then
    	echo -e "\n"
   	echo "Ha ocurrido un error, asegurese de que los datos ingresados son correctos."
