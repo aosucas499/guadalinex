@@ -10,6 +10,8 @@ sudo rm *.deb
 sudo apt update -y
 sudo apt install educaandos-educacion-tic -y
 sudo apt upgrade -y
+sudo apt-get clean
+apt-get --purge -f -y autoremove
 sudo rm /etc/apt/sources.list.d/guadalinex.list
 sudo chmod +x update-guadalinex-20
 sudo ./update-guadalinex-20
