@@ -72,9 +72,11 @@ done
 wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
 sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb 
 sudo rm *.deb
-#Añadimos al sistema la opción de instalar paquetes sin clave pública
 
+#Añadimos al sistema la opción de instalar paquetes sin clave pública
 #echo 'APT::Get::AllowUnauthenticated "true";' > 99myown
 #sudo cp 99myown /etc/apt/apt.conf.d/
 sudo apt -o Acquire::AllowInsecureRepositories=yes update -y --allow-unauthenticated
 sudo apt -o Acquire::AllowInsecureRepositories=yes upgrade -y --allow-unauthenticated
+sudo apt-get clean
+sudo apt-get --purge -f -y autoremove
