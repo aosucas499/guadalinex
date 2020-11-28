@@ -6,8 +6,8 @@ sudo dpkg -i educaandos-keyring_0.3-4_amd64.deb
 #sudo rm *.deb
 sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focal educaandos main" > /etc/apt/sources.list.d/guadalinex.list
 sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focalsc educaandos main" >> /etc/apt/sources.list.d/guadalinex.list
-sudo apt update
-sudo apt upgrade
+sudo apt update -y
+sudo apt upgrade -y
 
 
 #sudo apt -o Acquire::AllowInsecureRepositories=yes update -y --allow-unauthenticated
