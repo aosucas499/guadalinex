@@ -13,7 +13,7 @@ sudo dpkg -i educaandos-keyring_0.3-4_amd64.deb
 sudo rm *.deb
 
 # Modifica los repositorios de ubuntu Focal para que no sean más actuales que los que se usaron para la inicial de educaandos
-sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > /etc/apt/sources.list
+#sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > /etc/apt/sources.list
 
 # Actualiza a educaandos
 
