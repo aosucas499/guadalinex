@@ -1,18 +1,32 @@
 #!/bin/bash
 
+# Añade repositorios y clave de educaandos
+
 sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focal educaandos main" > /etc/apt/sources.list.d/guadalinex.list
 sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focalsc educaandos main" >> /etc/apt/sources.list.d/guadalinex.list
+sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focalscpdi educaandos main" >> /etc/apt/sources.list.d/guadalinex.list
+sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focalscmd educaandos main" >> /etc/apt/sources.list.d/guadalinex.list
 #wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
 #sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb 
 wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/e/educaandos-keyring/educaandos-keyring_0.3-4_amd64.deb
 sudo dpkg -i educaandos-keyring_0.3-4_amd64.deb
 sudo rm *.deb
+
+# Modifica los repositorios de ubuntu Focal para que no sean más actuales que los que se usaron para la inicial de educaandos
+sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > /etc/apt/sources.list
+
+# Actualiza a educaandos
+
 sudo apt update -y
 sudo apt install educaandos-educacion-tic -y
 sudo apt upgrade -y
 sudo apt-get clean
 sudo apt-get --purge -f -y autoremove
 sudo rm /etc/apt/sources.list.d/guadalinex.list
+sudo apt update -y
+sudo apt upgrade -y
+
+# Script con la opción de crear usuario con derechos sudo o no
 sudo chmod +x update-guadalinex-20
 sudo ./update-guadalinex-20
 
