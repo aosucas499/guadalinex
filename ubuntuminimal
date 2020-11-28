@@ -10,5 +10,6 @@ sudo rm *.deb
 sudo apt update -y
 sudo apt install educaandos-educacion-tic -y
 sudo apt upgrade -y
+sudo chmod +x update-guadalinex-20
 sudo ./update-guadalinex-20
 
