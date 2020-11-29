@@ -11,6 +11,7 @@
 
 wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/educaandos.list
 wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/focal-no-updates-sources.list
+sudo rm /etc/apt/sources.list
 sudo mv focal-no-updates-sources.list /etc/apt/sources.list
 sudo mv educaandos.list /etc/apt/sources.list.d/guadalinex.list
 
