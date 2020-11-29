@@ -8,8 +8,8 @@ echo "Este script tiene que ser ejecutado con: sudo update-guadalinex-20"
 echo ""
 echo "No es válido con la versión guadalinex 20 que traen los portátiles nuevos"
 echo ""
-echo "Tiene que ser ejecutado en la versión guadalinex 20.04 alpha"
-echo ""
+#echo "Tiene que ser ejecutado en la versión guadalinex 20.04 alpha"
+#echo ""
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo " 1. Salir"
 echo " 2. Actualizar a Educaandos con usuario administrador distinto de root."
@@ -35,7 +35,6 @@ case $op in
 
 	echo ""
 	echo ""
-	sleep 2
 
 	#Crear usuario administrador
 	echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -50,6 +49,7 @@ case $op in
   	echo -e "\n"
   	exit 1
 	fi
+	#sudo groupadd -r sambashare
 	sudo groupadd -r admin
 	sudo useradd -m -d /home/$usuario -g admin -G sudo,adm,cdrom,dip,plugdev,lpadmin,sambashare $usuario -s /bin/bash
 	if [ "$?" != 0 ] ; then
