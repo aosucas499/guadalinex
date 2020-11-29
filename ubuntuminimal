@@ -2,20 +2,23 @@
 
 # Añade repositorios y clave de educaandos
 
-sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focal educaandos main" > /etc/apt/sources.list.d/guadalinex.list
-sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focalsc educaandos main" >> /etc/apt/sources.list.d/guadalinex.list
-sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focalscpdi educaandos main" >> /etc/apt/sources.list.d/guadalinex.list
-sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focalscmd educaandos main" >> /etc/apt/sources.list.d/guadalinex.list
+#sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focal educaandos main" > /etc/apt/sources.list.d/guadalinex.list
+#sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focalsc educaandos main" >> /etc/apt/sources.list.d/guadalinex.list
+#sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focalscpdi educaandos main" >> /etc/apt/sources.list.d/guadalinex.list
+#sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focalscmd educaandos main" >> /etc/apt/sources.list.d/guadalinex.list
 #wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
 #sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb 
+
+wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/educaandos.list
+wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/focal-no-updates-sources.list
+sudo mv focal-no-updates-sources.list /etc/apt/sources.list
+sudo mv educaandos.list /etc/apt/sources.list.d/guadalinex.list
+
 wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/e/educaandos-keyring/educaandos-keyring_0.3-4_amd64.deb
 sudo dpkg -i educaandos-keyring_0.3-4_amd64.deb
 sudo rm *.deb
 
-# Modifica los repositorios de ubuntu Focal para que no sean más actuales que los que se usaron para la inicial de educaandos
-#sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > /etc/apt/sources.list
-
-# Actualiza a educaandos
+# Actualiza ubuntu mini a educaandos
 
 sudo apt update -y
 sudo apt install educaandos-educacion-tic -y
@@ -34,17 +37,10 @@ sudo apt upgrade -y
 
 # Script con la opción de crear usuario con derechos sudo o no
 #!/bin/bash
-#wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/update-guadalinex-20
-clear
 
 #Menu opciones
 echo ""
-echo "Este script tiene que ser ejecutado con: sudo update-guadalinex-20" 
 echo ""
-echo "No es válido con la versión guadalinex 20 que traen los portátiles nuevos"
-echo ""
-#echo "Tiene que ser ejecutado en la versión guadalinex 20.04 alpha"
-#echo ""
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo " 1. Salir"
 echo " 2. Actualizar a Educaandos con usuario administrador distinto de root."
@@ -102,3 +98,7 @@ case $op in
 esac
 done
 
+echo ""
+echo "El sistema se ha actualizado a Educaandos, reinicie o apague la máquina"
+echo ""
+echo "Puede usar el comando: sudo reboot"
