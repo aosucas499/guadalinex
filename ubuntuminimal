@@ -22,7 +22,7 @@ sudo rm *.deb
 # Actualiza ubuntu mini a educaandos
 
 sudo apt update -y
-sudo apt install educaandos-educacion-tic -y
+sudo apt install educaandos-educacion-tic --no-install-recommends -y
 sudo apt upgrade -y
 sudo apt-get clean
 sudo apt-get --purge -f -y autoremove
