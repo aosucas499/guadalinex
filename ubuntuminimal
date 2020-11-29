@@ -26,7 +26,79 @@ sudo rm /etc/apt/sources.list.d/guadalinex.list
 sudo apt update -y
 sudo apt upgrade -y
 
+
+
+
+
+
+
 # Script con la opción de crear usuario con derechos sudo o no
-sudo chmod +x update-guadalinex-20
-sudo ./update-guadalinex-20
+#!/bin/bash
+#wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/update-guadalinex-20
+clear
+
+#Menu opciones
+echo ""
+echo "Este script tiene que ser ejecutado con: sudo update-guadalinex-20" 
+echo ""
+echo "No es válido con la versión guadalinex 20 que traen los portátiles nuevos"
+echo ""
+#echo "Tiene que ser ejecutado en la versión guadalinex 20.04 alpha"
+#echo ""
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo " 1. Salir"
+echo " 2. Actualizar a Educaandos con usuario administrador distinto de root."
+echo " 3. Actualizar a Educaandos sin usuario administrador, para usar en el centro." 
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo ""
+echo ""
+while true; do
+read -p "Seleccione una opción, 1, 2 o 3: " op
+case $op in
+
+[1]* ) exit;;
+[2]* )
+	clear
+	# Introducción al script crear usuario admin
+	echo ""
+	echo ""
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo "Crearemos un usuario con derechos de administrador distinto de root. Por ejemplo, admin."
+	echo ""
+	echo "Este script tiene que ser ejecutado con derechos root: sudo ./update-guadalinex-20"
+	echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+	echo ""
+	echo ""
+
+	#Crear usuario administrador
+	echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo "Ingrese el nombre del nuevo usuario administrador, distinto de root."
+	echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+	echo ""
+	read usuario
+	if [ "$usuario" == "" ] ; then
+  	echo -e "\n"
+  	echo "El nombre no puede estar vacío, ejecute el script otra vez."
+  	echo -e "\n"
+  	exit 1
+	fi
+	#sudo groupadd -r sambashare
+	sudo groupadd -r admin
+	sudo useradd -m -d /home/$usuario -g admin -G sudo,adm,cdrom,dip,plugdev,lpadmin,sambashare $usuario -s /bin/bash
+	if [ "$?" != 0 ] ; then
+   	echo -e "\n"
+  	echo "Ha ocurrido un error, asegurese de que los datos ingresados son correctos."
+  	exit 1
+	fi
+	echo -e "\n"
+	echo "Ingrese una contraseña para el usuario con derechos de administrador, $usuario"
+	sudo passwd $usuario
+	echo -e "\n"
+	echo "El usuario fue creado satisfactoriamente"; break;;
+
+[3]* ) break;;
+esac
+done
 
