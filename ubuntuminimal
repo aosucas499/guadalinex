@@ -100,6 +100,8 @@ case $op in
 [3]* ) break;;
 esac
 done
+wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
+sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb 
 
 echo ""
 echo "El sistema se ha actualizado a Educaandos, reinicie o apague la máquina"
