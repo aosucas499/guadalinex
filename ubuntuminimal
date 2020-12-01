@@ -28,9 +28,12 @@ sudo apt install educaandos-educacion-tic --no-install-recommends -y
 sudo apt-get clean
 sudo apt-get --purge -f -y autoremove
 sudo rm /etc/apt/sources.list.d/guadalinex.list
+wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
+sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb
 sudo apt update -y
-#sudo apt upgrade -y
-
+sudo apt upgrade -y
+sudo apt-get clean
+sudo apt-get --purge -f -y autoremove
 
 
 
@@ -99,12 +102,6 @@ case $op in
 [3]* ) break;;
 esac
 done
-wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
-sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt-get clean
-sudo apt-get --purge -f -y autoremove
 
 echo ""
 echo "El sistema se ha actualizado a Educaandos, reinicie o apague la máquina"
