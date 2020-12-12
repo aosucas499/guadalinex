@@ -102,6 +102,7 @@ done
 	sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb
 	sudo apt update -y
 	sudo apt upgrade -y
+	sudo apt remove midori -y
 	sudo apt-get clean
 	sudo apt-get --purge -f -y autoremove
 
