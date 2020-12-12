@@ -1,6 +1,7 @@
 #!/bin/bash
+#wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/ubuntudesktop
+clear
 
-# Añade repositorios y clave de educaandos
 
 #sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focal educaandos main" > /etc/apt/sources.list.d/guadalinex.list
 #sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focalsc educaandos main" >> /etc/apt/sources.list.d/guadalinex.list

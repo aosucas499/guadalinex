@@ -1,4 +1,6 @@
 #!/bin/bash
+#wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/ubuntuminimal
+clear
 
 # Añade repositorios y clave de educaandos
 
@@ -41,7 +43,6 @@ sudo apt-get --purge -f -y autoremove
 
 
 # Script con la opción de crear usuario con derechos sudo o no
-#!/bin/bash
 
 #Menu opciones
 echo ""
@@ -107,4 +108,5 @@ echo ""
 echo "El sistema se ha actualizado a Educaandos, reinicie o apague la máquina"
 echo ""
 echo "Puede usar el comando: sudo reboot"
+
 
