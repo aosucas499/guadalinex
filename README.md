@@ -9,10 +9,10 @@ Actualiza guadalinex 20.04 a educaandos
 
 Script para instalar en educaandos: repositorios Ubuntu 20.04, apagado automático, docker...
 
-## ubuntu-minimal
+## ubuntuminimal
 
 Genera el sistema educaandos a partir de una imagen mínima de Ubuntu Focal 20.
 
-## ubuntu-desktop
+## ubuntudesktop
 
 Genera el sistema educaandos a partir de una imagen desktop de Ubuntu Focal 20.
