@@ -36,7 +36,7 @@ clear
 	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 	echo "Crearemos un usuario con derechos de administrador distinto de root. Por ejemplo, admin."
 	echo ""
-	echo "Este script tiene que ser ejecutado con derechos root: sudo ./update-guadalinex-20"
+	echo "Este script tiene que ser ejecutado con derechos root: sudo ./ubuntudesktop"
 	echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
 	echo ""
