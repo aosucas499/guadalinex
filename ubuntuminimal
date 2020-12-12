@@ -2,7 +2,6 @@
 #wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/ubuntuminimal
 clear
 
-# Añade repositorios y clave de educaandos
 
 #sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focal educaandos main" > /etc/apt/sources.list.d/guadalinex.list
 #sudo echo "deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focalsc educaandos main" >> /etc/apt/sources.list.d/guadalinex.list
@@ -11,52 +10,21 @@ clear
 #wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
 #sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb 
 
-wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/educaandos.list
-wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/focal-modify-sources.list
-sudo rm /etc/apt/sources.list
-sudo mv focal-modify-sources.list /etc/apt/sources.list
-sudo mv educaandos.list /etc/apt/sources.list.d/guadalinex.list
-
-wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/e/educaandos-keyring/educaandos-keyring_0.3-4_amd64.deb
-sudo dpkg -i educaandos-keyring_0.3-4_amd64.deb
-sudo rm *.deb
-
-# Actualiza ubuntu mini a educaandos
-
-sudo mkdir /usr/share/icons/EducaAndOS -p
-sudo mkdir /usr/share/icons/EducaAndOSIcons -p
-sudo apt update -y
-sudo apt install educaandos-educacion-tic --no-install-recommends -y
-sudo apt-get clean
-sudo apt-get --purge -f -y autoremove
-sudo rm /etc/apt/sources.list.d/guadalinex.list
-wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
-sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt-get clean
-sudo apt-get --purge -f -y autoremove
-
-
-
-
-
-
 # Script con la opción de crear usuario con derechos sudo o no
 
 #Menu opciones
-echo ""
-echo ""
-echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-echo " 1. Salir"
-echo " 2. Actualizar a Educaandos con usuario administrador distinto de root."
-echo " 3. Actualizar a Educaandos sin usuario administrador, para usar en el centro." 
-echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-echo ""
-echo ""
-while true; do
-read -p "Seleccione una opción, 1, 2 o 3: " op
-case $op in
+	echo ""
+	echo ""
+	echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo " 1. Salir"
+	echo " 2. Actualizar a Educaandos con usuario administrador distinto de root."
+	echo " 3. Actualizar a Educaandos sin usuario administrador, para usar en el centro." 
+	echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo ""
+	echo ""
+	while true; do
+	read -p "Seleccione una opción, 1, 2 o 3: " op
+	case $op in
 
 [1]* ) exit;;
 [2]* )
@@ -67,7 +35,7 @@ case $op in
 	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 	echo "Crearemos un usuario con derechos de administrador distinto de root. Por ejemplo, admin."
 	echo ""
-	echo "Este script tiene que ser ejecutado con derechos root: sudo ./update-guadalinex-20"
+	echo "Este script tiene que ser ejecutado con derechos root: sudo ./ubuntuminimal"
 	echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
 	echo ""
@@ -103,6 +71,38 @@ case $op in
 [3]* ) break;;
 esac
 done
+
+
+
+
+
+
+# Añade repositorios ubuntu y educaandos
+	wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/educaandos.list
+	wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/focal-modify-sources.list
+	sudo rm /etc/apt/sources.list
+	sudo mv focal-modify-sources.list /etc/apt/sources.list
+	sudo mv educaandos.list /etc/apt/sources.list.d/guadalinex.list
+
+	wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/e/educaandos-keyring/educaandos-keyring_0.3-4_amd64.deb
+	sudo dpkg -i educaandos-keyring_0.3-4_amd64.deb
+	sudo rm *.deb
+
+# Actualiza ubuntu mini a educaandos
+
+	sudo mkdir /usr/share/icons/EducaAndOS -p
+	sudo mkdir /usr/share/icons/EducaAndOSIcons -p
+	sudo apt update -y
+	sudo apt install educaandos-educacion-tic --no-install-recommends -y
+	sudo apt-get clean
+	sudo apt-get --purge -f -y autoremove
+	sudo rm /etc/apt/sources.list.d/guadalinex.list
+	wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
+	sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb
+	sudo apt update -y
+	sudo apt upgrade -y
+	sudo apt-get clean
+	sudo apt-get --purge -f -y autoremove
 
 echo ""
 echo "El sistema se ha actualizado a Educaandos, reinicie o apague la máquina"
