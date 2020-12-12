@@ -12,3 +12,7 @@ Script para instalar en educaandos: repositorios Ubuntu 20.04, apagado automáti
 ## ubuntu-minimal
 
 Genera el sistema educaandos a partir de una imagen mínima de Ubuntu Focal 20.
+
+## ubuntu-desktop
+
+Genera el sistema educaandos a partir de una imagen desktop de Ubuntu Focal 20.
