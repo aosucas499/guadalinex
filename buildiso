@@ -1,0 +1,19 @@
+groupadd -r sambashare
+groupadd -r admin
+useradd -m -d /home/admin -g admin -G sudo,adm,cdrom,dip,plugdev,lpadmin,sambashare admin -s /bin/bash
+passwd admin
+apt remove gnome-shell ubuntu-session -y
+apt-get remove gnome-initial-setup -y
+apt autoremove -y
+wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
+dpkg -i cga-sourceslist-config_0.3-2_all.deb
+wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/e/educaandos-keyring/educaandos-keyring_0.3-4_amd64.deb
+dpkg -i educaandos-keyring_0.3-4_amd64.deb
+rm *.deb
+mkdir /usr/share/icons/EducaAndOS -p
+mkdir /usr/share/icons/EducaAndOSIcons -p
+apt update -y
+apt install educaandos-educacion-tic --no-install-recommends -y
+apt upgrade -y
+apt-get clean
+apt-get --purge -f -y autoremove
