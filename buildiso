@@ -2,6 +2,7 @@
 
 #Comandos modificar iso ubuntu 20.04 en cubic
 
+apt-get install ubiquity-frontend-gtk
 groupadd -r sambashare
 groupadd -r admin
 useradd -m -d /home/admin -g admin -G sudo,adm,cdrom,dip,plugdev,lpadmin,sambashare admin -s /bin/bash
