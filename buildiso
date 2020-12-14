@@ -1,6 +1,9 @@
 #!bin/bash
 
+#wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/buildiso
+
 #Comandos modificar iso ubuntu 20.04 en cubic
+
 
 apt-get install ubiquity-frontend-gtk
 groupadd -r sambashare
