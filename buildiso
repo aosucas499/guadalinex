@@ -17,11 +17,17 @@ wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-con
 dpkg -i cga-sourceslist-config_0.3-2_all.deb
 wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/e/educaandos-keyring/educaandos-keyring_0.3-4_amd64.deb
 dpkg -i educaandos-keyring_0.3-4_amd64.deb
-rm *.deb
 mkdir /usr/share/icons/EducaAndOS -p
 mkdir /usr/share/icons/EducaAndOSIcons -p
 apt update -y
 apt install educaandos-educacion-tic --no-install-recommends -y
 apt upgrade -y
+wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/focal-modify-sources.list
+mv focal-modify-sources.list /etc/apt/sources.list.d/
+apt update -y
+apt install ubiquity ubiquity-casper ubiquity-frontend-gtk casper lupin-casper-y
+rm *.deb
+rm /etc/apt/sources.list.d/focal-modify-sources.list
+apt update -y
 apt-get clean
 apt-get --purge -f -y autoremove
