@@ -29,5 +29,6 @@ apt install ubiquity-frontend-gtk -y
 rm *.deb
 rm /etc/apt/sources.list.d/focal-modify-sources.list
 apt update -y
+apt upgrade -y
 apt-get clean
 apt-get --purge -f -y autoremove
