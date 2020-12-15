@@ -1,5 +1,7 @@
 #!/bin/bash
 #wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/update-guadalinex-20
+#wget --no-check-certificate --content-disposition https://bit.ly/3pyebgL
+
 clear
 
 #Menu opciones
