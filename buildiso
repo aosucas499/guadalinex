@@ -25,7 +25,7 @@ apt upgrade -y
 wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/focal-modify-sources.list
 mv focal-modify-sources.list /etc/apt/sources.list.d/
 apt update -y
-apt install ubiquity ubiquity-casper ubiquity-frontend-gtk casper lupin-casper-y
+apt install ubiquity-frontend-gtk -y
 rm *.deb
 rm /etc/apt/sources.list.d/focal-modify-sources.list
 apt update -y
