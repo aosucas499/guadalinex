@@ -11,10 +11,6 @@ clear
 #wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
 #sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb 
 
-# Borrar gnome/ubuntu-desktop
-	sudo apt remove gnome-shell ubuntu-session -y
-	sudo apt autoremove -y
-
 # Añade repositorios ubuntu y educaandos
 	wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/educaandos.list
 	#wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/focal-modify-sources.list
