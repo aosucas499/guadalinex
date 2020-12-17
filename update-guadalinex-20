@@ -71,22 +71,22 @@ done
 
 #Descargamos e instalamos los repositorios de Educaandos
 #deb [arch=amd64] http://centros.edu.guadalinex.org/Edu/focal educaandos main
-sudo apt remove guadalinexedu-educacion-tic guadalinexedu-keyring -y
+#sudo apt remove guadalinexedu-educacion-tic guadalinexedu-keyring -y
 #sudo apt-get --purge -f -y autoremove
 wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/c/cga-sourceslist-config/cga-sourceslist-config_0.3-2_all.deb
 sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb 
-wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/e/educaandos-keyring/educaandos-keyring_0.3-4_amd64.deb
-sudo dpkg -i educaandos-keyring_0.3-4_amd64.deb
+#wget http://centros.edu.guadalinex.org/Edu/focal/pool/main/e/educaandos-keyring/educaandos-keyring_0.3-4_amd64.deb
+#sudo dpkg -i educaandos-keyring_0.3-4_amd64.deb
 sudo rm *.deb
 
 #Añadimos al sistema la opción de instalar paquetes sin clave pública
 
 #echo 'APT::Get::AllowUnauthenticated "true";' > 99myown
 #sudo cp 99myown /etc/apt/apt.conf.d/
-#sudo apt -o Acquire::AllowInsecureRepositories=yes update -y --allow-unauthenticated
-#sudo apt -o Acquire::AllowInsecureRepositories=yes upgrade -y --allow-unauthenticated
-sudo apt update -y
-sudo apt upgrade -y
+sudo apt -o Acquire::AllowInsecureRepositories=yes update -y --allow-unauthenticated
+sudo apt -o Acquire::AllowInsecureRepositories=yes upgrade -y --allow-unauthenticated
+#sudo apt update -y
+#sudo apt upgrade -y
 sudo apt-get clean
 sudo apt-get --purge -f -y autoremove
 
