@@ -37,7 +37,7 @@ case $op in
 
 	echo ""
 	echo ""
-	sleep 2
+	
 
 	#Crear usuario administrador
 	echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
