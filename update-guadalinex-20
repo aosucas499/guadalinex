@@ -95,6 +95,6 @@ sudo apt-get clean
 sudo apt-get --purge -f -y autoremove
 
 echo ""
-echo "El sistema se ha actualizado a Educaandos, reinicie o apague la máquina"
+echo "El sistema se ha actualizado a Educaandos, apague la máquina"
 echo ""
-echo "Puede usar el comando: sudo reboot"
+echo "Puede usar el comando: sudo shutdown -P now"
