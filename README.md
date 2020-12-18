@@ -8,6 +8,8 @@ Actualiza guadalinex 20.04 a educaandos. Es el que deja el sistema más parecido
 ISO: https://bit.ly/30TJxDV
 
   ### USO
+  
+    sudo apt update -y
 
     sudo apt install git
 
@@ -29,6 +31,8 @@ Genera el sistema EducaAndOS a partir de una imagen mínima de Ubuntu Focal 20. 
 ISO: http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/mini.iso
 
    ### USO
+   
+    sudo apt update -y
 
     sudo apt install git
 
@@ -50,6 +54,8 @@ Genera el sistema educaandos a partir de una imagen desktop de Ubuntu Focal 20.
 ISO: https://releases.ubuntu.com/20.04/ubuntu-20.04.1-desktop-amd64.iso
 
    ### USO
+   
+    sudo apt update -y
 
     sudo apt install git
 
@@ -69,6 +75,8 @@ ISO: https://releases.ubuntu.com/20.04/ubuntu-20.04.1-desktop-amd64.iso
 Script para instalar en EducaAndOS: repositorios Ubuntu 20.04, apagado automático, docker...
 
   ### USO
+  
+    sudo apt update -y
 
     sudo apt install git
 
