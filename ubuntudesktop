@@ -57,7 +57,7 @@ clear
 
 [1]* ) exit;;
 [2]* )
-	clear
+	#clear
 	# Introducción al script crear usuario admin
 	echo ""
 	echo ""
