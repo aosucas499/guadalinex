@@ -34,6 +34,7 @@ clear
 	sudo apt update -y
 	sudo apt upgrade -y
 	sudo apt-get remove gnome-initial-setup -y
+	sudo dpkg-reconfigure libdvd-pkg
 	sudo apt-get clean
 	sudo apt-get --purge -f -y autoremove
 
