@@ -12,7 +12,7 @@ clear
 #sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb 
 
 # Añade repositorios ubuntu y educaandos
-	sudo apt install git -y
+	sudo apt-get install git -y
 	sudo killall update-notifier
 	sudo killall unattended-upgr
 	sudo killall gnome-initial-setup
@@ -41,6 +41,7 @@ clear
 	sudo dpkg-reconfigure libdvd-pkg
 	sudo apt-get clean
 	sudo apt-get --purge -f -y autoremove
+	sudo gnome-extensions disable ubuntu-dock@ubuntu.com
 
 # Script con la opción de crear usuario con derechos sudo o no
 
