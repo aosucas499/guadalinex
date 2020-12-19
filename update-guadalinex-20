@@ -91,6 +91,7 @@ sudo apt -o Acquire::AllowInsecureRepositories=yes update -y --allow-unauthentic
 sudo apt -o Acquire::AllowInsecureRepositories=yes upgrade -y --allow-unauthenticated
 #sudo apt update -y
 #sudo apt upgrade -y
+sudo dpkg-reconfigure libdvd-pkg
 sudo apt-get clean
 sudo apt-get --purge -f -y autoremove
 
