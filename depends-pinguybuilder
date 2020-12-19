@@ -1,0 +1,4 @@
+#!/bin/bash 
+sudo apt update 
+sudo apt install archdetect-deb dialog casper squashfs-tools discover aufs-tools unionfs-fuse plymouth-x11
+sudo dpkg -i pingyu*
