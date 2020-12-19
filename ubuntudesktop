@@ -12,7 +12,7 @@ clear
 #sudo dpkg -i cga-sourceslist-config_0.3-2_all.deb 
 
 # Añade repositorios ubuntu y educaandos
-	sudo apt install git
+	sudo apt install git -y
 	sudo killall update-notifier
 	sudo killall unattended-upgr
 	sudo killall gnome-initial-setup
