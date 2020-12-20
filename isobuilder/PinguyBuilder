@@ -232,13 +232,13 @@ esac
 
 cdfs (){
 #Cleaning Apt and backing up
-find /etc/apt -type f -iname \*.save -delete &> /dev/null
-find /etc/apt -type f -iname \*~ -delete &> /dev/null
-tar pczvf /root/apt.tar.gz /etc/apt &> /dev/null
-sed -i "s/deb/#deb/g" /etc/apt/sources.list.d/*.list
-sed -i "s/deb/#deb/g" /etc/apt/sources.list
-echo "$SOURCESLIST" >> /etc/apt/sources.list
-    apt-get update  &> /dev/null
+# find /etc/apt -type f -iname \*.save -delete &> /dev/null
+# find /etc/apt -type f -iname \*~ -delete &> /dev/null
+ tar pczvf /root/apt.tar.gz /etc/apt &> /dev/null
+ sed -i "s/deb/#deb/g" /etc/apt/sources.list.d/*.list
+ sed -i "s/deb/#deb/g" /etc/apt/sources.list
+ echo "$SOURCESLIST" >> /etc/apt/sources.list
+ apt-get update  &> /dev/null
 
 log_msg "Enabling PinguyBuilder-firstboot"
 chmod 755 /etc/init.d/PinguyBuilder-firstboot
@@ -273,9 +273,9 @@ log_msg "$WORKDIR is on a $DIRTYPE filesystem"
 
     if [ "`ps axf | grep startkde | grep -v grep`" != "" -o "`ps axf | grep kwin | grep -v grep`" != "" ]; then
         log_msg "Installing the Ubiquity KDE frontend"
-        apt-get -y -q purge ubiquity-casper &> /dev/null
-        apt-get -y -q purge ubiquity &> /dev/null
-        apt-get -y -q remove ubiquity-ubuntu-artwork &> /dev/null
+    #   apt-get -y -q purge ubiquity-casper &> /dev/null
+    #   apt-get -y -q purge ubiquity &> /dev/null
+    #   apt-get -y -q remove ubiquity-ubuntu-artwork &> /dev/null
         apt-get -y -q remove ubiquity-frontend-kde &> /dev/null
         apt-get -y -q install ubiquity-frontend-kde &> /dev/null
         apt-get -y -q remove ubiquity-frontend-gtk &> /dev/null
@@ -283,15 +283,14 @@ log_msg "$WORKDIR is on a $DIRTYPE filesystem"
         sed -i "s/ubiquity kde_ui/pkexec ubiquity kde_ui/" /usr/share/applications/kde4/ubiquity-kdeui.desktop
     else
         log_msg "Installing the Ubiquity GTK frontend"
-        apt-get -y -q purge ubiquity-casper &> /dev/null
-        apt-get -y -q purge ubiquity &> /dev/null
-        apt-get -y -q remove ubiquity-ubuntu-artwork &> /dev/null
+     #  apt-get -y -q purge ubiquity-casper &> /dev/null
+     #  apt-get -y -q purge ubiquity &> /dev/null
+     #  apt-get -y -q remove ubiquity-ubuntu-artwork &> /dev/null
         apt-get -y -q remove ubiquity-frontend-gtk &> /dev/null
         apt-get -y -q install ubiquity-frontend-gtk &> /dev/null
         apt-get -y -q remove ubiquity-frontend-kde &> /dev/null
         chmod +x /usr/share/applications/ubiquity.desktop &> /dev/null
-        sed -i "s/sh -c 'ubiquity gtk_ui'/pkexec ubiquity gtk_ui/" /usr/share/applications/ubiquity.desktop
-    fi
+        sed -i "s/sh -c 'ubiquity
 
     # Replacing Ubiquity icons
     cp -a /etc/PinguyBuilder/icons /usr/share/
@@ -302,8 +301,8 @@ log_msg "$WORKDIR is on a $DIRTYPE filesystem"
     chmod 777 /usr/share/icons/ubuntu-logo-icon.png
     gtk-update-icon-cache
     update-icon-caches /usr/share/icons/*
-    rm -r /etc/apt &> /dev/null
-    tar -xf /root/apt.tar.gz -C / &> /dev/null
+#   rm -r /etc/apt &> /dev/null
+#   tar -xf /root/apt.tar.gz -C / &> /dev/null
 
 log_msg "Cleaning System before building"
     apt-get clean
