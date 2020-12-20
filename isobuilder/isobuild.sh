@@ -11,3 +11,4 @@ sudo rm /etc/apt/sources.list.d/focal.list
 sudo apt update 
 sudo cp PinguyBuilder /usr/bin
 sudo cp PinguyBuilder.conf /etc
+sudo sed -i -e 's@user-uid [0-9]*@user-uid 990@' /usr/share/initramfs-tools/scripts/casper-bottom/*adduser
