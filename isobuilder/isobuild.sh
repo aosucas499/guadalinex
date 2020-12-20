@@ -6,3 +6,5 @@ sudo apt install archdetect-deb dialog casper squashfs-tools discover aufs-tools
 sudo dpkg -i pinguy*
 sudo rm /etc/apt/sources.list.d/focal.list
 sudo apt update 
+sudo cp PinguyBuilder /usr/bin
+sudo cp PinguyBuilder.conf /etc
