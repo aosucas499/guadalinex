@@ -10,6 +10,11 @@ wget https://sourceforge.net/projects/penguins-eggs/files/packages-deb/eggs_7.7.
 sudo dpkg -i eggs*.deb
 
 # Modificar calamares e instalar 
+sudo cp locale.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
+sudo cp partition.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
+sudo cp removeuser.yml /usr/lib/penguins-eggs/conf/distros/buster/calamares/modules/
+sudo cp users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
+
 sudo cp install-debian.desktop /usr/lib/penguins-eggs/addons/eggs/theme/applications/
 sudo cp show.qml /usr/lib/penguins-eggs/addons/eggs/theme/branding/show.qml
 sudo cp slide.png /usr/lib/penguins-eggs/addons/eggs/theme/branding/welcome.png
@@ -43,4 +48,3 @@ sudo rm /usr/lib/penguins-eggs/assets/penguins-links-add.desktop
 sudo rm /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y
 sudo userdel usuario
-sudo rm -r /home/usuario
