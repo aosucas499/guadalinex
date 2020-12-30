@@ -12,9 +12,7 @@ defaultGroups:
     - plugdev
     - sambashare
     - sudo
-    - name: admin
-    must_exist: false
-    system: true
+    - admin
 passwordRequirements:
     minLength: 0
     maxLength: 0
