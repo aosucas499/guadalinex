@@ -43,3 +43,4 @@ sudo rm /usr/lib/penguins-eggs/assets/penguins-links-add.desktop
 sudo rm /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y
 sudo userdel usuario
+sudo rm -r /home/usuario
