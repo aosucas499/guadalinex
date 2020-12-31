@@ -9,6 +9,9 @@ sudo apt-get install git -y
 wget https://sourceforge.net/projects/penguins-eggs/files/packages-deb/eggs_7.7.0-1_amd64.deb 
 sudo dpkg -i eggs*.deb
 
+#copiar configuración para la ISO
+sudo cp eggs.conf /etc/penguins-eggs.d/eggs.conf
+
 # Modificar calamares e instalar 
 sudo cp locale.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
 sudo cp partition.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
@@ -29,10 +32,6 @@ sudo cp slide.png /usr/lib/penguins-eggs/addons/eggs/theme/branding/slide7.png
 sudo eggs prerequisites
 sudo eggs calamares
 
-
-#copiar configuración para la ISO
-sudo cp eggs.conf /etc/penguins-eggs.d/eggs.conf
-
 #Modificar grub del live ISO
 sudo cp splash.png /usr/lib/penguins-eggs/assets/penguins-eggs-splash.png
 sudo cp theme.cfg /usr/lib/penguins-eggs/conf/distros/buster/grub/theme.cfg
@@ -51,4 +50,4 @@ sudo eggs produce -v
 sudo rm /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y
 sudo userdel usuario
-sudo rm -r guadalinex
+cd ~ && sudo rm -r ~/guadalinex
