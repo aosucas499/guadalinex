@@ -44,7 +44,11 @@ sudo rm /usr/share/applications/calamares.desktop
 sudo rm /usr/lib/penguins-eggs/assets/penguins-eggs.desktop
 sudo rm /usr/lib/penguins-eggs/assets/penguins-links-add.desktop
 
-#Eliminar repositorio ubuntu y usuario=usuario
+# crear iso
+sudo eggs produce -v
+
+#Eliminar repositorio ubuntu, git guadalinex y usuario=usuario
 sudo rm /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y
 sudo userdel usuario
+sudo rm -r guadalinex
