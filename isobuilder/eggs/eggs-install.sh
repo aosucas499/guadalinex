@@ -11,6 +11,8 @@ sudo dpkg -i eggs*.deb
 
 #copiar configuración para la ISO
 sudo cp eggs.conf /etc/penguins-eggs.d/eggs.conf
+sudo cp exclude.list /etc/penguins-eggs.d/exclude.list
+sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
 
 # Modificar calamares e instalar 
 sudo cp locale.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
