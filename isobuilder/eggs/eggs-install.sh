@@ -47,7 +47,7 @@ sudo rm /usr/lib/penguins-eggs/assets/penguins-eggs.desktop
 sudo rm /usr/lib/penguins-eggs/assets/penguins-links-add.desktop
 
 # crear iso y borrar iso
-sudo eggs produce -v
+sudo eggs produce -vs
 sudo eggs kill
 
 
