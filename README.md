@@ -1,6 +1,12 @@
 # EducaAndOS
 Scripts y aplicaciones para aplicar en EducaAndOS.
 
+## ISO - versión no oficial 
+
+Enlace: [link](https://bit.ly/2WZXspB)
+
+Instrucciones: [wiki](https://github.com/aosucas499/guadalinex/wiki/Instrucciones)
+
 ## update-guadalinex-20
 
 Actualiza guadalinex 20.04 a educaandos. Es el que deja el sistema más parecido al sistem oficial.
