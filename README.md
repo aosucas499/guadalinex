@@ -7,6 +7,10 @@ Enlace: [link](https://bit.ly/2WZXspB)
 
 Instrucciones: [wiki](https://github.com/aosucas499/guadalinex/wiki/Instrucciones)
 
+
+# Scripts para generar el sistema
+
+
 ## update-guadalinex-20
 
 Actualiza guadalinex 20.04 a educaandos. Es el que deja el sistema más parecido al sistem oficial.
