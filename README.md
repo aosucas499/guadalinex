@@ -7,6 +7,8 @@ Enlace: [link](https://bit.ly/2WZXspB)
 
 Instrucciones: [wiki](https://github.com/aosucas499/guadalinex/wiki/Instrucciones)
 
+Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his amazing tool "penguin eggs" to generate the ISO and the installer calamares.
+
 
 # Scripts para generar el sistema
 
