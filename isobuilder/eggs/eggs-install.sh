@@ -46,6 +46,10 @@ sudo rm /usr/share/applications/calamares.desktop
 sudo rm /usr/lib/penguins-eggs/assets/penguins-eggs.desktop
 sudo rm /usr/lib/penguins-eggs/assets/penguins-links-add.desktop
 
+# paquetes necesarios para instalación en EFI
+sudo dpkg -i grub-efi-amd64-signed*.deb
+sudo apt-get install shim-signed -y
+
 # crear iso y borrar iso
 sudo eggs produce -vs
 sudo eggs kill
