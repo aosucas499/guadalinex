@@ -58,6 +58,8 @@ case $op in
               	sudo mv focal.list /etc/apt/sources.list.d/
              	sudo apt update
 		sudo apt install qshutdown
+		sudo rm /etc/apt/sources.list.d/focal.list
+		sudo apt update
 		mkdir ~/.qshutdown
 		sudo mkdir /home/usuario/.qshutdown
 		cp ./qshutdown/qshutdown.conf ~/.qshutdown/
@@ -81,6 +83,8 @@ case $op in
 		sudo apt install docker-ce docker-ce-cli containerd.io -y
 		sudo usermod -aG docker $USER
 		sudo usermod -aG docker usuario
+		sudo rm /etc/apt/sources.list.d/focal.list
+		sudo apt update
 		sleep 30; break;;									
 
 		# Instalar corrección de hora en equipos conectados por wifi
@@ -100,7 +104,9 @@ case $op in
 		sudo echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > chrome.list
 		sudo mv chrome.list /etc/apt/sources.list.d/
 		sudo apt update
-		sudo apt install google-chrome-stable;break;;
+		sudo apt install google-chrome-stable
+		sudo rm /etc/apt/sources.list.d/chrome.list
+		sudo apt update;break;;
 
 		# Instalar apliación blinklearning
 [8]* )		wget https://blinklearning1.blob.core.windows.net/installers/blinkoffline/blinkoffline.sh 
