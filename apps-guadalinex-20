@@ -47,7 +47,7 @@ case $op in
 [1]* ) 	sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
 		sudo mv focal.list /etc/apt/sources.list.d/
 		sudo apt update
-		sudo apt install git curl -y; break;;
+		sudo apt install git gdebi -y; break;;
 
 		# Desinstalar repositorios Ubuntu focal 20
 [2]* ) 	sudo rm /etc/apt/sources.list.d/focal.list
