@@ -31,13 +31,12 @@
 	#Instalación de activdriver
 	sudo apt-get update -y
 	sudo apt install activdriver activtools -y
+	sudo apt install --fix-broken -y
+	sudo apt autoremove -y
 
 	#Compilación del driver para kernels 5.x
-	kernelversion=$(uname -r | awk -F. '{ print $1}')
-	if ["$kernelversion" == "5" ]; then
- 	 echo "Modificación de Makefile para compatibilidad con kernels 5.*"
+ 	echo "Modificación de Makefile para compatibilidad con kernels 5.*"
   	sudo sed -i -e "s/SUBDIRS/M/g" /usr/src/promethean/kernel/Makefile
-	fi
 	echo "Compilación de drivers"
 	cd /usr/src/promethean/kernel/
 	sudo ./b
