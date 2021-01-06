@@ -125,19 +125,7 @@ case $op in
 
 
 
-		# Instalar drivers pizarra Promethean y programa activinspire
-		#sudo echo deb [arch=amd64] http://activsoftware.co.uk/linux/repos/driver/ubuntu bionic oss non-oss > promethean.list
-             	#sudo echo deb [arch=amd64] http://activsoftware.co.uk/linux/repos/ubuntu bionic non-oss >> promethean.list
-             	#sudo mv promethean.list /etc/apt/sources.list.d/
-             	#wget http://activsoftware.co.uk/linux/repos/driver/PrometheanLtd.asc
-		#sudo apt-key add ./promethean/PrometheanLtd.asc
-		#wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.4_amd64.deb
-		#sudo dpkg -i ./promethean/libssl1.0.0_1.0.2n-1ubuntu5.4_amd64.deb
-		#sudo apt update
-		#sudo apt install activdriver activtools -y
-		#sudo apt install activ-meta-es -y
-		#wget http://centros.edu.guadalinex.org/Edu/fenixscpdi/pool/main/a/activinspire-licence/activinspire-licence_0.1-3_all.deb
-		#sudo dpkg -i ./promethean/activinspire-licence_0.1-3_all.deb
+		
 
 esac
 done
