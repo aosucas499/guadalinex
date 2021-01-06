@@ -1,3 +1,7 @@
+#!/bin/bash
+
+KERNELVER=$(uname -r)
+
 # Instalar drivers pizarra Promethean y programa activinspire en educaAndOs 20.04 (ubuntu focal based)
 
 	#Repos Ubuntu focal
@@ -30,7 +34,7 @@
 	
 	#Instalación de activdriver
 	sudo apt-get update -y
-	sudo apt install activdriver activtools -y
+	sudo apt install activrelay activdriver activtools -y
 	sudo apt install --fix-broken -y
 	sudo apt autoremove -y
 
@@ -38,7 +42,11 @@
 	echo ""
  	echo "Modificación de Makefile para compatibilidad con kernels 5.*"
 	echo ""
-  	sudo sed -i -e "s/SUBDIRS/M/g" /usr/src/promethean/kernel/Makefile
+  	cd /usr/src/promethean/kernel
+	sudo sed -i "s/SUBDIRS/M/g" /usr/src/promethean/kernel/Makefile
+	sudo make -C /lib/modules/${VERSION}/build M=$PWD clean
+	sudo cp /usr/src/linux-headers-${VERSION}/Module.symvers /usr/src/promethean/kernel
+	sudo make -C /lib/modules/${VERSION}/build M=$PWD
 	echo ""
 	echo "Compilación de drivers"
 	echo ""
