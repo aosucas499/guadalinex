@@ -35,9 +35,13 @@
 	sudo apt autoremove -y
 
 	#Compilación del driver para kernels 5.x
+	echo ""
  	echo "Modificación de Makefile para compatibilidad con kernels 5.*"
+	echo ""
   	sudo sed -i -e "s/SUBDIRS/M/g" /usr/src/promethean/kernel/Makefile
+	echo ""
 	echo "Compilación de drivers"
+	echo ""
 	cd /usr/src/promethean/kernel/
 	sudo ./b
 	
