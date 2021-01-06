@@ -4,7 +4,6 @@
 	sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
         sudo mv focal.list /etc/apt/sources.list.d/
 	
-	
 	#Repos promethean
 	sudo echo deb [arch=amd64] http://activsoftware.co.uk/linux/repos/driver/ubuntu bionic oss non-oss > promethean.list
         sudo echo deb [arch=amd64] http://activsoftware.co.uk/linux/repos/ubuntu bionic non-oss >> promethean.list
@@ -29,16 +28,21 @@
 	
 	
 	#Instalación de activdriver y activinspire
-	#sudo apt-get update -y
-	#sudo apt install activdriver activtools -y
+	sudo apt-get update -y
+	sudo apt install activdriver activtools -y
 	#sudo apt install activ-meta-es -y
 	#wget http://centros.edu.guadalinex.org/Edu/fenixscpdi/pool/main/a/activinspire-licence/activinspire-licence_0.1-3_all.deb
 	#sudo dpkg -i activinspire-licence_0.1-3_all.deb
 
 	#Compilación del driver para kernels 5.x
-	#kernelversion=$(uname -r | awk -F. '{ print $1}')
-	#if ["$kernelversion" == "5" ]; then
-  	#echo "Modification du Makefile des drivers pour compatibilité avec kernels 5.*"
+	kernelversion=$(uname -r | awk -F. '{ print $1}')
+	if ["$kernelversion" == "5" ]; then
+ 	 echo "Modificación de Makefile para compatibilidad con kernels 5.*"
+  	sudo sed -i -e "s/SUBDIRS/M/g" /usr/src/promethean/kernel/Makefile
+	fi
+	echo "Compilación de drivers"
+	cd /usr/src/promethean/kernel/
+	sudo ./b
   	
   	#Borrado de archivos
   	sudo rm -r /etc/apt/sources.list.d/promethean.list
