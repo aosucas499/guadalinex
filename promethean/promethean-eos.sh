@@ -49,3 +49,7 @@
   	#Borrado de archivos
   	sudo rm -r /etc/apt/sources.list.d/promethean.list
   	sudo rm /etc/apt/sources.list.d/focal.list
+	
+	echo ""
+	echo "Reinicie el PC o cierre sesión para que los drivers funcionen"
+	echo ""
