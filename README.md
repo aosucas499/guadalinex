@@ -16,10 +16,6 @@ Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his
 Aplicación para instalar en EducaAndOS: repositorios Ubuntu 20.04, apagado automático, drivers pizarras promethean, docker...
 
   ### USO
-  
-    sudo apt update -y
-
-    sudo apt install git
 
     cd ~ 
 
