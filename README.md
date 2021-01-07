@@ -1,5 +1,5 @@
 # EducaAndOS
-Scripts y aplicaciones para aplicar en EducaAndOS.
+
 
 ## ISO - versión no oficial 
 
