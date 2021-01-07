@@ -24,11 +24,14 @@ echo	" 4. Instalar Docker"
 echo	""
 echo	" 5. Instalar corrección de hora en equipos conectados por wifi"  
 echo	""
-echo	" 6. Instalar apliación de pizarra Openboard"
+echo	" 6. Instalar aplicación de pizarra Openboard"
 echo	""
 echo 	" 7. Instalar navegador Chrome"
 echo	""
 echo 	" 8. Instalar aplicación blinklearning - Usado en libros de Oxford"
+echo	""
+echo 	" 9. Instalar drivers pizarras Promethean y aplicación ActivInspire"
+echo	""
 echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo 	""
 echo	"Este script tiene que ser ejecutado sin sudo:  ./apps-guadalinex" 
@@ -44,13 +47,13 @@ case $op in
 [0]* ) 	exit;;
 		
 		# Instalar repositorios Ubuntu focal 20
-[1]* ) 	sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
+[1]* ) 		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
 		sudo mv focal.list /etc/apt/sources.list.d/
 		sudo apt update
 		sudo apt install git gdebi -y; break;;
 
 		# Desinstalar repositorios Ubuntu focal 20
-[2]* ) 	sudo rm /etc/apt/sources.list.d/focal.list
+[2]* ) 		sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update; break;;
 
 		# Instalar qshutdown con apagado a las 14:01 de L-V en la sesión administrador y usuario=usuario
@@ -118,6 +121,10 @@ case $op in
            	su usuario -c ./blinkoffline.sh 				
 		sudo rm ~/Escritorio/blink* && sudo rm /home/usuario/Escritorio/blin*
 		rm blinkoffline.sh;break;;
+		
+		# Instalar drivers pizarras Promethean y aplicación ActivInspire
+[9]* )		cd promethean
+		sudo ./promethean-eos.sh;break;;
 		
 
 
