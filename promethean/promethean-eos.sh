@@ -34,7 +34,8 @@ KERNELVER=$(uname -r)
 	
 	#Instalación de activdriver
 	sudo apt-get update -y
-	sudo apt install activrelay activdriver activtools -y
+	sudo apt install activaid activrelay activdriver activtools -y
+	sudo dpkg -i promethean-fixboot_0.2_all.deb
 	sudo apt install --fix-broken -y
 	sudo apt autoremove -y
 
@@ -42,7 +43,6 @@ KERNELVER=$(uname -r)
 	echo ""
  	echo "Modificación de Makefile para compatibilidad con kernels 5.*"
 	echo ""
-  	cd /usr/src/promethean/kernel
 	sudo sed -i "s/SUBDIRS/M/g" /usr/src/promethean/kernel/Makefile
 	sudo make -C /lib/modules/${VERSION}/build M=$PWD clean
 	sudo cp /usr/src/linux-headers-${VERSION}/Module.symvers /usr/src/promethean/kernel
