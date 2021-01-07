@@ -22,13 +22,13 @@ KERNELVER=$(uname -r)
 	sudo dpkg -i libicu60_60.2-3ubuntu3.1_amd64.deb
 	
 	# Paquetes necesarios activinspire
-	#sudo apt-get update -y
-	#sudo apt-get install gsettings-ubuntu-schemas
-	#sudo dpkg -i ./curl34-focal/libcurl3*.deb
-	#sudo dpkg -i ./curl34-focal/libcurl4-doc*
-	#sudo dpkg -i ./curl34-focal/libcurl4_7*
-	#sudo dpkg -i ./curl34-focal/libcurl4-openssl*.deb
-	#sudo dpkg -i ./curl34-focal/curl*.deb
+	sudo apt-get update -y
+	sudo apt-get install gsettings-ubuntu-schemas
+	sudo dpkg -i ./curl34-focal/libcurl3*.deb
+	sudo dpkg -i ./curl34-focal/libcurl4-doc*
+	sudo dpkg -i ./curl34-focal/libcurl4_7*
+	sudo dpkg -i ./curl34-focal/libcurl4-openssl*.deb
+	sudo dpkg -i ./curl34-focal/curl*.deb
 	
 	#Instalación de activdriver
 	sudo apt-get update -y
@@ -52,10 +52,11 @@ KERNELVER=$(uname -r)
 	sudo ./b
 	
 	#Instalación de activinspire
+	cd /home/$USER/guadaline*/promethean
 	#wget http://centros.edu.guadalinex.org/Edu/fenixscpdi/pool/main/a/activinspire-licence/activinspire-licence_0.1-3_all.deb
-	#sudo dpkg -i activinspire-licence_0.1-3_all.deb
-	#sudo apt install activ-meta-es -y
-	#sudo dpkg -i promethean-fixboot_0.2_all.deb
+	sudo dpkg -i activinspire-licence_0.1-3_all.deb
+	sudo apt install activ-meta-es -y
+	sudo dpkg -i promethean-fixboot_0.2_all.deb
   	
   	#Borrado de archivos
   	sudo rm -r /etc/apt/sources.list.d/promethean.list
