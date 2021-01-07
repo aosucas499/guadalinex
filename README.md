@@ -11,7 +11,7 @@ Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his
 
 
 ## apps-guadalinex-20
-[wiki](https://github.com/aosucas499/guadalinex/wiki/Apps-guadalinex20)
+[más info aplicaciones que contiene](https://github.com/aosucas499/guadalinex/wiki/Apps-guadalinex20)
 
 Aplicación para instalar en EducaAndOS: repositorios Ubuntu 20.04, apagado automático, drivers pizarras promethean, docker...
 
