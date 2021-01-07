@@ -12,8 +12,6 @@ echo    ""
 echo    ""
 echo    ""
 echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-echo 	" 0. Salir"
-echo	""
 echo   	" 1. Instalar repositorios Ubuntu 20 Focal"
 echo	""
 echo 	" 2. Desinstalar repositorios Ubuntu 20 Focal"
@@ -31,6 +29,8 @@ echo	""
 echo 	" 8. Instalar aplicación blinklearning - Usado en libros de Oxford"
 echo	""
 echo 	" 9. Instalar drivers pizarras Promethean y aplicación ActivInspire"
+echo	""
+echo 	" 0. Salir"
 echo	""
 echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo 	""
@@ -138,7 +138,7 @@ case $op in
 
 esac
 done
-./apps-guadalinex-20
+#./apps-guadalinex-20
 
 
 
