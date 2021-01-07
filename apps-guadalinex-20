@@ -96,6 +96,16 @@ distribucion=$(lsb_release -cs)
 		./promethean-eos.sh
 		cd ..
 		}
+		
+# Ejecuta la función correspondiente a cada una de las opciones del script
+# ---
+
+function ejecutarAccionOpcional {
+
+    echo "Ejecutamos $1()"
+    ($1)
+}
+
 
 # Invocamos ("callback") las funciones asociadas a las opciones 
 # seleccionadas por el usuario
