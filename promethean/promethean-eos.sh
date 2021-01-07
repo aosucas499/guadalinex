@@ -42,6 +42,7 @@ KERNELVER=$(uname -r)
 	echo ""
  	echo "Modificación de Makefile para compatibilidad con kernels 5.*"
 	echo ""
+	cd /usr/src/promethean/kernel/
 	sudo sed -i "s/SUBDIRS/M/g" /usr/src/promethean/kernel/Makefile
 	sudo make -C /lib/modules/${KERNELVER}/build M=$PWD clean
 	sudo cp /usr/src/linux-headers-${KERNELVER}/Module.symvers /usr/src/promethean/kernel
