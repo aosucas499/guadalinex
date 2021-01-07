@@ -18,18 +18,16 @@ KERNELVER=$(uname -r)
 	# Paquetes necesarios activdriver
 	#wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.4_amd64.deb
 	sudo dpkg -i libssl1.0.0_1.0.2n-1ubuntu5.4_amd64.deb
+	#wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu60_60.2-3ubuntu3.1_amd64.deb
+	sudo dpkg -i libicu60_60.2-3ubuntu3.1_amd64.deb
 	
 	# Paquetes necesarios activinspire
-	#wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu60_60.2-3ubuntu3.1_amd64.deb
-	#sudo dpkg -i libicu60_60.2-3ubuntu3.1_amd64.deb
 	#sudo apt-get update -y
 	#sudo apt-get install gsettings-ubuntu-schemas
 	#sudo dpkg -i ./curl34-focal/libcurl3*.deb
 	#sudo dpkg -i ./curl34-focal/libcurl4-doc*
-	#sudo dpkg -i ./curl34-focal/libcurl4-gnutls*
-	#sudo dpkg -i ./curl34-focal/libcurl4*.deb
-	#sudo dpkg -i ./curl34-focal/libcurl4*.deb
-	#sudo dpkg -i ./curl34-focal/libcurl4*.deb
+	#sudo dpkg -i ./curl34-focal/libcurl4_7*
+	#sudo dpkg -i ./curl34-focal/libcurl4-openssl*.deb
 	#sudo dpkg -i ./curl34-focal/curl*.deb
 	
 	#Instalación de activdriver
