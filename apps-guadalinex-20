@@ -124,8 +124,8 @@ case $op in
 		
 		# Instalar drivers pizarras Promethean y aplicación ActivInspire
 [9]* )		cd promethean
-		sudo chmod +x promethean-eos.sh
-		sudo ./promethean-eos.sh
+		chmod +x promethean-eos.sh
+		./promethean-eos.sh
 		cd ..;break;;
 		
 
