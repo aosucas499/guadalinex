@@ -35,6 +35,12 @@ KERNELVER=$(uname -r)
 	sudo apt install activaid activdriver activtools -y
 	sudo apt install --fix-broken -y
 	sudo apt autoremove -y
+	
+	#Instalación de activinspire
+	#wget http://centros.edu.guadalinex.org/Edu/fenixscpdi/pool/main/a/activinspire-licence/activinspire-licence_0.1-3_all.deb
+	sudo dpkg -i activinspire-licence_0.1-3_all.deb
+	sudo apt install activ-meta-es -y
+	sudo dpkg -i promethean-fixboot_0.2_all.deb
 
 	#Compilación del driver para kernels 5.x
 	echo ""
@@ -50,18 +56,12 @@ KERNELVER=$(uname -r)
 	echo ""
 	cd /usr/src/promethean/kernel/
 	sudo ./b
-	
-	#Instalación de activinspire
-	cd /home/$USER/guadaline*/promethean
-	#wget http://centros.edu.guadalinex.org/Edu/fenixscpdi/pool/main/a/activinspire-licence/activinspire-licence_0.1-3_all.deb
-	sudo dpkg -i activinspire-licence_0.1-3_all.deb
-	sudo apt install activ-meta-es -y
-	sudo dpkg -i promethean-fixboot_0.2_all.deb
   	
   	#Borrado de archivos
   	sudo rm -r /etc/apt/sources.list.d/promethean.list
   	sudo rm /etc/apt/sources.list.d/focal.list
 	sudo apt-get update -y
+	cd ~
 	
 	echo ""
 	echo "Reinicie el PC o cierre sesión para que los drivers funcionen"
