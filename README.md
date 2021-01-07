@@ -9,6 +9,7 @@ Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/w
 
 Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his amazing tool "penguin eggs" to generate the ISO and the installer calamares.
 
+![](https://github.com/aosucas499/guadalinex/blob/main/im%C3%A1genes/educaandos_install.png)
 
 ## apps-guadalinex-20
 [más info aplicaciones que contiene](https://github.com/aosucas499/guadalinex/wiki/Apps-guadalinex20)
