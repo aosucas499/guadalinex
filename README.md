@@ -27,3 +27,5 @@ Aplicación para instalar en EducaAndOS: repositorios Ubuntu 20.04, apagado auto
     chmod +x apps-guadalinex-20
 
     ./apps-guadalinex-20
+
+![](https://github.com/aosucas499/guadalinex/blob/main/promethean/imagenes/VirtualBox_guadalinex%2020.png)
