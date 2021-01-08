@@ -126,8 +126,7 @@ case $op in
 [9]* )		cd promethean
 		chmod +x promethean-eos.sh
 		./promethean-eos.sh
-		cd ..
-		notify-send "Reinicie el PC o cierre sesión para que los drivers funcionen";break;;
+		cd ..;break;;
 		
 
 
