@@ -65,4 +65,5 @@ KERNELVER=$(uname -r)
 	
 	echo ""
 	echo "Reinicie el PC o cierre sesión para que los drivers funcionen"
+	notify-send "Reinicie el PC o cierre sesión para que los drivers funcionen"
 	echo ""
