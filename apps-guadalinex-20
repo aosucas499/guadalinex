@@ -98,6 +98,14 @@ distribucion=$(lsb_release -cs)
 		cd ..
 		}
 		
+		function installSmartdre {
+		gitclone https://github.com/aosucas499/smartdre.git
+		cd smartdre
+		chmod +x install-smartdre
+		./install-smartdre
+		cd ..
+		}
+		
 # Ejecuta la función correspondiente a cada una de las opciones del script
 # ---
 
@@ -156,6 +164,7 @@ opc=$( \
     False installChrome "Instalar navegador Chrome" \
     False installBlinklearning "Instalar aplicación blinklearning - Usado en libros de Oxford" \
     False installActiv "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
+    False installSmartdre "Instalar drivers pizarras Smartboard-incluida SB480" \
 )
 
 # Comprobamos que no se pulse el botón Cancelar

@@ -12,7 +12,7 @@ echo    ""
 echo    ""
 echo    ""
 echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-echo   	" 1. Instalar repositorios Ubuntu 20 Focal"
+echo    " 1. Instalar repositorios Ubuntu 20 Focal"
 echo	""
 echo 	" 2. Desinstalar repositorios Ubuntu 20 Focal"
 echo	""
@@ -29,6 +29,8 @@ echo	""
 echo 	" 8. Instalar aplicación blinklearning - Usado en libros de Oxford"
 echo	""
 echo 	" 9. Instalar drivers pizarras Promethean y aplicación ActivInspire"
+echo	""
+echo	" 10. Instalar drivers pizarras Smartboard-incluida SB480"
 echo	""
 echo 	" 0. Salir"
 echo	""
@@ -47,13 +49,13 @@ case $op in
 [0]* ) 	exit;;
 		
 		# Instalar repositorios Ubuntu focal 20
-[1]* ) 		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
+[1]* ) 	sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
 		sudo mv focal.list /etc/apt/sources.list.d/
 		sudo apt update
 		sudo apt install git gdebi -y; break;;
 
 		# Desinstalar repositorios Ubuntu focal 20
-[2]* ) 		sudo rm /etc/apt/sources.list.d/focal.list
+[2]* ) 	sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update; break;;
 
 		# Instalar qshutdown con apagado a las 14:01 de L-V en la sesión administrador y usuario=usuario
@@ -128,17 +130,23 @@ case $op in
 		./promethean-eos.sh
 		cd ..;break;;
 		
-
-
-
-
-
-
+		# Instalar drivers pizarras Smartboard-incluida SB480
+[10]* )	gitclone https://github.com/aosucas499/smartdre.git
+		cd smartdre
+		chmod +x install-smartdre
+		./install-smartdre
+		cd ..;break;;
 		
+		
+
+
+
+
+
 
 esac
 done
-#./apps-guadalinex-20
+#./apps-guadalinex-20-bash
 
 
 
