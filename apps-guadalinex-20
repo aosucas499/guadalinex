@@ -99,7 +99,7 @@ distribucion=$(lsb_release -cs)
 		}
 		
 		function installSmartdre {
-		gitclone https://github.com/aosucas499/smartdre.git
+		git clone https://github.com/aosucas499/smartdre.git
 		cd smartdre
 		chmod +x install-smartdre
 		./install-smartdre
