@@ -91,10 +91,11 @@ distribucion=$(lsb_release -cs)
 		rm blinkoffline.sh
 		}
 		
-		function installActiv {
-		cd promethean
-		chmod +x promethean-eos.sh
-		./promethean-eos.sh
+		function installActivdre {
+		git clone https://github.com/aosucas499/activdre.git
+		cd activdre
+		chmod +x educaandos.sh
+		./educaandos.sh
 		cd ..
 		}
 		
@@ -163,7 +164,7 @@ opc=$( \
     False installOpenboard "Instalar aplicación de pizarra Openboard" \
     False installChrome "Instalar navegador Chrome" \
     False installBlinklearning "Instalar aplicación blinklearning - Usado en libros de Oxford" \
-    False installActiv "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
+    False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
     False installSmartdre "Instalar drivers pizarras Smartboard-incluida SB480" \
 )
 

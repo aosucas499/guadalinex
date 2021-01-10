@@ -125,9 +125,10 @@ case $op in
 		rm blinkoffline.sh;break;;
 		
 		# Instalar drivers pizarras Promethean y aplicación ActivInspire
-[9]* )		cd promethean
-		chmod +x promethean-eos.sh
-		./promethean-eos.sh
+[9]* )		git clone https://github.com/aosucas499/activdre.git
+		cd activdre
+		chmod +x educaandos.sh
+		./educaandos.sh
 		cd ..;break;;
 		
 		# Instalar drivers pizarras Smartboard-incluida SB480
