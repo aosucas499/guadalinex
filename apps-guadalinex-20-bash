@@ -49,13 +49,13 @@ case $op in
 [0]* ) 	exit;;
 		
 		# Instalar repositorios Ubuntu focal 20
-[1]* ) 	sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
+[1]* ) 		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
 		sudo mv focal.list /etc/apt/sources.list.d/
 		sudo apt update
 		sudo apt install git gdebi -y; break;;
 
 		# Desinstalar repositorios Ubuntu focal 20
-[2]* ) 	sudo rm /etc/apt/sources.list.d/focal.list
+[2]* ) 		sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update; break;;
 
 		# Instalar qshutdown con apagado a las 14:01 de L-V en la sesión administrador y usuario=usuario
@@ -131,7 +131,7 @@ case $op in
 		cd ..;break;;
 		
 		# Instalar drivers pizarras Smartboard-incluida SB480
-[10]* )	gitclone https://github.com/aosucas499/smartdre.git
+[10]* )		git clone https://github.com/aosucas499/smartdre.git
 		cd smartdre
 		chmod +x install-smartdre
 		./install-smartdre
