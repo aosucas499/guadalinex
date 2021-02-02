@@ -32,6 +32,8 @@ echo 	" 9. Instalar drivers pizarras Promethean y aplicación ActivInspire"
 echo	""
 echo	" 10. Instalar drivers pizarras Smartboard-incluida SB480"
 echo	""
+echo	" 11. Crear usuario sin derechos admin." 
+echo	""
 echo 	" 0. Salir"
 echo	""
 echo 	"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -132,10 +134,34 @@ case $op in
 		cd ..;break;;
 		
 		# Instalar drivers pizarras Smartboard-incluida SB480
-[10]* )		git clone https://github.com/aosucas499/smartdre.git
+[10]* )	git clone https://github.com/aosucas499/smartdre.git
 		cd smartdre
 		chmod +x install-smartdre
 		./install-smartdre
+		cd ..;break;;
+		
+		# Crear usuario sin derechos admin
+[11]* )	echo ""
+		echo "Ingrese el nombre del nuevo usuario sin permisos root"
+		echo ""
+		read usuario
+		if [ "$usuario" == "" ] ; then
+  			echo -e "\n"
+  			echo "El nombre no puede estar vacío, ejecute el script otra vez."
+  			echo -e "\n"
+  			exit 1
+  			fi
+  		if [ "$?" != 0 ] ; then
+   			echo -e "\n"
+  			echo "Ha ocurrido un error, asegurese de que los datos ingresados son correctos."
+  			exit 1
+			fi
+		echo -e "\n"
+		sudo useradd -m -d /home/$usuario -G adm,cdrom,dip,plugdev,lpadmin,sambashare $usuario -s /bin/bash
+		echo "Ingrese una contraseña para el usuario, $usuario"
+		sudo passwd $usuario
+		echo -e "\n"
+		echo "El usuario fue creado satisfactoriamente"
 		cd ..;break;;
 		
 		

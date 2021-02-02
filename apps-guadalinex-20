@@ -107,6 +107,30 @@ distribucion=$(lsb_release -cs)
 		cd ..
 		}
 		
+		function usuario {
+		echo ""
+		echo "Ingrese el nombre del nuevo usuario sin permisos root"
+		echo ""
+		read usuario
+		if [ "$usuario" == "" ] ; then
+  			echo -e "\n"
+  			echo "El nombre no puede estar vacío, ejecute el script otra vez."
+  			echo -e "\n"
+  			exit 1
+  			fi
+  		if [ "$?" != 0 ] ; then
+   			echo -e "\n"
+  			echo "Ha ocurrido un error, asegurese de que los datos ingresados son correctos."
+  			exit 1
+			fi
+		echo -e "\n"
+		sudo useradd -m -d /home/$usuario -G adm,cdrom,dip,plugdev,lpadmin,sambashare $usuario -s /bin/bash
+		echo "Ingrese una contraseña para el usuario, $usuario"
+		sudo passwd $usuario
+		echo -e "\n"
+		echo "El usuario fue creado satisfactoriamente"
+		}
+		
 # Ejecuta la función correspondiente a cada una de las opciones del script
 # ---
 
@@ -166,6 +190,7 @@ opc=$( \
     False installBlinklearning "Instalar aplicación blinklearning - Usado en libros de Oxford" \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
     False installSmartdre "Instalar drivers pizarras Smartboard-incluida SB480" \
+    False usuario "Crear usuario sin derechos admin." \
 )
 
 # Comprobamos que no se pulse el botón Cancelar
