@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=fix-ntp
+Exec=sudo fix-ntp
 NoDisplay=false
 Hidden=false
 Name[es_ES]=fix-ntp
