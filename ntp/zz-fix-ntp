@@ -1,1 +1,2 @@
 ALL     ALL=NOPASSWD:/usr/bin/fix-ntp
+ALL     ALL=NOPASSWD:/bin/date
