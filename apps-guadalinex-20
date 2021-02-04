@@ -20,6 +20,9 @@ distribucion=$(lsb_release -cs)
 		}
 
 		function installQshutdown {
+		echo ""
+		echo "Ejecute este aplicación cada vez que cree un usuario nuevo"
+		echo ""
 		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
               	sudo mv focal.list /etc/apt/sources.list.d/
              	sudo apt update
@@ -139,6 +142,16 @@ distribucion=$(lsb_release -cs)
 		
 		function usuario {
 		echo ""
+		echo "Esta opción no debe combinarse con otras hasta que"
+		echo "entre en la sesión del nuevo usuario gráficamente"
+		echo ""
+		echo "Otras aplicaciones necesitan instalar en carpetas"
+		echo "que aún no han sido creadas hasta que entre en la sesión gráfica"
+		echo ""
+		echo "Despúes de crear el usuario, ejecute esta app otra vez"
+		echo "e instale lo que necesite que pueda involucrar a ambos usuarios"
+		echo ""
+		echo ""
 		echo "Ingrese el nombre del nuevo usuario sin permisos root"
 		echo ""
 		read usuario
@@ -157,8 +170,7 @@ distribucion=$(lsb_release -cs)
 		sudo useradd -m -d /home/$usuario -G adm,cdrom,dip,plugdev,lpadmin,sambashare $usuario -s /bin/bash
 		echo "Ingrese una contraseña para el usuario, $usuario"
 		sudo passwd $usuario
-		echo -e "\n"
-		echo "El usuario fue creado satisfactoriamente"
+		echo -e "\n"echo "El usuario fue creado satisfactoriamente"
 		}
 		
 # Ejecuta la función correspondiente a cada una de las opciones del script
@@ -210,18 +222,18 @@ opc=$( \
         --hide-column=2 \
         --width=600 \
         --height=600 \
-    False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
-    False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
+    False usuario "Crear usuario sin derechos admin. No combine esta opción con otras." \
     False installQshutdown "Instalar Apagado automático a las 14:01 L-V (app qshutdown)" \
-    False installDocker "Instalar Docker" \
     False installNtpfix "Instalar corrección de hora en equipos conectados por wifi" \
-    False installOpenboard "Instalar aplicación de pizarra Openboard" \
-    False installChrome "Instalar navegador Chrome" \
-    False installBlinklearning "Instalar aplicación blinklearning - Usado en libros de Oxford" \
-    False installsm "Instalar aplicación Aprendizaje - Editorial SM" \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
     False installSmartdre "Instalar drivers pizarras Smartboard-incluida SB480" \
-    False usuario "Crear usuario sin derechos admin." \
+    False installOpenboard "Instalar aplicación de pizarra Openboard" \
+    False installChrome "Instalar navegador Chrome" \
+    False installsm "Instalar aplicación Aprendizaje - Editorial SM" \
+    False installBlinklearning "Instalar aplicación blinklearning - Usado en libros de Oxford" \
+    False installDocker "Instalar Docker" \
+    False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
+    False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
 )
 
 # Comprobamos que no se pulse el botón Cancelar
