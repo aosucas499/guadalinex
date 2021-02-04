@@ -143,7 +143,7 @@ distribucion=$(lsb_release -cs)
 			sudo chown usuario:usuario /home/usuario/Escritorio/Aula\ Virtual.desktop
 			sudo mv /home/usuario/Escritorio/Aula\ Virtual.desktop /home/usuario/.local/share/applications/
 			sudo rm aulavirtual-3.3.3-linux-x64-installer.run
-			sudo linux.tar.gz
+			sudo rm linux.tar.gz
 			else
 		rm aulavirtual-3.3.3-linux-x64-installer.run
 		rm linux.tar.gz
