@@ -1,0 +1,103 @@
+    
+   89  sudo dpkg -r --force-depends guadalinexedu
+   90  sudo dpkg -r --force-depends guadalinexedu-artwork
+   91  sudo dpkg -r --force-depends guadalinexedu-dnie
+   92  sudo dpkg -r --force-depends guadalinexedu-educacion
+   93  sudo dpkg -r --force-depends guadalinexedu-educacion-cgaconfig
+   94  sudo dpkg -r --force-depends guadalinexedu-keyring
+   95  sudo dpkg -r --force-depends guadalinexedu-educacion-tic-cgaconfig
+   96  sudo dpkg -r --force-depends guadalinexedu-langauges
+   97  sudo dpkg -r --force-depends guadalinexedu-languages
+   98  sudo dpkg -r --force-depends guadalinexedu-software-center
+   99  sudo dpkg -r --force-depends guadalinexedu-system
+  100  sudo apt-get install educaandos-educacion-tic
+  101  sudo apt-get install -f
+  102  sudo dpkg -r --force-depends plymouth-theme-guadalinexedu-logo
+  103  sudo apt-get install educaandos-educacion-tic
+  104  sudo apt-get install -f
+  105  sudo apt-get install plymouth-theme-educaandos-logo
+  106  sudo apt-get install educaandos-artwork
+  107  sudo dpkg -r --force-depends plymouth-theme-guadalinexedu-logo -purge
+  108  sudo dpkg -r --force-depends -purge bplymouth-theme-guadalinexedu-logo 
+  109  sudo dpkg -r --force-depends -purge plymouth-theme-guadalinexedu-logo 
+  110  sudo dpkg -r -purge plymouth-theme-guadalinexedu-logo 
+  111  sudo dpkg -purge plymouth-theme-guadalinexedu-logo 
+  112  sudo dpkg --force-depends plymouth-theme-guadalinexedu-logo 
+  113  sudo apt-get install educaandos-artwork
+  114  sudo rm /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override.orig
+  115  sudo apt-get install educaandos-artwork
+  116  cd /usr/share/glib-2.0/schemas/
+  118  sudo apt-get install educaandos-artwork
+  119  sudo rm /usr/share/glib-2.0/schemas/org.gnome.desktop.session.gschema.xml
+  120  sudo rm /usr/share/glib-2.0/schemas/org.gnome.desktop.session.gschema.xml.orig
+  121  sudo apt-get install educaandos-artwork
+  122  sudo rm /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override.orig
+  123  sudo rm /usr/share/glib-2.0/schemas/org.gnome.shell.extensions.user-theme.gschema.xml.orig
+  124  sudo apt-get install educaandos-artwork
+  130  sudo apt-get purge --remove guadalinexed-software-center
+  131  sudo apt-get purge --remove guadalinexedu-software-center
+  132  sudo dpkg -r guadalinexedu-software-center
+  133  sudo dpkg -r --force-depends guadalinexedu-software-center
+  134  sudo apt-get install -f
+  135  sudo apt-get update
+  136  sudo apt-get install educaandos-software-center
+  137  sudo dpkg -r --force-depends guadalinexedu-educacion-tic
+  138  sudo apt-get install educaandos-software-center
+  142  sudo dpkg -r --force-depends guadalinexedu-artwork
+  143  sudo dpkg -r --force-depends guadalinexedu-artwork --purge
+  144  sudo dpkg -r --force-depends --purge guadalinexedu-artwork 
+  145  sudo dpkg -r --purge guadalinexedu-artwork 
+  146  sudo dpkg --purge guadalinexedu-artwork 
+  147  sudo dpkg --force-depends --purge guadalinexedu-artwork 
+  148  sudo dpkg ---purge guadalinexedu-artwork 
+  149  sudo dpkg --purge guadalinexedu-artwork 
+  151  sudo dpkg --purge guadalinexedu-keyring
+  152  sudo dpkg --purge guadalinexedu-software-center
+  153  sudo dpkg --purge plymouth-theme-guadalinexedu-logo
+  154  sudo apt-get install educaandos-educacion-tic
+  155  sudo apt-get install -f
+  156  sudo apt-get install educaandos-keyring
+  157  sudo apt --fix-broken install
+  158  sudo apt-get install educaandos-keyring
+  159  sudo apt-get install educaandos-artwork
+  160  sudo apt-get install educaandos-artwork |grep guadalinex
+  161  sudo apt-get install educaandos-artwork 
+  162  sudo apt-get install educaandos-educacion-tic
+  163  sudo apt-get install -f
+  164  sudo apt-get install educaandos-artwork
+  165  sudo rm /usr/share/glib-2.0/schemas/org.gnome.desktop.lockdown.gschema.xml.orig
+  166  sudo rm /usr/share/glib-2.0/schemas/org.gnome.desktop.screensaver.gschema.xml.orig
+  167  sudo rm 
+  168  sudo rm /usr/share/glib-2.0/schemas/org.gnome.desktop.screensaver.gschema.xml.orig
+  169  sudo rm /usr/share/glib-2.0/schemas/org.gnome.shell.extensions.user-theme.gschema.xml.orig
+  170  sudo rm /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml.orig
+  171  sudo rm /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override.orig
+  172  sudo rm /usr/share/glib-2.0/schemas/org.gnome.desktop.session.gschema.xml.orig
+  173  sudo rm  /usr/share/glib-2.0/schemas/org.gnome.desktop.session.gschema.xml.orig
+  174  sudo apt-get install educaandos-artwork
+  175  sudo apt-get install educaandos-artwork
+  176  sudo dp
+  177  sudo apt-get install guadalinexedu-artwork -f
+  178  sudo apt-get install -f
+  179  sudo apt-get install guadalinexedu-artwork -F
+  180  sudo apt-get install --help
+  181  sudo dpkg --configure -a
+  182  sudo apt-get install guadalinexedu-educacion
+  183  sudo apt-get install educaandos-educacion
+  184  sudo apt-get install educaandos-artwork
+  185  sudo rm /usr/share/glib-2.0/schemas/org.gnome.shell.extensions.user-theme.gschema.xml.orig
+  186  sudo apt-get purge --remove guadalinexedu-educacion
+  187  sudo dpkg-divert --remove guadalinexedu-educacion
+  188  sudo dpkg-divert --remove /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
+  189  sudo dpkg-divert --remove /usr/share/glib-2.0/schemas/org.gnome.desktop.lockdown.gschema.xml.orig
+  190  sudo dpkg-divert --remove /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml
+  191  sudo dpkg-divert --remove /usr/share/glib-2.0/schemas/org.gnome.desktop.lockdown.gschema.xml
+  192  sudo dpkg-divert --remove /usr/share/glib-2.0/schemas/org.gnome.desktop.screensaver.gschema.xml
+  193  sudo dpkg-divert --remove /usr/share/glib-2.0/schemas/org.gnome.desktop.screensaver.gschema.xml.orig
+  194  sudo dpkg-divert --remove /usr/share/glib-2.0/schemas/org.gnome.desktop.screensaver.gschema.xml
+  195  sudo dpkg-divert --remove /usr/share/glib-2.0/schemas/org.gnome.shell.extensions.user-theme.gschema.xml
+  196  sudo dpkg-divert --remove /usr/share/glib-2.0/schemas/org.gnome.shell.extensions.user-theme.gschema.xml.orig
+  197  sudo dpkg-divert --remove /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
+  198  sudo dpkg-divert --remove /usr/share/glib-2.0/schemas/org.gnome.desktop.session.gschema.xml
+  199  sudo dpkg-divert --remove  /usr/share/glib-2.0/schemas/org.gnome.desktop.session.gschema.xml
+  
