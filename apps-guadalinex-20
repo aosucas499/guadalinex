@@ -83,12 +83,42 @@ distribucion=$(lsb_release -cs)
 		wget https://blinklearning1.blob.core.windows.net/installers/blinkoffline/blinkoffline.sh 
 		chmod +x blinkoffline.sh
 		./blinkoffline.sh
-		echo ""
-		echo "Introduce la contraseña del usuario = usuario"
-		echo ""
-           	su usuario -c ./blinkoffline.sh 				
-		sudo rm ~/Escritorio/blink* && sudo rm /home/usuario/Escritorio/blin*
+		rm ~/Escritorio/blink*
+		if [ -d "/home/usuario" ]; then
+			echo ""
+			echo "Introduce la contraseña del usuario = usuario"
+			echo ""
+			echo "para instalarlo en la cuenta usuario"
+			echo ""
+           		su usuario -c ./blinkoffline.sh 				
+			sudo rm /home/usuario/Escritorio/blin*
+			sudo rm blinkoffline.sh
+			else
 		rm blinkoffline.sh
+		fi
+		}
+		
+		function installsm {
+		wget https://downloads.smaprendizaje.com/apps/smaprendizaje/smaprendizaje_1_5_0_64.run
+		chmod +x smaprendizaje_1_5_0_64.run
+		./smaprendizaje_1_5_0_64.run
+		sed -i -e '$a Categories=Education' /home/$USER/Escritorio/SM\ Aprendizaje.desktop
+		mv /home/$USER/Escritorio/SM\ Aprendizaje.desktop /home/$USER/.local/share/applications/
+		if [ -d "/home/usuario" ]; then
+			echo ""
+			echo "Introduce la contraseña del usuario = usuario"
+			echo ""
+			echo "para instalarlo en la cuenta usuario"
+			echo ""
+           		su usuario -c ./smaprendizaje_1_5_0_64.run 				
+			sudo chown $USER:$USER /home/usuario/Escritorio/SM\ Aprendizaje.desktop
+			sudo sed -i -e '$a Categories=Education' /home/usuario/Escritorio/SM\ Aprendizaje.desktop
+			sudo chown usuario:usuario /home/usuario/Escritorio/SM\ Aprendizaje.desktop
+			sudo mv /home/usuario/Escritorio/SM\ Aprendizaje.desktop /home/usuario/.local/share/applications/
+			sudo rm smaprendizaje_1_5_0_64.run
+			else
+		rm smaprendizaje_1_5_0_64.run
+		fi
 		}
 		
 		function installActivdre {
@@ -179,7 +209,7 @@ opc=$( \
         --column="Descripción" \
         --hide-column=2 \
         --width=600 \
-        --height=450 \
+        --height=600 \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
     False installQshutdown "Instalar Apagado automático a las 14:01 L-V (app qshutdown)" \
@@ -188,6 +218,7 @@ opc=$( \
     False installOpenboard "Instalar aplicación de pizarra Openboard" \
     False installChrome "Instalar navegador Chrome" \
     False installBlinklearning "Instalar aplicación blinklearning - Usado en libros de Oxford" \
+    False installsm "Instalar aplicación Aprendizaje - Editorial SM" \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
     False installSmartdre "Instalar drivers pizarras Smartboard-incluida SB480" \
     False usuario "Crear usuario sin derechos admin." \
