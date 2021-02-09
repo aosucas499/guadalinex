@@ -204,9 +204,19 @@ distribucion=$(lsb_release -cs)
               	sudo mv focal.list /etc/apt/sources.list.d/
              	sudo apt update
 		sudo apt install kazam
+		sudo sed -i 's/time.clock/time.perf_counter/g' /usr/lib/python3/dist-packages/kazam/pulseaudio/pulseaudio.py
 		sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update
-		}		
+		}	
+		
+		function installgparted {
+		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
+              	sudo mv focal.list /etc/apt/sources.list.d/
+             	sudo apt update
+		sudo apt install gparted
+		sudo rm /etc/apt/sources.list.d/focal.list
+		sudo apt update
+		}	
 		
 		
 # Ejecuta la función correspondiente a cada una de las opciones del script
@@ -269,7 +279,7 @@ opc=$( \
     False installsantillana "Instalar aplicación Santillana Aula Virtual" \
     False installBlinklearning "Instalar aplicación Blinklearning - Usado en libros de Oxford" \
     False installkazam "Instalar grabador de escritorio Kazam" \
-    False installDocker "Instalar Docker" \
+    False installgparted "Instalar Gparted, manejador de disco/particiones" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
 )
