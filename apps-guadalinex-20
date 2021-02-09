@@ -198,6 +198,16 @@ distribucion=$(lsb_release -cs)
 		sudo passwd $usuario
 		echo -e "\n"echo "El usuario fue creado satisfactoriamente"
 		}
+
+		function installkazam {
+		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
+              	sudo mv focal.list /etc/apt/sources.list.d/
+             	sudo apt update
+		sudo apt install kazam
+		sudo rm /etc/apt/sources.list.d/focal.list
+		sudo apt update
+		}		
+		
 		
 # Ejecuta la función correspondiente a cada una de las opciones del script
 # ---
@@ -258,6 +268,7 @@ opc=$( \
     False installsm "Instalar aplicación Editorial SM - Aprendizaje" \
     False installsantillana "Instalar aplicación Santillana Aula Virtual" \
     False installBlinklearning "Instalar aplicación Blinklearning - Usado en libros de Oxford" \
+    False installkazam "Instalar grabador de escritorio Kazam" \
     False installDocker "Instalar Docker" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
