@@ -53,7 +53,7 @@ distribucion=$(lsb_release -cs)
 		if [ -d "/home/usuario" ]; then
 			sudo mkdir /home/usuario/.qshutdown
 			sudo cp ./qshutdown/qshutdown.conf /home/usuario/.qshutdown/qshutdown.conf
-			sed -i -e 's/14:01/$shutdowntime/g' /home/usuario/.qshutdown/qshutdown.conf
+			sudo sed -i -e 's/14:01/$shutdowntime/g' /home/usuario/.qshutdown/qshutdown.conf
 			sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/
 		else	
 		sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/
