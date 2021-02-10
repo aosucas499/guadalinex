@@ -23,6 +23,22 @@ distribucion=$(lsb_release -cs)
 		echo ""
 		echo "Ejecute este aplicación cada vez que cree un usuario nuevo"
 		echo ""
+		
+		#read shutdowntime
+		shutdowntime=$(zenity --entry \
+                --title="Introduzca la hora para el apagado automático diario del equipo" \
+                --width=250 \
+                --ok-label="Aceptar" \
+                --cancel-label="Lo vamos a dejar" \
+                --text="Use el formato siguiente o no funcionará: 14:00")
+		ans=$?
+		if [ $ans -eq 0 ]
+			then
+			echo "La hora introducida es: ${shutdowntime}"
+		else
+    			echo "Otro día si eso..."
+    			exit
+		fi
 		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
               	sudo mv focal.list /etc/apt/sources.list.d/
              	sudo apt update
@@ -30,10 +46,18 @@ distribucion=$(lsb_release -cs)
 		sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update
 		mkdir ~/.qshutdown
-		sudo mkdir /home/usuario/.qshutdown
 		cp ./qshutdown/qshutdown.conf ~/.qshutdown/
-		sudo cp ./qshutdown/qshutdown.conf /home/usuario/.qshutdown/
+		sed -i -e "s/14:01/$shutdowntime/g" ~/.qshutdown/qshutdown.conf
+		
+		#Si hay un usuario = usuario lo establece también
+		if [ -d "/home/usuario" ]; then
+			sudo mkdir /home/usuario/.qshutdown
+			sudo cp ./qshutdown/qshutdown.conf /home/usuario/.qshutdown/qshutdown.conf
+			sed -i 's/14:01/$shutdowntime/g' /home/usuario/.qshutdown/qshutdown.conf
+			sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/
+		else	
 		sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/
+		fi
 		}
 		
 		function installDocker {
@@ -269,7 +293,7 @@ opc=$( \
         --width=600 \
         --height=600 \
     False usuario "Crear usuario sin derechos admin. No combine esta opción con otras." \
-    False installQshutdown "Instalar Apagado automático a las 14:01 L-V (app qshutdown)" \
+    False installQshutdown "Instalar Apagado automático a las XX:XX horas de L-V (app qshutdown)" \
     False installNtpfix "Instalar corrección de hora en equipos conectados por wifi" \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
     False installSmartdre "Instalar drivers pizarras Smartboard-incluida SB480" \
