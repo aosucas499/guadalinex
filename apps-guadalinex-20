@@ -27,7 +27,7 @@ distribucion=$(lsb_release -cs)
 		#read shutdowntime
 		shutdowntime=$(zenity --entry \
                 --title="Introduzca la hora para el apagado automático diario del equipo" \
-                --width=250 \
+                --width=500 \
                 --ok-label="Aceptar" \
                 --cancel-label="Lo vamos a dejar" \
                 --text="Use el formato siguiente o no funcionará: 14:00")
