@@ -23,8 +23,6 @@ Aplicación para instalar en EducaAndOS: drivers pizarras digitales, repositorio
     git clone https://github.com/aosucas499/guadalinex.git
 
     cd guadalinex
-    
-    chmod +x apps-guadalinex-20
 
     ./apps-guadalinex-20
 
