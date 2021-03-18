@@ -14,7 +14,8 @@ function descargarRepo {
 		updateRepo
 	else
 		cd /home/$USER
-		git clone https://github.com/aosucas499/guadalinex
+		notify-send "Descargando apps-guadalinex-20"
+		git clone $gitguadalinex
 	fi
 			
 }
@@ -30,7 +31,10 @@ function updateRepo {
 	if git diff-index --quiet HEAD --; then
 		echo "Repo github presente y actualizado"
 	else
-		echo "Repo desactualizado"
+		echo ""
+		echo "Repo desactualizado, actualizando apps-guadalinex-20"
+		echo ""
+		notify-send "Actualizando apps-guadalinex-20"
 		cd /home/$USER
 		sudo rm -r guadalinex
     		git clone $gitguadalinex
