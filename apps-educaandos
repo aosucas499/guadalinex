@@ -1,0 +1,51 @@
+#!/bin/bash
+
+#Variables
+#
+gitfolder=/home/$USER/guadalinex
+gitguadalinex=https://github.com/aosucas499/guadalinex
+
+# Función para descargar repositorio en caso de que no exista en el sistema.
+# Por ejemplo, en el primer inicio.
+
+function descargarRepo {
+
+	if [ -d "$gitfolder" ]; then
+		updateRepo
+	else
+		cd /home/$USER
+		git clone https://github.com/aosucas499/guadalinex
+	fi
+			
+}
+
+
+
+# Función para actualizar apps-guadalinex-20 
+#
+
+function updateRepo {
+
+	cd /home/$USER/guadalinex
+	if git diff-index --quiet HEAD --; then
+		echo "Repo github presente y actualizado"
+	else
+		echo "Repo desactualizado"
+		cd /home/$USER
+		sudo rm -r guadalinex
+    		git clone $gitguadalinex
+	fi
+}
+
+# Función que lanza la aplicación apps-guadalinex-20
+
+function execRepo {
+	sh -c $gitfolder/apps-guadalinex-20
+	
+}
+
+# Variables a ejecutar en el script
+#
+
+descargarRepo
+execRepo
