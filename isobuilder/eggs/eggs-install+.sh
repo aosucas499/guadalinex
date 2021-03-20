@@ -28,6 +28,9 @@ sudo cp ../../imágenes/VirtualBox_guadalinex 20.png /usr/lib/penguins-eggs/addo
 sudo cp ../../imágenes/VirtualBox_guadalinex 20_5.png /usr/lib/penguins-eggs/addons/eggs/theme/branding/slide7.png
 sudo eggs prerequisites
 
+#cambiar fondo de pantalla
+sudo cp educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
+
 #copiar configuración para la ISO
 sudo cp eggs+.conf /etc/penguins-eggs.d/eggs.conf
 sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
