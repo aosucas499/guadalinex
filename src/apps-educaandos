@@ -8,6 +8,21 @@ gitguadalinex=https://github.com/aosucas499/guadalinex
 # Función para descargar repositorio en caso de que no exista en el sistema.
 # Por ejemplo, en el primer inicio. También instala la app en el sistema.
 
+function installOnsystem {
+
+	if [ -f "/usr/bin/apps-educaandos" ]; then
+	
+		descargarRepo
+	else
+		sudo cp guadalinex/src/AndaTuz2.svg /usr/share/icons/
+		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
+		sudo cp guadalinex/src/apps-educaandos /usr/bin
+		
+	fi
+	
+}
+	
+		
 function descargarRepo {
 
 	if [ -d "$gitfolder" ]; then
@@ -61,5 +76,5 @@ function execRepo {
 # Variables a ejecutar en el script
 #
 
-descargarRepo
+installOnsystem
 execRepo
