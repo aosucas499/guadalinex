@@ -18,12 +18,22 @@ Aplicación para instalar en EducaAndOS: drivers pizarras digitales, repositorio
 
   ### USO
 
-    cd ~ 
+    cd /home/$USER 
 
     git clone https://github.com/aosucas499/guadalinex.git
 
     cd guadalinex
 
     ./apps-guadalinex-20
+    
+ ### Alternativa: Instalar en el sistema y autoactualizable con futuros cambios, se quedará instalada en el menú aplicaciones, herramientas del sistema.
+ 
+    cd /home/$USER
+    
+    wget https://bit.ly/3tJuZ5R -O apps-educaandos
+    
+    chmod +x apps-educaandos
+    
+    ./apps-educaandos
 
 ![](https://github.com/aosucas499/guadalinex/blob/main/promethean/imagenes/VirtualBox_guadalinex%2020.png)
