@@ -23,6 +23,11 @@ function installOnsystem {
 		sudo cp guadalinex/src/AndaTuz2.svg /usr/share/icons/
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
+		echo ""
+		echo "Ejecute la aplicación desde el menú Aplicaciones, Herramientas del Sistema"
+		echo ""
+		notify-send "Ejecute la aplicación desde el menú Aplicaciones, Herramientas del Sistema"
+		exit
 		
 	fi
 	
@@ -43,6 +48,11 @@ function descargarRepo {
 		sudo cp guadalinex/src/AndaTuz2.svg /usr/share/icons/
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
+		echo ""
+		echo "Ejecute la aplicación desde el menú Aplicaciones, Herramientas del Sistema"
+		echo ""
+		notify-send "Ejecute la aplicación desde el menú Aplicaciones, Herramientas del Sistema"
+		exit
 	fi
 			
 }
@@ -67,6 +77,11 @@ function updateRepo {
     		sudo cp guadalinex/src/AndaTuz2.svg /usr/share/icons/
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
+		echo ""
+		echo "Ejecute la aplicación desde el menú Aplicaciones, Herramientas del Sistema"
+		echo ""
+		notify-send "Ejecute la aplicación desde el menú Aplicaciones, Herramientas del Sistema"
+		exit
 	fi
 }
 
