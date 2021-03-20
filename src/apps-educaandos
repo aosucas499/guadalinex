@@ -16,17 +16,17 @@ function installOnsystem {
 	else
 		cd /home/$USER
 		echo ""
-		echo "Descargando apps-guadalinex-20, espere unos segundos"
+		echo "Descargando APP, espere unos segundos"
 		echo ""
-		notify-send "Descargando apps-guadalinex-20, espere unos segundos"
+		notify-send "Descargando APP, espere unos segundos"
 		git clone $gitguadalinex
 		sudo cp guadalinex/src/AndaTuz2.svg /usr/share/icons/
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
 		echo ""
-		echo "Ejecute la aplicación desde el menú Aplicaciones, Herramientas del Sistema"
+		echo "Ejecútela desde el menú Aplicaciones, Herramientas del Sistema"
 		echo ""
-		notify-send "Ejecute la aplicación desde el menú Aplicaciones, Herramientas del Sistema"
+		notify-send "Ejecútela desde el menú Aplicaciones, Herramientas del Sistema"
 		exit
 		
 	fi
@@ -41,17 +41,17 @@ function descargarRepo {
 	else
 		cd /home/$USER
 		echo ""
-		echo "Descargando apps-guadalinex-20, espere unos segundos"
+		echo "Descargando APP, espere unos segundos"
 		echo ""
-		notify-send "Descargando apps-guadalinex-20, espere unos segundos"
+		notify-send "Descargando APP, espere unos segundos"
 		git clone $gitguadalinex
 		sudo cp guadalinex/src/AndaTuz2.svg /usr/share/icons/
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
 		echo ""
-		echo "Ejecute la aplicación desde el menú Aplicaciones, Herramientas del Sistema"
+		echo "Ejecútela desde el menú Aplicaciones, Herramientas del Sistema"
 		echo ""
-		notify-send "Ejecute la aplicación desde el menú Aplicaciones, Herramientas del Sistema"
+		notify-send "Ejecútela desde el menú Aplicaciones, Herramientas del Sistema"
 		exit
 	fi
 			
@@ -68,9 +68,9 @@ function updateRepo {
 		echo "Repo github presente y actualizado"
 	else
 		echo ""
-		echo "Actualizando apps-guadalinex-20, espere unos segundos"
+		echo "Actualizando APP, espere unos segundos"
 		echo ""
-		notify-send "Actualizando apps-guadalinex-20, espere unos segundos"
+		notify-send "Actualizando APP, espere unos segundos"
 		cd /home/$USER
 		sudo rm -r guadalinex
     		git clone $gitguadalinex
@@ -78,9 +78,9 @@ function updateRepo {
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
 		echo ""
-		echo "Ejecute la aplicación desde el menú Aplicaciones, Herramientas del Sistema"
+		echo "Ejecútela desde el menú Aplicaciones, Herramientas del Sistema"
 		echo ""
-		notify-send "Ejecute la aplicación desde el menú Aplicaciones, Herramientas del Sistema"
+		notify-send "Ejecútela desde el menú Aplicaciones, Herramientas del Sistema"
 		exit
 	fi
 }
