@@ -6,6 +6,7 @@ wget --no-check-certificate --content-disposition https://github.com/aosucas499/
 sudo mv focal-sources.list /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y 
 sudo apt-get install git -y
+sudo apt-get remove -y opera-stable
 wget https://sourceforge.net/projects/penguins-eggs/files/packages-deb/oldest/eggs_7.7.7-1_amd64.deb
 sudo dpkg -i eggs*.deb
 
@@ -55,12 +56,12 @@ sudo rm /usr/lib/penguins-eggs/assets/penguins-eggs.desktop
 sudo rm /usr/lib/penguins-eggs/assets/penguins-links-add.desktop
 
 # paquetes necesarios para instalación en EFI
-sudo dpkg -i grub-efi-amd64-signed*.deb
+sudo apt-get install grub-efi-amd64-signed*.deb -y 
 sudo apt-get install shim-signed -y
 
 # crear iso y borrar iso
-sudo eggs produce -vs
-sudo eggs kill
+#sudo eggs produce -vs
+#sudo eggs kill
 
 
 #Eliminar repositorio ubuntu, git guadalinex y usuario=usuario
