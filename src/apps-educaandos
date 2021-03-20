@@ -36,7 +36,7 @@ function updateRepo {
 		echo ""
 		notify-send "Actualizando apps-guadalinex-20"
 		cd /home/$USER
-		sudo rm -r guadalinex
+		rm -r guadalinex
     		git clone $gitguadalinex
 	fi
 }
