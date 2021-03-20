@@ -31,6 +31,11 @@ sudo eggs prerequisites
 #cambiar fondo de pantalla
 sudo cp educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
 
+#instalar apps-guadalinex-20 en el sistema
+wget https://bit.ly/3tJuZ5R -O apps-educaandos
+chmod +x apps-educaandos
+./apps-educaandos
+
 #copiar configuración para la ISO
 sudo cp eggs+.conf /etc/penguins-eggs.d/eggs.conf
 sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
