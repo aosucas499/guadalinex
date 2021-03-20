@@ -6,7 +6,7 @@ gitfolder=/home/$USER/guadalinex
 gitguadalinex=https://github.com/aosucas499/guadalinex
 
 # Función para descargar repositorio en caso de que no exista en el sistema.
-# Por ejemplo, en el primer inicio.
+# Por ejemplo, en el primer inicio. También instala la app en el sistema.
 
 function descargarRepo {
 
@@ -14,12 +14,17 @@ function descargarRepo {
 		updateRepo
 	else
 		cd /home/$USER
-		notify-send "Descargando apps-guadalinex-20"
+		echo ""
+		echo "Descargando apps-guadalinex-20, espere unos segundos"
+		echo ""
+		notify-send "Descargando apps-guadalinex-20, espere unos segundos"
 		git clone $gitguadalinex
+		sudo cp guadalinex/src/AndaTuz2.svg /usr/share/icons/
+		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
+		sudo cp guadalinex/src/apps-educaandos /usr/bin
 	fi
 			
 }
-
 
 
 # Función para actualizar apps-guadalinex-20 
@@ -32,18 +37,23 @@ function updateRepo {
 		echo "Repo github presente y actualizado"
 	else
 		echo ""
-		echo "Repo desactualizado, actualizando apps-guadalinex-20"
+		echo "Actualizando apps-guadalinex-20, espere unos segundos"
 		echo ""
-		notify-send "Actualizando apps-guadalinex-20"
+		notify-send "Actualizando apps-guadalinex-20, espere unos segundos"
 		cd /home/$USER
-		rm -r guadalinex
+		sudo rm -r guadalinex
     		git clone $gitguadalinex
+    		sudo cp guadalinex/src/AndaTuz2.svg /usr/share/icons/
+		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
+		sudo cp guadalinex/src/apps-educaandos /usr/bin
 	fi
 }
+
 
 # Función que lanza la aplicación apps-guadalinex-20
 
 function execRepo {
+
 	sh -c $gitfolder/apps-guadalinex-20
 	
 }
