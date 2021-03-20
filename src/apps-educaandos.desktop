@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/bin/apps-educaandos
+Icon=/usr/share/icons/AndaTuz2.svg
+Terminal=false
+Name[es_ES]=Apps-guadalinex-20
+Comment[es_ES]=Instalar aplicaciones en EducaAndOs
+Categories=System;Settings;
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=1
+NoDisplay=false
+Hidden=false
