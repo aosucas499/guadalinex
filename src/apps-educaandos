@@ -14,6 +14,12 @@ function installOnsystem {
 	
 		descargarRepo
 	else
+		cd /home/$USER
+		echo ""
+		echo "Descargando apps-guadalinex-20, espere unos segundos"
+		echo ""
+		notify-send "Descargando apps-guadalinex-20, espere unos segundos"
+		git clone $gitguadalinex
 		sudo cp guadalinex/src/AndaTuz2.svg /usr/share/icons/
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
