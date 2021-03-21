@@ -66,18 +66,18 @@ sudo rm /usr/lib/penguins-eggs/assets/penguins-links-add.desktop
 sudo apt-get install grub-efi-amd64-signed -y 
 sudo apt-get install shim-signed -y
 
-# crear iso y borrar iso
+# instala lo necesario para la iso y borra scripts de creación de iso
 sudo eggs produce -vs
 sudo eggs kill
+
+#Eliminar repositorio ubuntu
+sudo rm /etc/apt/sources.list.d/focal.list
+sudo apt-get update -y
 
 #crear iso definitiva
 sudo eggs produce -v
 
-#Eliminar repositorio ubuntu
-#hacerlo cuando ejecutamos el comando anterior y descarga lo necesario
-#antes de que termine, para que copie el sistema sin los repos de ubuntu
-sudo rm /etc/apt/sources.list.d/focal.list
-sudo apt-get update -y
+
 
 
 
