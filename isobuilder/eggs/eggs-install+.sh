@@ -7,8 +7,9 @@ sudo mv focal-sources.list /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y 
 sudo apt-get install git -y
 sudo apt-get remove -y opera-stable
-wget https://sourceforge.net/projects/penguins-eggs/files/packages-deb/eggs_7.8.39-1_amd64.deb/download
+wget https://sourceforge.net/projects/penguins-eggs/files/packages-deb/eggs_7.8.39-1_amd64.deb
 sudo dpkg -i eggs*.deb
+sudo apt-get install -f -y
 
 # Modificar calamares 
 sudo cp locale.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
