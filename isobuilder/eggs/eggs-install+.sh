@@ -9,7 +9,6 @@ sudo apt-get install git -y
 sudo apt-get remove -y opera-stable
 wget https://sourceforge.net/projects/penguins-eggs/files/packages-deb/eggs_7.8.39-1_amd64.deb
 sudo dpkg -i eggs*.deb
-sudo apt-get install -f -y
 
 # Modificar calamares 
 sudo cp locale.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
@@ -18,16 +17,18 @@ sudo cp removeuser.yml /usr/lib/penguins-eggs/conf/distros/buster/calamares/modu
 sudo cp users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
 
 sudo cp install-debian.desktop /usr/lib/penguins-eggs/addons/eggs/theme/applications/
-sudo cp show+.qml /usr/lib/penguins-eggs/addons/eggs/theme/branding/show.qml
-sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/branding/welcome.png
-sudo cp ../../imágenes/VirtualBox_guadalinex 20.png /usr/lib/penguins-eggs/addons/eggs/theme/branding/slide1.png
-sudo cp ../../imágenes/VirtualBox_guadalinex 20_3.png /usr/lib/penguins-eggs/addons/eggs/theme/branding/slide1.png
-sudo cp ../../imágenes/VirtualBox_guadalinex 20_4.png /usr/lib/penguins-eggs/addons/eggs/theme/branding/slide2.png
-sudo cp ../../imágenes/VirtualBox_guadalinex 20_5.png /usr/lib/penguins-eggs/addons/eggs/theme/branding/slide3.png
-sudo cp ../../imágenes/VirtualBox_guadalinex 20_9.png /usr/lib/penguins-eggs/addons/eggs/theme/branding/slide4.png
-sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/branding/slide5.png
-sudo cp ../../imágenes/VirtualBox_guadalinex 20.png /usr/lib/penguins-eggs/addons/eggs/theme/branding/slide6.png
-sudo cp ../../imágenes/VirtualBox_guadalinex 20_5.png /usr/lib/penguins-eggs/addons/eggs/theme/branding/slide7.png
+sudo cp show+.qml /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/show.qml
+sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/welcome.png
+sudo cp ../../imágenes/VirtualBox_guadalinex*20.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide1.png
+sudo cp ../../imágenes/VirtualBox_guadalinex*20_3.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide1.png
+sudo cp ../../imágenes/VirtualBox_guadalinex*20_4.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide2.png
+sudo cp ../../imágenes/VirtualBox_guadalinex*20_5.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide3.png
+sudo cp ../../imágenes/VirtualBox_guadalinex*20_9.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide4.png
+sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide5.png
+sudo cp ../../imágenes/VirtualBox_guadalinex*20.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide6.png
+sudo cp ../../imágenes/VirtualBox_guadalinex*20_5.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide7.png
+
+# Seleccionar que no instalamos calamares aún
 sudo eggs prerequisites
 
 #cambiar fondo de pantalla
@@ -39,11 +40,13 @@ chmod +x apps-educaandos
 ./apps-educaandos
 
 #copiar configuración para la ISO
-sudo cp eggs+.conf /etc/penguins-eggs.d/eggs.conf
+sudo cp eggs.yaml /etc/penguins-eggs.d/
 sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
 
 #instalar calamares
-sudo eggs calamares
+#sudo eggs calamares
+sudo apt-get update -y
+sudo eggs calamares --install
 
 #Modificar grub del live ISO
 sudo cp splash+.png /usr/lib/penguins-eggs/assets/penguins-eggs-splash.png
@@ -57,19 +60,22 @@ sudo rm /usr/lib/penguins-eggs/assets/penguins-eggs.desktop
 sudo rm /usr/lib/penguins-eggs/assets/penguins-links-add.desktop
 
 # paquetes necesarios para instalación en EFI
-sudo apt-get install grub-efi-amd64-signed*.deb -y 
+sudo apt-get install grub-efi-amd64-signed -y 
 sudo apt-get install shim-signed -y
 
 # crear iso y borrar iso
 #sudo eggs produce -vs
 #sudo eggs kill
 
+#crear iso definitiva
+sudo eggs produce -v
 
 #Eliminar repositorio ubuntu, git guadalinex y usuario=usuario
+#hacerlo cuando ejecutamos el comando anterior y descarga lo necesario
+#antes de que termine, para que copie el sistema sin los repos de ubuntu
 sudo rm /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y
 sudo userdel usuario
 cd ~ && sudo rm -r ~/guadalinex
 
-#crear iso definitiva
-sudo eggs produce -v
+
