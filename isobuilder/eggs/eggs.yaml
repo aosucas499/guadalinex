@@ -1,8 +1,8 @@
 version: 7.8.39
 snapshot_dir: /home/eggs/
-snapshot_prefix: EducaAndOS-plus-unofficial
+snapshot_prefix: EducaAndOS-plus
 snapshot_excludes: /usr/local/share/penguins-eggs/exclude.list
-snapshot_basename: educaAndOS
+snapshot_basename: unofficial
 user_opt: admin
 user_opt_passwd: root
 root_passwd: root

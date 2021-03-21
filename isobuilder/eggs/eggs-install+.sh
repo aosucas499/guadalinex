@@ -53,6 +53,9 @@ sudo cp splash+.png /usr/lib/penguins-eggs/assets/penguins-eggs-splash.png
 sudo cp theme+.cfg /usr/lib/penguins-eggs/conf/distros/buster/grub/theme.cfg
 sudo cp menu.template+.cfg /usr/lib/penguins-eggs/conf/distros/focal/isolinux/menu.template.cfg
 
+sudo cp splash+.png /usr/lib/penguins-eggs/addons/eggs/theme/livecd/splash.png
+sudo cp theme+.cfg /usr/lib/penguins-eggs/addons/eggs/theme/livecd/theme.cfg
+sudo cp menu.template+.cfg /usr/lib/penguins-eggs/addons/eggs/theme/livecd/menu.template.cfg
 
 #eliminar archivos innecesarios de EGGS
 sudo rm /usr/share/applications/calamares.desktop
@@ -64,8 +67,8 @@ sudo apt-get install grub-efi-amd64-signed -y
 sudo apt-get install shim-signed -y
 
 # crear iso y borrar iso
-#sudo eggs produce -vs
-#sudo eggs kill
+sudo eggs produce -vs
+sudo eggs kill
 
 #crear iso definitiva
 sudo eggs produce -v

@@ -70,16 +70,140 @@ Presentation
             font.family: "Helvetica"
             font.pixelSize : 22
             color: "#002439"
-            anchors.horizontalCenter: slide2.horizontalCenter
-            anchors.top: slide2.verticalCenter
-            text: qsTr("<h1>usuario: admin</h1><br/>"+
-                  "<br/><p>pass: root</p></br>")
+            anchors.horizontalCenter: slide1.horizontalCenter
+            anchors.top: slide1.verticalCenter
+            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+                  "<br/>Created by aosucas499<br/>"+
+                  "<br/>sources: htts://github.com/aosucas499/guadalinex"+
+                  "<br/>email: aosucas499@gmail.com")
+            wrapMode: Text.WordWrap
+            width: 600
+            horizontalAlignment: Text.Center
+        }
+    }
+    
+Slide {
+        Image {
+            id: slide3
+            source: "slide3.png"
+            anchors.centerIn: parent
+            width: 810
+            height: 485
+            fillMode: Image.PreserveAspectFit
+        }
+         Text {
+            font.family: "Helvetica"
+            font.pixelSize : 22
+            color: "#002439"
+            anchors.horizontalCenter: slide1.horizontalCenter
+            anchors.top: slide1.verticalCenter
+            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+                  "<br/>Created by aosucas499<br/>"+
+                  "<br/>sources: htts://github.com/aosucas499/guadalinex"+
+                  "<br/>email: aosucas499@gmail.com")
+            wrapMode: Text.WordWrap
+            width: 600
+            horizontalAlignment: Text.Center
+        }
+    }
+    
+    Slide {
+        Image {
+            id: slide4
+            source: "slide4.png"
+            anchors.centerIn: parent
+            width: 810
+            height: 485
+            fillMode: Image.PreserveAspectFit
+        }
+         Text {
+            font.family: "Helvetica"
+            font.pixelSize : 22
+            color: "#002439"
+            anchors.horizontalCenter: slide1.horizontalCenter
+            anchors.top: slide1.verticalCenter
+            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+                  "<br/>Created by aosucas499<br/>"+
+                  "<br/>sources: htts://github.com/aosucas499/guadalinex"+
+                  "<br/>email: aosucas499@gmail.com")
             wrapMode: Text.WordWrap
             width: 600
             horizontalAlignment: Text.Center
         }
     }
 
+Slide {
+        Image {
+            id: slide5
+            source: "slide5.png"
+            anchors.centerIn: parent
+            width: 810
+            height: 485
+            fillMode: Image.PreserveAspectFit
+        }
+         Text {
+            font.family: "Helvetica"
+            font.pixelSize : 22
+            color: "#002439"
+            anchors.horizontalCenter: slide1.horizontalCenter
+            anchors.top: slide1.verticalCenter
+            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+                  "<br/>Created by aosucas499<br/>"+
+                  "<br/>sources: htts://github.com/aosucas499/guadalinex"+
+                  "<br/>email: aosucas499@gmail.com")
+            wrapMode: Text.WordWrap
+            width: 600
+            horizontalAlignment: Text.Center
+        }
+    }
     
-
+    Slide {
+        Image {
+            id: slide6
+            source: "slide6.png"
+            anchors.centerIn: parent
+            width: 810
+            height: 485
+            fillMode: Image.PreserveAspectFit
+        }
+         Text {
+            font.family: "Helvetica"
+            font.pixelSize : 22
+            color: "#002439"
+            anchors.horizontalCenter: slide1.horizontalCenter
+            anchors.top: slide1.verticalCenter
+            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+                  "<br/>Created by aosucas499<br/>"+
+                  "<br/>sources: htts://github.com/aosucas499/guadalinex"+
+                  "<br/>email: aosucas499@gmail.com")
+            wrapMode: Text.WordWrap
+            width: 600
+            horizontalAlignment: Text.Center
+        }
+    }
+    
+    Slide {
+        Image {
+            id: slide7
+            source: "slide7.png"
+            anchors.centerIn: parent
+            width: 810
+            height: 485
+            fillMode: Image.PreserveAspectFit
+        }
+         Text {
+            font.family: "Helvetica"
+            font.pixelSize : 22
+            color: "#002439"
+            anchors.horizontalCenter: slide1.horizontalCenter
+            anchors.top: slide1.verticalCenter
+            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+                  "<br/>Created by aosucas499<br/>"+
+                  "<br/>sources: htts://github.com/aosucas499/guadalinex"+
+                  "<br/>email: aosucas499@gmail.com")
+            wrapMode: Text.WordWrap
+            width: 600
+            horizontalAlignment: Text.Center
+        }
+    }
 }
