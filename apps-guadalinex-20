@@ -42,9 +42,9 @@ distribucion=$(lsb_release -cs)
     			exit
 		fi
 		sudo apt-get install -f -y
-		sudo apt-get install linux-image-$kernelnumber -y
-		sudo apt-get install -f -y
 		sudo apt-get install linux-headers-$kernelnumber -y
+		sudo apt-get install -f -y
+		sudo apt-get install linux-image-$kernelnumber -y
 		sudo apt-get install -f -y
 		sudo apt-get install linux-modules-$kernelnumber -y
 		sudo apt-get install -f -y
