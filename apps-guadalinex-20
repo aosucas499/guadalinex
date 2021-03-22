@@ -18,7 +18,43 @@ distribucion=$(lsb_release -cs)
  		sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update
 		}
+		
+		function swapKernel { 
+		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal-updates main universe multiverse restricted" > focal.list
+		sudo mv focal.list /etc/apt/sources.list.d/
+		sudo apt update
+		clear
+		sudo apt search linux-image*
+		
+		kernelnumber=$(zenity --entry \
+                --title="Introduzca la versión del kernel a instalar" \
+                --width=600 \
+                --ok-label="Aceptar" \
+                --cancel-label="Lo vamos a dejar" \
+                --text="Use el formato siguiente o no funcionará: 5.10.0-1011-oem")
+		ans=$?
+		if [ $ans -eq 0 ]
+			then
+			echo "La versión introducida es: ${kernelnumber}"
+			notify-send "La versión introducida es: ${kernelnumber}"
+		else
+    			echo "Otro día si eso..."
+    			exit
+		fi
+		sudo apt-get install -f -y
+		sudo apt-get install linux-image-$kernelnumber -y
+		sudo apt-get install -f -y
+		sudo apt-get install linux-headers-$kernelnumber -y
+		sudo apt-get install -f -y
+		sudo apt-get install linux-modules-$kernelnumber -y
+		sudo apt-get install -f -y
+		sudo update-grub2
+		sudo rm /etc/apt/sources.list.d/focal.list
+		sudo apt update
+		sudo apt-get autoremove -y
+		}
 
+		
 		function installQshutdown {
 		echo ""
 		echo "Ejecute este aplicación cada vez que cree un usuario nuevo"
@@ -311,7 +347,7 @@ opc=$( \
         --column="Descripción" \
         --hide-column=2 \
         --width=600 \
-        --height=600 \
+        --height=625 \
     False usuario "Crear usuario sin derechos admin. No combine esta opción con otras." \
     False installQshutdown "Instalar Apagado automático a las XX:XX horas de L-V (app qshutdown)" \
     False installNtpfix "Instalar corrección de hora en equipos conectados por wifi" \
@@ -327,6 +363,7 @@ opc=$( \
     False installgparted "Instalar Gparted, manejador de disco/particiones" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
+    False swapKernel "Actualizar kernel del sistema" \
 )
 
 # Comprobamos que no se pulse el botón Cancelar
