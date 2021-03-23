@@ -39,6 +39,8 @@ distribucion=$(lsb_release -cs)
 			notify-send "La versión introducida es: ${kernelnumber}"
 		else
     			echo "Otro día si eso..."
+			sudo rm /etc/apt/sources.list.d/focal.list
+			sudo apt update
     			exit
 		fi
 		sudo apt-get install -f -y
