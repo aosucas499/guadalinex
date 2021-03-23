@@ -1,7 +1,10 @@
-# EducaAndOS
+# EducaAndOS Plus - versión no oficial
+Incluye apps-guadalinex-20 en el menu de aplicaciones/herramientas del sistem)
+
+Enlace: [link](http://bit.ly/3vXx7ZE)
 
 
-## ISO - versión no oficial 
+# EducaAndOS - versión no oficial 
 
 Enlace: [link](https://bit.ly/2WZXspB)
 
