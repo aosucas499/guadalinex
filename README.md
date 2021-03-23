@@ -1,5 +1,5 @@
 # EducaAndOS + Plus - versión no oficial
-Incluye apps-guadalinex-20 en el menu de aplicaciones/herramientas del sistem)
+Incluye apps-guadalinex-20 en el menu de aplicaciones/herramientas del sistema)
 
 Enlace: [link](http://bit.ly/3vXx7ZE)
 
