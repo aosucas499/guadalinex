@@ -50,6 +50,10 @@ distribucion=$(lsb_release -cs)
 		sudo apt-get install -f -y
 		sudo apt-get install linux-modules-$kernelnumber -y
 		sudo apt-get install -f -y
+		sudo apt-get install linux-modules-extra-$kernelnumber -y
+		sudo apt-get install -f -y
+		sudo apt-get install linux-firmware -y
+		sudo apt-get install -f -y
 		sudo update-grub2
 		sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update
