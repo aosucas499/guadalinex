@@ -360,6 +360,7 @@ opc=$( \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
     False installSmartdre "Instalar drivers pizarras Smartboard-incluida SB480" \
     False installSigala "Instalar aplicación HGR-Sigala Server" \
+    False installDocker "Instalar Docker" \
     False installOpenboard "Instalar aplicación de pizarra Openboard" \
     False installChrome "Instalar navegador Chrome" \
     False installsm "Instalar aplicación Editorial SM - Aprendizaje" \
