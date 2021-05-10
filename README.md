@@ -1,7 +1,11 @@
 # EducaAndOS + Plus - versión no oficial
-Incluye apps-guadalinex-20 en el menu de aplicaciones/herramientas del sistema)
 
-Enlace: [link](http://bit.ly/3vXx7ZE)
+Incluye:
+
++ apps-guadalinex-20 (en el menu de aplicaciones/herramientas del sistema)
++ Acceso root
+
+### Enlace: [link](http://bit.ly/3vXx7ZE)
 
 Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/wiki/Instalación)
 
@@ -15,8 +19,5 @@ Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his
 [más info aplicaciones que contiene](https://github.com/aosucas499/guadalinex/wiki/Apps-guadalinex20)
 
 Aplicación para instalar en EducaAndOS: drivers pizarras digitales, repositorios Ubuntu 20.04, apagado automático, Editoriales SM, Santillana, blinklearning, docker...
-
-### Viene ya instalada en el sistema. 
-Ruta: Menú aplicaciones, herramientas del sistema, apps-guadalinex-20
 
 ![](https://github.com/aosucas499/guadalinex/blob/main/imágenes/VirtualBox_guadalinex%2020.png)
