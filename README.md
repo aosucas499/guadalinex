@@ -7,17 +7,7 @@ Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/w
 
 Edición Portátil HP Probook 455 g7: [wiki](https://github.com/aosucas499/guadalinex/wiki/hp)
 
-Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his amazing tool "penguin eggs" to generate the ISO and the installer calamares.
-
-![](https://github.com/aosucas499/guadalinex/blob/main/imágenes/VirtualBox_guadalinex%2020.png)
-
-# EducaAndOS - versión no oficial 
-
-Enlace: [link](https://bit.ly/2WZXspB)
-
-Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/wiki/Instalación)
-
-Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his amazing tool "penguin eggs" to generate the ISO and the installer calamares.
+Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his amazing tool "penguin eggs" to generate the ISO and the installer calamares
 
 ![](https://github.com/aosucas499/guadalinex/blob/main/im%C3%A1genes/educaandos_install.png)
 
@@ -26,24 +16,7 @@ Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his
 
 Aplicación para instalar en EducaAndOS: drivers pizarras digitales, repositorios Ubuntu 20.04, apagado automático, Editoriales SM, Santillana, blinklearning, docker...
 
-  ### USO
+### Viene ya instalada en el sistema. 
+Ruta: Menú aplicaciones, herramientas del sistema, apps-guadalinex-20
 
-    cd /home/$USER 
-
-    git clone https://github.com/aosucas499/guadalinex.git
-
-    cd guadalinex
-
-    ./apps-guadalinex-20
-    
- ### Alternativa: Instalar en el sistema y autoactualizable con futuros cambios, se quedará instalada en el menú aplicaciones, herramientas del sistema.
- 
-    cd /home/$USER
-    
-    wget https://bit.ly/3tJuZ5R -O apps-educaandos
-    
-    chmod +x apps-educaandos
-    
-    ./apps-educaandos
-
-![](https://github.com/aosucas499/guadalinex/blob/main/promethean/imagenes/VirtualBox_guadalinex%2020.png)
+![](https://github.com/aosucas499/guadalinex/blob/main/imágenes/VirtualBox_guadalinex%2020.png)
