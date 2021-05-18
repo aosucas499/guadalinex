@@ -105,5 +105,4 @@ function execRepo {
 #
 
 installOnsystem
-updateAlwaysRepo
 execRepo
