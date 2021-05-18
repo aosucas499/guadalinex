@@ -33,7 +33,9 @@ function installOnsystem {
 	
 }
 
-		
+# Función para descargar repositorio en caso de que no exista la carpeta del proyecto en el sistema.
+# Por ejemplo, en el primer inicio. También instala la app en el sistema.
+
 function descargarRepo {
 
 	if [ -d "$gitfolder" ]; then
@@ -59,13 +61,13 @@ function descargarRepo {
 
 
 # Función para actualizar apps-guadalinex-20 
-#
+# En el caso de que se haya modificado o borrado algún archivo de la carpeta local del sistema.
 
 function updateRepo {
 
 	cd /home/$USER/guadalinex
 	if git diff-index --quiet HEAD --; then
-		echo "Repo github presente y actualizado"
+		echo "Repo github presente"
 	else
 		echo ""
 		echo "Actualizando APP, espere unos segundos"
@@ -87,11 +89,15 @@ function updateRepo {
 
 
 # Función que lanza la aplicación apps-guadalinex-20
-#
+# Y que la actualiza con respecto al proyecto remoto en github
 
 function execRepo {
-
-	sh -c $gitfolder/apps-guadalinex-20
+	cd $gitfolder
+	git pull
+	echo ""
+	echo "App actualizada"
+	echo ""
+	sh -c apps-guadalinex-20
 	
 }
 
