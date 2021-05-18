@@ -68,6 +68,11 @@ function updateRepo {
 	cd /home/$USER/guadalinex
 	if git diff-index --quiet HEAD --; then
 		echo "Repo github presente"
+		cd $gitfolder
+		git pull
+		echo ""
+		echo "App actualizada"
+		echo ""
 	else
 		echo ""
 		echo "Actualizando APP, espere unos segundos"
@@ -89,15 +94,10 @@ function updateRepo {
 
 
 # Función que lanza la aplicación apps-guadalinex-20
-# Y que la actualiza con respecto al proyecto remoto en github
 
 function execRepo {
-	cd $gitfolder
-	git pull
-	echo ""
-	echo "App actualizada"
-	echo ""
-	sh -c apps-guadalinex-20
+	
+	sh -c $gitfolder/apps-guadalinex-20
 	
 }
 
@@ -105,4 +105,5 @@ function execRepo {
 #
 
 installOnsystem
+updateAlwaysRepo
 execRepo
