@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #Variables
 #
 gitfolder=/home/$USER/guadalinex
