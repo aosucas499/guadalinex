@@ -71,7 +71,7 @@ function updateRepo {
 		cd $gitfolder
 		git pull
 		echo ""
-		echo "App actualizada"
+		echo "App actualizada" && sleep 2
 		echo ""
 	else
 		echo ""
