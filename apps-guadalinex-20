@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 
-# variables
+## variables
 distribucion=$(lsb_release -cs)
 
 #wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/apps-guadalinex-20
