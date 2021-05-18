@@ -77,7 +77,7 @@ function updateRepo {
 		sleep 3
 		echo ""
 		# Copia siempre la versión actualizada del lanzador tras ser actualizado en el comando anterior.
-		sudo cp $gitguadalinex/apps-educaandos /usr/bin
+		sudo cp $gitguadalinex/src/apps-educaandos /usr/bin
 		
 	else
 		echo ""
