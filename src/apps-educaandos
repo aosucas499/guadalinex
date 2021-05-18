@@ -66,7 +66,7 @@ function descargarRepo {
 
 function updateRepo {
 
-	cd /home/$USER/guadalinex
+	cd $gitfolder
 	if git diff-index --quiet HEAD --; then
 		echo "Repo github presente"
 		cd $gitfolder
