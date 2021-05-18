@@ -71,7 +71,8 @@ function updateRepo {
 		cd $gitfolder
 		git pull
 		echo ""
-		echo "App actualizada" && sleep 2
+		echo ""
+		sleep 3
 		echo ""
 	else
 		echo ""
@@ -101,7 +102,7 @@ function execRepo {
 	
 }
 
-## Variables a ejecutar en el script
+# Variables a ejecutar en el script
 #
 
 installOnsystem
