@@ -62,6 +62,7 @@ function descargarRepo {
 
 # Función para actualizar apps-guadalinex-20 
 # En el caso de que se haya modificado o borrado algún archivo de la carpeta local del sistema.
+# Y en el caso de que se haya modificado o borrado algún archivo en el repositorio remoto.
 
 function updateRepo {
 
@@ -69,11 +70,15 @@ function updateRepo {
 	if git diff-index --quiet HEAD --; then
 		echo "Repo github presente"
 		cd $gitfolder
+		# Actualiza siempre la carpeta local con respecto al remoto
 		git pull
 		echo ""
 		echo ""
 		sleep 3
 		echo ""
+		# Copia siempre la versión actualizada del lanzador tras ser actualizado en el comando anterior.
+		sudo cp $gitguadalinex/apps-educaandos /usr/bin
+		
 	else
 		echo ""
 		echo "Actualizando APP, espere unos segundos"
