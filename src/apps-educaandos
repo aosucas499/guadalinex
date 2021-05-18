@@ -24,9 +24,9 @@ function installOnsystem {
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
 		echo ""
-		echo "Ejecútela desde el menú Aplicaciones, Herramientas del Sistema"
+		echo "Ejecútela desde el menú Herramientas del Sistema"
 		echo ""
-		notify-send "Ejecútela desde el menú Aplicaciones, Herramientas del Sistema"
+		notify-send "Ejecútela desde el menú Herramientas del Sistema"
 		exit
 		
 	fi
@@ -51,9 +51,9 @@ function descargarRepo {
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
 		echo ""
-		echo "Ejecútela desde el menú Aplicaciones, Herramientas del Sistema"
+		echo "Ejecútela desde el menú Herramientas del Sistema"
 		echo ""
-		notify-send "Ejecútela desde el menú Aplicaciones, Herramientas del Sistema"
+		notify-send "Ejecútela desde el menú Herramientas del Sistema"
 		exit
 	fi
 			
@@ -85,9 +85,9 @@ function updateRepo {
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
 		echo ""
-		echo "Ejecútela desde el menú Aplicaciones, Herramientas del Sistema"
+		echo "Ejecútela desde el menú Herramientas del Sistema"
 		echo ""
-		notify-send "Ejecútela desde el menú Aplicaciones, Herramientas del Sistema"
+		notify-send "Ejecútela desde el menú Herramientas del Sistema"
 		exit
 	fi
 }
