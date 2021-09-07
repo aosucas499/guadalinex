@@ -388,16 +388,15 @@ opc=$( \
         --column="Descripción" \
         --hide-column=2 \
         --width=625 \
-        --height=625 \
+        --height=650 \
     False usuario "Crear usuario sin derechos admin. No combine esta opción con otras." \
     False restore_usuario "Restablece un usuario a valores originales. No combine esta opción con otras." \
     False installQshutdown "Instalar Apagado automático a las XX:XX horas de L-V (app qshutdown)" \
     False installNtpfix "Instalar corrección de hora en equipos conectados por wifi" \
+    False installOpenboard "Instalar aplicación de pizarra Openboard" \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
     False installSmartdre "Instalar drivers pizarras Smartboard-incluida SB480" \
     False installSigala "Instalar aplicación HGR-Sigala Server" \
-    False installDocker "Instalar Docker" \
-    False installOpenboard "Instalar aplicación de pizarra Openboard" \
     False installChrome "Instalar navegador Chrome" \
     False installsm "Instalar aplicación Editorial SM - Aprendizaje" \
     False installsantillana "Instalar aplicación Santillana Aula Virtual" \
@@ -406,6 +405,7 @@ opc=$( \
     False installgparted "Instalar Gparted, manejador de disco/particiones" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
+    False installDocker "Instalar Docker" \
     False swapKernel "Actualizar kernel del sistema" \
 )
 
