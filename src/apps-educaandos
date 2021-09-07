@@ -4,7 +4,7 @@
 #
 gitfolder=/home/$USER/guadalinex
 gitguadalinex=https://github.com/aosucas499/guadalinex
-branch=main
+branch=testing
 
 # Función para descargar repositorio en caso de que no exista en el sistema.
 # Por ejemplo, en el primer inicio. También instala la app en el sistema.
@@ -20,7 +20,7 @@ function installOnsystem {
 		echo "Descargando APP, espere unos segundos"
 		echo ""
 		notify-send "Descargando APP, espere unos segundos"
-		git clone -branch $branch $gitguadalinex
+		git clone --branch $branch $gitguadalinex
 		sudo cp guadalinex/src/AndaTuz2.svg /usr/share/icons/
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
@@ -47,7 +47,7 @@ function descargarRepo {
 		echo "Descargando APP, espere unos segundos"
 		echo ""
 		notify-send "Descargando APP, espere unos segundos"
-		git clone -branch $branch $gitguadalinex
+		git clone --branch $branch $gitguadalinex
 		sudo cp guadalinex/src/AndaTuz2.svg /usr/share/icons/
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
@@ -87,7 +87,7 @@ function updateRepo {
 		notify-send "Actualizando APP, espere unos segundos"
 		cd /home/$USER
 		sudo rm -r guadalinex
-    		git clone -branch $branch $gitguadalinex
+    		git clone --branch $branch $gitguadalinex
     		sudo cp guadalinex/src/AndaTuz2.svg /usr/share/icons/
 		sudo cp guadalinex/src/apps-educaandos.desktop /usr/share/applications
 		sudo cp guadalinex/src/apps-educaandos /usr/bin
