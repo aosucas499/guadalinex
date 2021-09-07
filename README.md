@@ -1,4 +1,4 @@
-# EducaAndOS + Plus - versión no oficial
+## EducaAndOS + Plus - versión no oficial
 
 Incluye:
 
