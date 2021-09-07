@@ -305,6 +305,40 @@ distribucion=$(lsb_release -cs)
 		sudo apt update
 		}	
 		
+		function restore_usuario {
+		echo ""
+		echo "Esta opción no debe combinarse con otras hasta que"
+		echo "entre en la sesión del usuario restaurado gráficamente"
+		echo ""
+		echo "Otras aplicaciones necesitan instalar en carpetas"
+		echo "que aún no han sido creadas hasta que entre en la sesión gráfica"
+		echo ""
+		echo "Despúes de restablecer el usuario, ejecute esta app otra vez"
+		echo "e instale los nuevos programas que necesite que pueda involucrar a ambos usuarios"
+		echo ""
+		echo ""
+		echo "Ingrese el nombre del usuario que quiere restablecer a valores de fábrica"
+		echo ""
+		read usuario
+		if [ "$usuario" == "" ] ; then
+  			echo -e "\n"
+  			echo "El nombre no puede estar vacío, ejecute el script otra vez."
+  			echo -e "\n"
+  			exit 1
+  			fi
+  		if [ "$?" != 0 ] ; then
+   			echo -e "\n"
+  			echo "Ha ocurrido un error, asegurese de que los datos ingresados son correctos."
+  			exit 1
+			fi
+		echo -e "\n"
+		sudo userdel -r $usuario
+		sudo useradd -m -d /home/$usuario -G adm,cdrom,dip,plugdev,lpadmin,sambashare $usuario -s /bin/bash
+		echo "Ingrese una contraseña para el usuario, $usuario"
+		sudo passwd $usuario
+		echo -e "\n"echo "El usuario fue creado satisfactoriamente"
+		}
+		
 		
 # Ejecuta la función correspondiente a cada una de las opciones del script
 # ---
@@ -353,16 +387,16 @@ opc=$( \
         --column="funcionAEjecutar" \
         --column="Descripción" \
         --hide-column=2 \
-        --width=600 \
-        --height=625 \
+        --width=625 \
+        --height=650 \
     False usuario "Crear usuario sin derechos admin. No combine esta opción con otras." \
+    False restore_usuario "Restablece un usuario a valores originales. No combine esta opción con otras." \
     False installQshutdown "Instalar Apagado automático a las XX:XX horas de L-V (app qshutdown)" \
     False installNtpfix "Instalar corrección de hora en equipos conectados por wifi" \
+    False installOpenboard "Instalar aplicación de pizarra Openboard" \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
     False installSmartdre "Instalar drivers pizarras Smartboard-incluida SB480" \
     False installSigala "Instalar aplicación HGR-Sigala Server" \
-    False installDocker "Instalar Docker" \
-    False installOpenboard "Instalar aplicación de pizarra Openboard" \
     False installChrome "Instalar navegador Chrome" \
     False installsm "Instalar aplicación Editorial SM - Aprendizaje" \
     False installsantillana "Instalar aplicación Santillana Aula Virtual" \
@@ -371,6 +405,7 @@ opc=$( \
     False installgparted "Instalar Gparted, manejador de disco/particiones" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
+    False installDocker "Instalar Docker" \
     False swapKernel "Actualizar kernel del sistema" \
 )
 
