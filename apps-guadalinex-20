@@ -387,7 +387,7 @@ opc=$( \
         --column="funcionAEjecutar" \
         --column="Descripción" \
         --hide-column=2 \
-        --width=600 \
+        --width=625 \
         --height=625 \
     False usuario "Crear usuario sin derechos admin. No combine esta opción con otras." \
     False restore_usuario "Restablece un usuario a valores originales. No combine esta opción con otras." \
