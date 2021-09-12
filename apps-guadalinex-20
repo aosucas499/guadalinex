@@ -189,7 +189,7 @@ distribucion=$(lsb_release -cs)
 			sudo chown usuario:usuario /home/usuario/Escritorio/SM\ Aprendizaje.desktop
 			sudo mv /home/usuario/Escritorio/SM\ Aprendizaje.desktop /home/usuario/.local/share/applications/
 			# Fix para reparar el fallo de la aplicación. Olvidaron en el acceso directo renombrar al nuevo nombre de la app.
-			sudo cp /home/$USER/aprendizaje/SMAprendizaje-linux-x64/aprendizaje /home/$USER/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
+			cp /home/$USER/aprendizaje/SMAprendizaje-linux-x64/aprendizaje /home/$USER/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
 			sudo chown $USER:$USER /home/$USER/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
 			sudo rm smaprendizaje_1_8_0_64.run
 			else
