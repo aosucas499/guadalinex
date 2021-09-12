@@ -169,9 +169,9 @@ distribucion=$(lsb_release -cs)
 		}
 		
 		function installsm {
-		wget https://downloads.smaprendizaje.com/apps/smaprendizaje/smaprendizaje_1_5_0_64.run
-		chmod +x smaprendizaje_1_5_0_64.run
-		./smaprendizaje_1_5_0_64.run
+		wget https://downloads.smaprendizaje.com/apps/smaprendizaje/smaprendizaje_1_8_0_64.run
+		chmod +x smaprendizaje_1_8_0_64.run
+		./smaprendizaje_1_8_0_64.run
 		sed -i -e '$a Categories=Education' /home/$USER/Escritorio/SM\ Aprendizaje.desktop
 		mv /home/$USER/Escritorio/SM\ Aprendizaje.desktop /home/$USER/.local/share/applications/
 		if [ -d "/home/usuario" ]; then
@@ -180,14 +180,14 @@ distribucion=$(lsb_release -cs)
 			echo ""
 			echo "para instalarlo en la cuenta usuario"
 			echo ""
-           		su usuario -c ./smaprendizaje_1_5_0_64.run 				
+           		su usuario -c ./smaprendizaje_1_8_0_64.run 				
 			sudo chown $USER:$USER /home/usuario/Escritorio/SM\ Aprendizaje.desktop
 			sudo sed -i -e '$a Categories=Education' /home/usuario/Escritorio/SM\ Aprendizaje.desktop
 			sudo chown usuario:usuario /home/usuario/Escritorio/SM\ Aprendizaje.desktop
 			sudo mv /home/usuario/Escritorio/SM\ Aprendizaje.desktop /home/usuario/.local/share/applications/
-			sudo rm smaprendizaje_1_5_0_64.run
+			sudo rm smaprendizaje_1_8_0_64.run
 			else
-		rm smaprendizaje_1_5_0_64.run
+		rm smaprendizaje_1_8_0_64.run
 		fi
 		}
 		
