@@ -169,33 +169,38 @@ distribucion=$(lsb_release -cs)
 		}
 		
 		function installsm {
-		wget https://downloads.smaprendizaje.com/apps/smaprendizaje/smaprendizaje_1_5_0_64.run
-		chmod +x smaprendizaje_1_5_0_64.run
-		./smaprendizaje_1_5_0_64.run
+		wget https://downloads.smaprendizaje.com/apps/smaprendizaje/smaprendizaje_1_8_0_64.run
+		chmod +x smaprendizaje_1_8_0_64.run
+		./smaprendizaje_1_8_0_64.run
 		sed -i -e '$a Categories=Education' /home/$USER/Escritorio/SM\ Aprendizaje.desktop
 		mv /home/$USER/Escritorio/SM\ Aprendizaje.desktop /home/$USER/.local/share/applications/
+		# Fix para reparar el fallo de la aplicación. Olvidaron en el acceso directo renombrar al nuevo nombre de la app.
+		sudo cp /home/$USER/aprendizaje/SMAprendizaje-linux-x64/aprendizaje /home/$USER/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
+		sudo chown $USER:$USER /home/$USER/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
 		if [ -d "/home/usuario" ]; then
 			echo ""
 			echo "Introduce la contraseña del usuario = usuario"
 			echo ""
 			echo "para instalarlo en la cuenta usuario"
 			echo ""
-           		su usuario -c ./smaprendizaje_1_5_0_64.run 				
-			sudo chown $USER:$USER /home/usuario/Escritorio/SM\ Aprendizaje.desktop
+           		su usuario -c ./smaprendizaje_1_8_0_64.run 				
 			sudo sed -i -e '$a Categories=Education' /home/usuario/Escritorio/SM\ Aprendizaje.desktop
 			sudo chown usuario:usuario /home/usuario/Escritorio/SM\ Aprendizaje.desktop
 			sudo mv /home/usuario/Escritorio/SM\ Aprendizaje.desktop /home/usuario/.local/share/applications/
-			sudo rm smaprendizaje_1_5_0_64.run
+			# Fix para reparar el fallo de la aplicación. Olvidaron en el acceso directo renombrar al nuevo nombre de la app.
+			sudo cp /home/usuario/aprendizaje/SMAprendizaje-linux-x64/aprendizaje /home/usuario/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
+			sudo chown usuario:usuario /home/usuario/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
+			sudo rm smaprendizaje_1_8_0_64.run
 			else
-		rm smaprendizaje_1_5_0_64.run
+		rm smaprendizaje_1_8_0_64.run
 		fi
 		}
 		
 		function installsantillana {
 		wget https://prod.santillana.com/downloads/av/linux.tar.gz
 		tar -xzvf linux.tar.gz
-		chmod +x aulavirtual-3.3.3-linux-x64-installer.run
-		./aulavirtual-3.3.3-linux-x64-installer.run
+		chmod +x aulavirtual-3.3.4-linux-x64-installer.run
+		./aulavirtual-3.3.4-linux-x64-installer.run
 		sed -i -e '$a Categories=Education' /home/$USER/Escritorio/Aula\ Virtual.desktop
 		mv /home/$USER/Escritorio/Aula\ Virtual.desktop /home/$USER/.local/share/applications/
 		if [ -d "/home/usuario" ]; then
@@ -204,25 +209,17 @@ distribucion=$(lsb_release -cs)
 			echo ""
 			echo "para instalarlo en la cuenta usuario"
 			echo ""
-           		su usuario -c ./aulavirtual-3.3.3-linux-x64-installer.run				
+           		su usuario -c ./aulavirtual-3.3.4-linux-x64-installer.run				
 			sudo chown $USER:$USER /home/usuario/Escritorio/Aula\ Virtual.desktop
 			sudo sed -i -e '$a Categories=Education' /home/usuario/Escritorio/Aula\ Virtual.desktop
 			sudo chown usuario:usuario /home/usuario/Escritorio/Aula\ Virtual.desktop
 			sudo mv /home/usuario/Escritorio/Aula\ Virtual.desktop /home/usuario/.local/share/applications/
-			sudo rm aulavirtual-3.3.3-linux-x64-installer.run
+			sudo rm aulavirtual-3.3.4-linux-x64-installer.run
 			sudo rm linux.tar.gz
 			else
-		rm aulavirtual-3.3.3-linux-x64-installer.run
+		rm aulavirtual-3.3.4-linux-x64-installer.run
 		rm linux.tar.gz
 		fi
-		}
-		
-		function installActivdre {
-		git clone https://github.com/aosucas499/activdre.git
-		cd activdre
-		chmod +x educaandos.sh
-		./educaandos.sh
-		cd ..
 		}
 		
 		function installSmartdre {
