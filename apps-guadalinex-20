@@ -336,6 +336,14 @@ distribucion=$(lsb_release -cs)
 		echo -e "\n"echo "El usuario fue creado satisfactoriamente"
 		}
 		
+		function installMee {
+		cd /home/$USER
+		wget --header="Host: lms-api.macmillan.education" --header="User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" --header="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" --header="Accept-Language: es-ES,es;q=0.9" --header="Referer: https://myclasses.macmillaneducationeverywhere.com/" "https://lms-api.macmillan.education/ACEApi/PdfExport/downloadapp?environmentId=linux64bit&appType=meeTeacherApps&userType=macmillanTeacherAdminLinux64" -c -O 'MacmillanEducationTeacher-Admin-Linux-x64.zip'
+		unzip Mac*.zip
+		rm Mac*.zip
+		sudo dpkg -i Mac*.deb
+		rm Mac*.deb
+		}
 		
 # Ejecuta la función correspondiente a cada una de las opciones del script
 # ---
@@ -385,7 +393,7 @@ opc=$( \
         --column="Descripción" \
         --hide-column=2 \
         --width=625 \
-        --height=650 \
+        --height=700 \
     False usuario "Crear usuario sin derechos admin. No combine esta opción con otras." \
     False restore_usuario "Restablece un usuario a valores originales. No combine esta opción con otras." \
     False installQshutdown "Instalar Apagado automático a las XX:XX horas de L-V (app qshutdown)" \
@@ -398,6 +406,7 @@ opc=$( \
     False installsm "Instalar aplicación Editorial SM - Aprendizaje" \
     False installsantillana "Instalar aplicación Santillana Aula Virtual" \
     False installBlinklearning "Instalar aplicación Blinklearning - Usado en libros de Oxford" \
+    False installMee "Instalar aplicación MacMillan Education Everywhere" \
     False installkazam "Instalar grabador de escritorio Kazam" \
     False installgparted "Instalar Gparted, manejador de disco/particiones" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
