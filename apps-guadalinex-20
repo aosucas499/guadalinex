@@ -287,7 +287,7 @@ distribucion=$(lsb_release -cs)
 		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
               	sudo mv focal.list /etc/apt/sources.list.d/
              	sudo apt update
-		sudo apt install kazam
+		sudo apt install kazam -y
 		sudo sed -i 's/time.clock/time.perf_counter/g' /usr/lib/python3/dist-packages/kazam/pulseaudio/pulseaudio.py
 		sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update
@@ -297,7 +297,7 @@ distribucion=$(lsb_release -cs)
 		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
               	sudo mv focal.list /etc/apt/sources.list.d/
              	sudo apt update
-		sudo apt install gparted
+		sudo apt install gparted -y
 		sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update
 		}	
