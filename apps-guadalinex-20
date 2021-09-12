@@ -222,6 +222,14 @@ distribucion=$(lsb_release -cs)
 		fi
 		}
 		
+		function installActivdre {
+		git clone https://github.com/aosucas499/activdre.git
+		cd activdre
+		chmod +x educaandos.sh
+		./educaandos.sh
+		cd ..
+		}
+		
 		function installSmartdre {
 		git clone https://github.com/aosucas499/smartdre.git
 		cd smartdre
