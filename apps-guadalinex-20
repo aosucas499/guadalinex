@@ -343,6 +343,7 @@ distribucion=$(lsb_release -cs)
 		rm Mac*.zip
 		sudo dpkg -i Mac*.deb
 		rm Mac*.deb
+		sudo sed -i 's/Categories=GNOME;GTK;Utility;/Categories=Education;/g' /usr/share/applications/macmillaneducationteacher.desktop
 		}
 		
 # Ejecuta la función correspondiente a cada una de las opciones del script
