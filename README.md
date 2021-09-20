@@ -23,7 +23,7 @@ If this project helps you,  you can give me a cup of coffee .
 
 ## Instalador
 Instala el sistema como en una distribución linux, eligiendo particiones, usuarios, etc...
-[!](https://github.com/aosucas499/guadalinex/blob/main/im%C3%A1genes/educaandos_partition.png)
+![](https://github.com/aosucas499/guadalinex/blob/main/im%C3%A1genes/educaandos_partition.png)
 
 Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his amazing tool "penguin eggs" to generate the ISO and the installer calamares
 
