@@ -39,3 +39,13 @@ Aplicación para instalar en EducaAndOS: drivers pizarras digitales, repositorio
 
 ![](https://github.com/aosucas499/guadalinex/blob/main/im%C3%A1genes/educaandos_install.png)
 
+
+
+Si este proyecto te ayuda, puedes invitarme a un café.
+
+
+If this project helps you,  you can give me a cup of coffee .
+
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?business=FUMT27MVTRTHJ&no_recurring=0&item_name=Proyectos+TIC+Andaluc%C3%ADa&currency_code=EUR)
+
