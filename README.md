@@ -21,6 +21,12 @@ If this project helps you,  you can give me a cup of coffee .
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?business=FUMT27MVTRTHJ&no_recurring=0&item_name=Proyectos+TIC+Andaluc%C3%ADa&currency_code=EUR)
 
+## Instalador
+Instala el sistema como en una distribución linux, eligiendo particiones, usuarios, etc...
+[!](https://github.com/aosucas499/guadalinex/blob/main/im%C3%A1genes/educaandos_partition.png)
+
+Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his amazing tool "penguin eggs" to generate the ISO and the installer calamares
+
 
 
 ## apps-guadalinex-20
@@ -30,8 +36,6 @@ Aplicación para instalar en EducaAndOS: drivers pizarras digitales, repositorio
 
 ![](https://github.com/aosucas499/guadalinex/blob/main/imágenes/VirtualBox_guadalinex%2020.png)
 
-
-Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his amazing tool "penguin eggs" to generate the ISO and the installer calamares
 
 ![](https://github.com/aosucas499/guadalinex/blob/main/im%C3%A1genes/educaandos_install.png)
 
