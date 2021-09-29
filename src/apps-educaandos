@@ -6,6 +6,24 @@ gitfolder=/home/$USER/guadalinex
 gitguadalinex=https://github.com/aosucas499/guadalinex
 branch=main
 
+# Función que repara las actualizaciones de cga-update-manager
+# por alguna razón en las versiones previas de la versión "plus"
+# muestra un error
+
+function fixCgaupdate {
+
+	if [ -f "/var/log/cga-update-manager/cga-updater.log" ]; then
+	
+		echo "CGA-update-manager existente"
+	else
+		sudo mkdir -p /var/log/cga-update-manager/
+		sudo touch /var/log/cga-update-manager/cga-updater.log
+		sudo chmod 666 /var/log/cga-update-manager/cga-updater.log
+		echo "CGA-update-manager reparado"
+		notify-send "CGA-update-manager reparado"
+	fi
+}
+
 # Función para descargar repositorio en caso de que no exista en el sistema.
 # Por ejemplo, en el primer inicio. También instala la app en el sistema.
 
@@ -112,5 +130,6 @@ function execRepo {
 #
 
 installOnsystem
+fixCgaupdate
 execRepo
 
