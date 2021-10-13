@@ -43,6 +43,17 @@ function fixBackground {
 	fi
 }	
 
+function arduinoGroup {
+
+	if groups $USER | grep -q "dialout"; then
+		echo "El usuario pertenece al grupo dialout"
+	else
+		echo "El usuario no pertenece al grupo, corrigiendo..."
+		notify-send "El usuario no pertenece al grupo, corrigiendo..."
+		sudo usermod -a -G dialout $USER
+	fi
+}
+
 # Función para descargar repositorio en caso de que no exista en el sistema.
 # Por ejemplo, en el primer inicio. También instala la app en el sistema.
 
@@ -151,5 +162,6 @@ function execRepo {
 installOnsystem
 fixCgaupdate
 fixBackground
+arduinoGroup
 execRepo
 
