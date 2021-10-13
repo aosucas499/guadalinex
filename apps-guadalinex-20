@@ -244,9 +244,7 @@ distribucion=$(lsb_release -cs)
 		cd hgr-dre
 		chmod +x install-hgr-dre
 		./install-hgr-dre
-		#Si hay un usuario = usuario lo establece también
 		
-		fi
 		}
 		
 		function usuario {
