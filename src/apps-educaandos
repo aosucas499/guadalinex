@@ -12,21 +12,6 @@ bgsize=$(du $background|cut -f 1)
 # por alguna razón en las versiones previas de la versión "plus"
 # muestra un error
 
-function adminGroup {
-
-	if groups $USER | grep -q ": admin"; then
-		echo "El usuario pertenece al grupo admin, continuamos..."
-	else
-		echo "El usuario no es administrador"
-		echo "Contacte con coodinador/a TDE"
-		echo "para instalar apps en el sistema"
-		notify-send "El usuario no es administrador"
-		notify-send "Contacte con coodinador/a TDE"
-		notify-send "para instalar apps en el sistema"
-		exit
-	fi
-}
-
 function fixCgaupdate {
 
 	if [ -f "/var/log/cga-update-manager/cga-updater.log" ]; then
@@ -91,7 +76,7 @@ function installOnsystem {
 		echo "Ejecútela desde el menú Herramientas del Sistema"
 		echo ""
 		notify-send "Ejecútela desde el menú Herramientas del Sistema"
-		#exit
+		exit
 		
 	fi
 	
@@ -118,7 +103,7 @@ function descargarRepo {
 		echo "Ejecútela desde el menú Herramientas del Sistema"
 		echo ""
 		notify-send "Ejecútela desde el menú Herramientas del Sistema"
-		#exit
+		exit
 	fi
 			
 }
@@ -158,7 +143,7 @@ function updateRepo {
 		echo "Ejecútela desde el menú Herramientas del Sistema"
 		echo ""
 		notify-send "Ejecútela desde el menú Herramientas del Sistema"
-		#exit
+		exit
 	fi
 }
 
@@ -173,7 +158,6 @@ function execRepo {
 
 ## Variables a ejecutar en el script
 #
-adminGroup
 installOnsystem
 fixCgaupdate
 fixBackground
