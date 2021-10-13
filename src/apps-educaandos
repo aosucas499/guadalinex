@@ -76,7 +76,7 @@ function installOnsystem {
 		echo "Ejecútela desde el menú Herramientas del Sistema"
 		echo ""
 		notify-send "Ejecútela desde el menú Herramientas del Sistema"
-		exit
+		#exit
 		
 	fi
 	
@@ -103,7 +103,7 @@ function descargarRepo {
 		echo "Ejecútela desde el menú Herramientas del Sistema"
 		echo ""
 		notify-send "Ejecútela desde el menú Herramientas del Sistema"
-		exit
+		#exit
 	fi
 			
 }
@@ -143,7 +143,7 @@ function updateRepo {
 		echo "Ejecútela desde el menú Herramientas del Sistema"
 		echo ""
 		notify-send "Ejecútela desde el menú Herramientas del Sistema"
-		exit
+		#exit
 	fi
 }
 
