@@ -5,6 +5,8 @@
 gitfolder=/home/$USER/guadalinex
 gitguadalinex=https://github.com/aosucas499/guadalinex
 branch=main
+background=/usr/share/backgrounds/educaandos_wallpaper.png
+bgsize=$(du $background|cut -f 1)
 
 # Función que repara las actualizaciones de cga-update-manager
 # por alguna razón en las versiones previas de la versión "plus"
@@ -23,6 +25,23 @@ function fixCgaupdate {
 		notify-send "CGA-update-manager reparado"
 	fi
 }
+
+# Función que repara el fondo de educaandos plus cuando es cambiado por cga para la versión oficial en alguna actualización.
+
+function fixBackground {
+
+		echo "$bgsize"
+
+	if [[ $bgsize = "524" ]]; then
+		#echo "$bgsize"
+		#echo "tamaño apropiado";
+	else
+		#echo "$bgsize"
+		#echo "tamaño innapropiado";
+		sudo wget https://github.com/aosucas499/guadalinex/raw/main/isobuilder/eggs/educaandos_wallpaper-plus.png -O /tmp/educaandos_wallpaper-plus.png
+		sudo cp /tmp/educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
+	fi
+}	
 
 # Función para descargar repositorio en caso de que no exista en el sistema.
 # Por ejemplo, en el primer inicio. También instala la app en el sistema.
@@ -131,5 +150,6 @@ function execRepo {
 
 installOnsystem
 fixCgaupdate
+fixBackground
 execRepo
 
