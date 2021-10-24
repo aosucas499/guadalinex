@@ -238,6 +238,15 @@ distribucion=$(lsb_release -cs)
 		cd ..
 		}
 		
+		function installStarboardre {
+		cd /home/$USER
+		git clone https://github.com/aosucas499/starboardre.git -b 0.2
+		cd starboardre
+		chmod +x install-starboardre
+		./install-starboardre
+		cd $OLDPWD
+		}
+		
 		function installSigala {
 		cd /home/$USER/
 		git clone https://github.com/aosucas499/hgr-dre.git 
@@ -398,6 +407,7 @@ opc=$( \
     False installOpenboard "Instalar aplicación de pizarra Openboard" \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
     False installSmartdre "Instalar drivers pizarras Smartboard-incluida SB480" \
+    False installStarboardre "Instalar drivers pizarras Hitachi Starboard" \
     False installSigala "Instalar aplicación HGR-Sigala Server" \
     False installChrome "Instalar navegador Chrome" \
     False installsm "Instalar aplicación Editorial SM - Aprendizaje" \
