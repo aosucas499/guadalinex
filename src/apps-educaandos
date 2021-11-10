@@ -54,6 +54,19 @@ function arduinoGroup {
 	fi
 }
 
+function restorePanelapp {
+
+	if [ -f "/usr/share/applications" ]; then
+	
+		echo "App restore panel existente"
+	else
+		cd /home/$USER
+		sudo cp guadalinex/src/restorepanel.desktop /usr/share/applications
+		echo "Restore Panel App instalada"
+		notify-send "Restore Panel App instalada"
+	fi
+}
+
 # Función para descargar repositorio en caso de que no exista en el sistema.
 # Por ejemplo, en el primer inicio. También instala la app en el sistema.
 
@@ -163,4 +176,4 @@ fixCgaupdate
 fixBackground
 arduinoGroup
 execRepo
-
+restorePanelapp
