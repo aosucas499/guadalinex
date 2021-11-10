@@ -56,8 +56,7 @@ function arduinoGroup {
 
 function restorePanelapp {
 
-	if [ -f "/usr/share/applications" ]; then
-	
+	if [ -f "/usr/share/applications/restorepanel.desktop" ]; then
 		echo "App restore panel existente"
 	else
 		cd /home/$USER
