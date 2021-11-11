@@ -36,13 +36,12 @@ function adminGroup {
         if getent group admin |grep $USER; then
                 echo "El usuario pertenece al grupo admin, continuamos..."
         else
-                echo "El usuario no es administrador"
-                echo "Contacte con coodinador/a TDE"
-                echo "para instalar apps en el sistema"
-                notify-send "El usuario no es administrador"
-                notify-send "Contacte con coodinador/a TDE"
-                notify-send "para instalar apps en el sistema"
-                exit
+               zenity --no-wrap \
+       		--warning \
+        	--title "No tiene derechos de administrador" \
+        	--text "Contacte con su Coordinador/a TDE para instalar aplicaciones."
+        
+    		exit 1;
         fi
 }
 
