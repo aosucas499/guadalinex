@@ -31,15 +31,15 @@ function fixCgaupdate {
 function fixBackground {
 
 		#echo "$bgsize"
-	if [[ $bgsize = "524" ]]; then
+	if [[ $bgsize = "500" ]]; then
 		#echo "$bgsize"
-		echo "fondo de pantalla apropiado"
-	else
-		#echo "$bgsize"
-		#echo "tamaño innapropiado"
+		echo "Fondo de pantalla incorrecto, corrigiendo..."
 		notify-send "Fondo de pantalla incorrecto, corrigiendo..."
 		sudo wget https://github.com/aosucas499/guadalinex/raw/main/isobuilder/eggs/educaandos_wallpaper-plus.png -O /tmp/educaandos_wallpaper-plus.png
 		sudo cp /tmp/educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
+	else
+		#echo "$bgsize"
+		echo "fondo de pantalla apropiado"
 	fi
 }	
 
