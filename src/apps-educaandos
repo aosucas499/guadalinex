@@ -7,10 +7,43 @@ gitguadalinex=https://github.com/aosucas499/guadalinex
 branch=main
 background=/usr/share/backgrounds/educaandos_wallpaper.png
 bgsize=$(du $background|cut -f 1)
+isConnectionAvailable=$(echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1 && echo "True" || echo "False")
+
+# Comprobamos si hay internet
+# ---
+
+if [[ $isConnectionAvailable == "False" ]]; then
+	zenity --no-wrap \
+        --warning \
+        --title "Sin conexión a Internet" \
+        --text "Es necesaria conexión a Internet para poder utilizar esta app."
+        
+    exit 1;
+fi 
+
+echo ""
+echo "Hay conexión a Internet. Seguimos..."
+echo ""
 
 # Función que repara las actualizaciones de cga-update-manager
 # por alguna razón en las versiones previas de la versión "plus"
 # muestra un error
+
+# Función que comprueba que el usuario que lanza la app tiene derechos admin.
+
+function adminGroup {
+
+        if getent group admin |grep $USER; then
+                echo "El usuario pertenece al grupo admin, continuamos..."
+        else
+               zenity --no-wrap \
+       		--warning \
+        	--title "No tiene derechos de administrador" \
+        	--text "Contacte con su Coordinador/a TDE para instalar aplicaciones."
+        
+    		exit 1;
+        fi
+}
 
 function fixCgaupdate {
 
@@ -31,15 +64,15 @@ function fixCgaupdate {
 function fixBackground {
 
 		#echo "$bgsize"
-	if [[ $bgsize = "524" ]]; then
+	if [[ $bgsize = "500" ]]; then
 		#echo "$bgsize"
-		echo "fondo de pantalla apropiado"
-	else
-		#echo "$bgsize"
-		#echo "tamaño innapropiado"
+		echo "Fondo de pantalla incorrecto, corrigiendo..."
 		notify-send "Fondo de pantalla incorrecto, corrigiendo..."
 		sudo wget https://github.com/aosucas499/guadalinex/raw/main/isobuilder/eggs/educaandos_wallpaper-plus.png -O /tmp/educaandos_wallpaper-plus.png
 		sudo cp /tmp/educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
+	else
+		#echo "$bgsize"
+		echo "fondo de pantalla apropiado"
 	fi
 }	
 
@@ -51,6 +84,18 @@ function arduinoGroup {
 		echo "El usuario no pertenece al grupo, corrigiendo..."
 		notify-send "El usuario no pertenece al grupo, corrigiendo..."
 		sudo usermod -a -G dialout $USER
+	fi
+}
+
+function restorePanelapp {
+
+	if [ -f "/usr/share/applications/restorepanel.desktop" ]; then
+		echo "App restore panel existente"
+	else
+		cd /home/$USER
+		sudo cp guadalinex/src/restorepanel.desktop /usr/share/applications
+		echo "Restore Panel App instalada"
+		notify-send "Restore Panel App instalada"
 	fi
 }
 
@@ -158,9 +203,10 @@ function execRepo {
 
 ## Variables a ejecutar en el script
 #
+adminGroup
 installOnsystem
 fixCgaupdate
 fixBackground
 arduinoGroup
 execRepo
-
+restorePanelapp

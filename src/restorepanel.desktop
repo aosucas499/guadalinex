@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Exec=dconf reset -f / 
+Icon=/usr/share/icons/EducaAndOSIcons/apps/scalable/accessories-media-converter.svg
+Terminal=true
+Name[es_ES]=Restaurar paneles del usuario actual
+Comment[es_ES]=Restaurar paneles del usuario actual
+Categories=System;Settings;
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=1
+NoDisplay=false
+Hidden=false

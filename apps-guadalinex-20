@@ -240,7 +240,7 @@ distribucion=$(lsb_release -cs)
 		
 		function installStarboardre {
 		cd /home/$USER
-		git clone https://github.com/aosucas499/starboardre.git -b 0.2
+		git clone https://github.com/aosucas499/starboardre.git
 		cd starboardre
 		chmod +x install-starboardre
 		./install-starboardre
@@ -253,6 +253,14 @@ distribucion=$(lsb_release -cs)
 		cd hgr-dre
 		chmod +x install-hgr-dre
 		./install-hgr-dre
+		}
+		
+		function installBells {
+		cd /home/$USER/
+		git clone https://github.com/aosucas499/bellscheduler-dre.git 
+		cd bellscheduler-dre
+		chmod +x install-bellscheduler-dre
+		./install-bellscheduler-dre
 		}
 		
 		function usuario {
@@ -408,7 +416,8 @@ opc=$( \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
     False installSmartdre "Instalar drivers pizarras Smartboard-incluida SB480" \
     False installStarboardre "Instalar drivers pizarras Hitachi Starboard" \
-    False installSigala "Instalar aplicación HGR-Sigala Server" \
+    False installSigala "Instalar aplicación HGR-Sigala Servidor y cliente" \
+    False installBells "Instalar Bell Scheduler - Programador alarmas con sonido" \
     False installChrome "Instalar navegador Chrome" \
     False installsm "Instalar aplicación Editorial SM - Aprendizaje" \
     False installsantillana "Instalar aplicación Santillana Aula Virtual" \
