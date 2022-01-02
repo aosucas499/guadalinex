@@ -12,8 +12,10 @@ sudo dpkg -i eggs*.deb
 
 # Install flatpak repo and packages
 sudo apt-get install -y libflatpak0
+sudo apt-get install -y flatpak
 sudo dpkg -i ../../src/gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
-#flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#curl -o flathub.flatpakrepo https://flathub.org/repo/flathub.flatpakrepo 
+#sudo flatpak remote-add --if-not-exists flathub --from flathub.flatpakrepo
 
 # Modificar calamares 
 sudo cp locale.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
