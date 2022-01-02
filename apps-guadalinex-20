@@ -424,7 +424,7 @@ opc=$( \
         --column="Descripción" \
         --hide-column=2 \
         --width=625 \
-        --height=725 \
+        --height=775 \
     False usuario "Crear usuario sin derechos admin. No combine esta opción con otras." \
     False restore_usuario "Restablece un usuario a valores originales. No combine esta opción con otras." \
     False installQshutdown "Instalar Apagado automático a las XX:XX horas de L-V (app qshutdown)" \
