@@ -119,6 +119,7 @@ else
 	#flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	sudo rm gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
 	sudo rm /etc/apt/sources.list.d/focal.list
+	sudo apt-get update -y 
 	echo "Flatpak instalado"
 	notify-send "Flatpak instalado"
 fi
