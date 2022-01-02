@@ -107,11 +107,13 @@ function flatpakInstall {
         echo "Flatpak instalado"
 else
         echo "Flatpak no instalado"
+	notify-send "Espere...Instalando Flatpak"
 	sudo rm /etc/apt/sources.list.d/focal.list
 	sudo wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/focal-sources.list
 	sudo mv focal-sources.list /etc/apt/sources.list.d/focal.list
 	sudo apt-get update -y 
 	sudo apt-get install -y libflatpak0
+	sudo apt-get install -y flatpak
 	sudo wget https://github.com/aosucas499/guadalinex/raw/main/src/gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
 	sudo dpkg -i gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
 	#flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
