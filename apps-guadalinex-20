@@ -241,6 +241,8 @@ distribucion=$(lsb_release -cs)
 		function installSmartboard480 {
 		# Paquete oficial smartboard de eos
 		sudo apt update -y
+		sudo apt install smart-product-drivers -y
+		sudo apt install smart-notebook -y
 		sudo apt install smartboard-meta -y
 		# añadimos drivers para smartboard 480
 		sudo apt-get install git -y
