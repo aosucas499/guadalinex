@@ -238,7 +238,19 @@ distribucion=$(lsb_release -cs)
 		cd ..
 		}
 		
-		function installSmartboard {
+		function installSmartboard480 {
+		# Paquete oficial smartboard de eos
+		sudo apt update -y
+		sudo apt install smartboard-meta -y
+		# añadimos drivers para smartboard 480
+		sudo apt-get install git -y
+		sudo apt-get install dkms -y
+		git clone https://github.com/aosucas499/nwfermi
+		cd nwfermi
+		chmod +x nwfermi-lliurex.sh
+		sudo ./nwfermi-lliurex.sh
+		cd ..
+		sudo rm -r nwfermi
 		}
 		
 		function installStarboardre {
@@ -417,7 +429,7 @@ opc=$( \
     False installNtpfix "Instalar corrección de hora en equipos conectados por wifi" \
     False installOpenboard "Instalar aplicación de pizarra Openboard" \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
-    False installSmartboard "Instalar drivers pizarras Smartboard oficial + drivers modelo SB480 (eos+)" \
+    False installSmartboard480 "Instalar drivers pizarras Smartboard oficial + drivers modelo SB480 (eos+)" \
     False installSmartdre "Instalar drivers pizarras Smartboard-docker incluida SB480 (eos+)" \
     False installStarboardre "Instalar drivers pizarras Hitachi Starboard" \
     False installSigala "Instalar aplicación HGR-Sigala Servidor y cliente" \
