@@ -238,6 +238,9 @@ distribucion=$(lsb_release -cs)
 		cd ..
 		}
 		
+		function installSmartboard {
+		}
+		
 		function installStarboardre {
 		cd /home/$USER
 		git clone https://github.com/aosucas499/starboardre.git
@@ -407,14 +410,15 @@ opc=$( \
         --column="Descripción" \
         --hide-column=2 \
         --width=625 \
-        --height=700 \
+        --height=725 \
     False usuario "Crear usuario sin derechos admin. No combine esta opción con otras." \
     False restore_usuario "Restablece un usuario a valores originales. No combine esta opción con otras." \
     False installQshutdown "Instalar Apagado automático a las XX:XX horas de L-V (app qshutdown)" \
     False installNtpfix "Instalar corrección de hora en equipos conectados por wifi" \
     False installOpenboard "Instalar aplicación de pizarra Openboard" \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
-    False installSmartdre "Instalar drivers pizarras Smartboard-incluida SB480" \
+    False installSmartboard "Instalar drivers pizarras Smartboard oficial + drivers modelo SB480 (eos+)" \
+    False installSmartdre "Instalar drivers pizarras Smartboard-docker incluida SB480 (eos+)" \
     False installStarboardre "Instalar drivers pizarras Hitachi Starboard" \
     False installSigala "Instalar aplicación HGR-Sigala Servidor y cliente" \
     False installBells "Instalar Bell Scheduler - Programador alarmas con sonido" \
