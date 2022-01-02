@@ -116,7 +116,8 @@ else
 	sudo apt-get install -y flatpak
 	sudo wget https://github.com/aosucas499/guadalinex/raw/main/src/gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
 	sudo dpkg -i gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
-	#flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+	#curl -o flathub.flatpakrepo https://flathub.org/repo/flathub.flatpakrepo 
+	#sudo flatpak remote-add --if-not-exists flathub --from flathub.flatpakrepo
 	sudo rm gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
 	sudo rm /etc/apt/sources.list.d/focal.list
 	sudo apt-get update -y 
