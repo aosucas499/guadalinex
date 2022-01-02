@@ -10,6 +10,9 @@ sudo apt-get remove -y opera-stable
 wget https://sourceforge.net/projects/penguins-eggs/files/packages-deb/oldest/eggs_7.8.39-1_amd64.deb
 sudo dpkg -i eggs*.deb
 
+# Install flatpak repo and packages
+sudo apt-get install -y libflatpak0
+
 # Modificar calamares 
 sudo cp locale.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
 sudo cp partition.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
