@@ -99,6 +99,28 @@ function restorePanelapp {
 	fi
 }
 
+# Función para instalar las flatpak y sus dependencias 
+
+function flatpakInstall {
+
+	if dpkg-query --list | grep gnome-software-plugin-flatpak; then
+        echo "Flatpak instalado"
+else
+        echo "Flatpak no instalado"
+	sudo rm /etc/apt/sources.list.d/focal.list
+	sudo wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/focal-sources.list
+	sudo mv focal-sources.list /etc/apt/sources.list.d/focal.list
+	sudo apt-get update -y 
+	sudo apt-get install -y libflatpak0
+	sudo wget https://github.com/aosucas499/guadalinex/raw/main/src/gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
+	sudo dpkg -i gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
+	#flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+	sudo rm gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
+	echo "Flatpak instalado"
+	notify-send "Flatpak instalado"
+fi
+
+
 # Función para descargar repositorio en caso de que no exista en el sistema.
 # Por ejemplo, en el primer inicio. También instala la app en el sistema.
 
@@ -210,3 +232,6 @@ fixBackground
 arduinoGroup
 execRepo
 restorePanelapp
+flatpakInstall
+
+
