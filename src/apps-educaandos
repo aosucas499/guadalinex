@@ -238,6 +238,6 @@ fixBackground
 arduinoGroup
 execRepo
 restorePanelapp
-flatpakInstall
+#flatpakInstall
 
 
