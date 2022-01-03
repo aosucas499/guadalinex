@@ -109,8 +109,8 @@ else
         echo "Flatpak no instalado"
 	notify-send "Espere...Instalando Flatpak"
 	sudo rm /etc/apt/sources.list.d/focal.list
-	sudo wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/focal-sources.list
-	sudo mv focal-sources.list /etc/apt/sources.list.d/focal.list
+	sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
+	sudo mv focal.list /etc/apt/sources.list.d/focal.list
 	sudo apt-get update -y 
 	sudo apt-get install -y libflatpak0
 	sudo apt-get install -y flatpak
@@ -238,6 +238,6 @@ fixBackground
 arduinoGroup
 execRepo
 restorePanelapp
-#flatpakInstall
+flatpakInstall
 
 
