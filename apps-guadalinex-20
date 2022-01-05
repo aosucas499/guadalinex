@@ -142,8 +142,6 @@ distribucion=$(lsb_release -cs)
 				sudo apt-get install -y flatpak
 				sudo wget https://github.com/aosucas499/guadalinex/raw/main/src/gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
 				sudo dpkg -i gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
-				#curl -o flathub.flatpakrepo https://flathub.org/repo/flathub.flatpakrepo 
-				#sudo flatpak remote-add --if-not-exists flathub --from flathub.flatpakrepo
 				sudo rm gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
 				sudo rm /etc/apt/sources.list.d/focal.list
 				sudo apt-get update -y 
@@ -153,18 +151,19 @@ distribucion=$(lsb_release -cs)
 			# Preguntamos al usuario si quiere añadir los repositorios flatpak a gnome-software
 			zenity --question \
        			--title="¿Añadir repositorio flatpak a Centro de Software EducaAndOS?" \
-       			--width=400 \
-       			--text="¿Añadir repo flatpak a Centro Software EOS?"
-			--ok-label="Sí." \
-       			--cancel-label="No, me apaño con la terminal." \
+       			--width=600 \
+       			--text="¿Añadir repo flatpak a Centro Software EOS? En caso afirmativo, las apps le apareceran para instalar en el centro de software de EducaAndOS"
 			ans=$?		
 				if [ $ans -eq 0 ]
 				then
     					echo "Repo flatpak añadido a Centro de software EOS"
 					notify-send "Repo flatpak añadido a Centro de software EOS"
+					curl -o flathub.flatpakrepo https://flathub.org/repo/flathub.flatpakrepo 
+					sudo flatpak remote-add --if-not-exists flathub --from flathub.flatpakrepo
 				else
     					echo "Repo flatpak NO añadido a Centro de software EOS"
-					Nntify-send "Repo flatpak NO añadido a Centro de software EOS"
+					notify-send "Repo flatpak NO añadido a Centro de software EOS"
+					notify-send "Podrá instalar apps flatpak usando la terminal"
 				fi
 				
 		}
