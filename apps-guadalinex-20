@@ -306,8 +306,8 @@ distribucion=$(lsb_release -cs)
 			notify-send "Smartboard EOS no instalado"
 			zenity --error \
        			--title="Smartboard EOS no instalado" \
-      			--width=250 \
-      			--text="Instale la aplicación <b>Pizarra Smartboard</b> y vuelva a ejecutar esta instalación"
+      			--width=500 \
+      			--text="Instale la aplicación <b>Pizarra Smartboard</b> desde el centro de software EducaAndOS y vuelva a ejecutar esta instalación"
 			gnome-software --details-pkg=smartboard-meta
 		fi
 		}
