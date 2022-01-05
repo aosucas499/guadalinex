@@ -2,7 +2,8 @@
 # users
 ---
 doAutologin: false
-setRootPassword: false
+setRootPassword: true
+doReusePassword: true
 sudoersGroup: sudo
 defaultGroups:
     - adm
