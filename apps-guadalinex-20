@@ -150,6 +150,23 @@ distribucion=$(lsb_release -cs)
 				echo "Flatpak instalado"
 				notify-send "Flatpak instalado"
 				fi
+			# Preguntamos al usuario si quiere añadir los repositorios flatpak a gnome-software
+			zenity --question \
+       			--title="¿Añadir repositorio flatpak a Centro de Software EducaAndOS?" \
+       			--width=400 \
+       			--text="¿Añadir repo flatpak a Centro Software EOS?"
+			--ok-label="Sí." \
+       			--cancel-label="No, me apaño con la terminal." \
+			ans=$?		
+				if [ $ans -eq 0 ]
+				then
+    					echo "Repo flatpak añadido a Centro de software EOS"
+					notify-send "Repo flatpak añadido a Centro de software EOS"
+				else
+    					echo "Repo flatpak NO añadido a Centro de software EOS"
+					Nntify-send "Repo flatpak NO añadido a Centro de software EOS"
+				fi
+				
 		}
 
 		function installNtpfix {
