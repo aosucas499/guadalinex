@@ -240,19 +240,32 @@ distribucion=$(lsb_release -cs)
 		
 		function installSmartboard480 {
 		# Paquete oficial smartboard de eos
+		# Comprobamos que está instalado desde gnome-software
+		# en caso contrario lanzamos la tienda para que instale
+		# y pedimos al usuario que lanze otra vez la instalación.
 		sudo apt update -y
-		sudo apt install smart-product-drivers -y
-		sudo apt install smart-notebook -y
-		sudo apt install smartboard-meta -y
-		# añadimos drivers para smartboard 480
-		sudo apt-get install git -y
-		sudo apt-get install dkms -y
-		git clone https://github.com/aosucas499/nwfermi
-		cd nwfermi
-		chmod +x nwfermi-lliurex.sh
-		sudo ./nwfermi-lliurex.sh
-		cd ..
-		sudo rm -r nwfermi
+		if dpkg-query --list | grep smartboard-meta; then
+        		echo "Smartboard eos instalado"
+			# añadimos drivers para smartboard 480
+			sudo apt-get install git -y
+			sudo apt-get install dkms -y
+			git clone https://github.com/aosucas499/nwfermi
+			cd nwfermi
+			chmod +x nwfermi-lliurex.sh
+			sudo ./nwfermi-lliurex.sh
+			cd ..
+			sudo rm -r nwfermi
+			echo "Drivers modelo 480 instalados"
+			notify-send "Drivers modelo 480 instalados"
+		else
+			echo "Smartboard EOS no instalado"
+			notify-send "Smartboard EOS no instalado"
+			zenity --error \
+       			--title="Smartboard EOS no instalado" \
+      			--width=250 \
+      			--text="Instale la aplicación <b>Pizarra Smartboard</b> y vuelva a ejecutar esta instalación"
+			gnome-software --details-pkg=smartboard-meta
+		fi
 		}
 		
 		function installStarboardre {
