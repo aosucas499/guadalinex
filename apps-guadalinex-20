@@ -501,10 +501,10 @@ opc=$( \
     False installMee "Instalar aplicación MacMillan Education Everywhere" \
     False installkazam "Instalar grabador de escritorio Kazam" \
     False installgparted "Instalar Gparted, manejador de disco/particiones" \
+    False flatpakInstall "Instalar Flatpak" \
+    False installDocker "Instalar Docker" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
-    False installDocker "Instalar Docker" \
-    False flatpakInstall "Instalar Flatpak" \
     False swapKernel "Actualizar kernel del sistema" \
 )
 
