@@ -20,5 +20,5 @@ locales:
   - es_ES.UTF-8
   - en_US.UTF-8
 machine_id: 2a910cb04dd0426dbd2682b3c9557782
-vmlinuz: /boot/vmlinuz-5.4.0-64-generic
-initrd_imd: /boot/initrd.img-5.4.0-64-generic
+vmlinuz: /boot/vmlinuz-5.4.0-66-generic
+initrd_imd: /boot/initrd.img-5.4.0-66-generic
