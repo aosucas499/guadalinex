@@ -2,8 +2,8 @@
 
 # Instalar repo ubuntu y paquetes eggs
 sudo rm /etc/apt/sources.list.d/focal.list
-sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
-sudo mv focal.list /etc/apt/sources.list.d/focal.list
+wget --no-check-certificate --content-disposition https://github.com/aosucas499/sources/raw/main/focal-sources.list
+sudo mv focal-sources.list /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y 
 sudo apt-get install git -y
 sudo apt-get remove -y opera-stable
