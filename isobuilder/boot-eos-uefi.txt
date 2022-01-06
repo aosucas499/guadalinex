@@ -1,0 +1,36 @@
+# Tras instalar eos oficial en modo uefi
+# el grub no arrancará en virtualbox
+# el primer paso es rootear con ubuntu 20
+# ponemos ubuntu 20 como disco live
+# y ejecutamos los siguiente comandos
+# para que arranque
+set root=(cd0)
+linux /casper/vmlinuz
+initrd /casper/initrd
+boot
+
+# rooteamos con los siguientes comandos
++ Montamos el disco duro de eos desde el explorador de archivos
++ Miramos la numeración del disco duro con el comando "ls /media/ubuntu/
++ En la terminal:
+sudo chroot /media/ubuntu/"numeración disco duro"
+groupadd -r admin
+useradd -m -d /home/admin -g admin -G sudo,adm,cdrom,dip,plugdev,lpadmin,sambashare admin -s /bin/bash
+passwd admin
+"ponemos la contraseña root 2 veces"
+exit
+halt
+# suele dar un fallo pero comprobamos que el usuario admin se ha creado con el comando
+# cat /etc/passwd
+# y miramos que existe el usuario admin
+
+# Después de instalar con el instalador oficial
+# si arrancamos en modo uefi virtualbox
+# el grub no reconoce el arranque
+# estos son los comandos para arrancarlo
+set root=(hd0,gpt2)
+linux /boot/vmlinuz root=/dev/sda2
+initrd /boot/initrd.img
+boot
+
+#cada vez que arranquemos necesitaremos los comandos anteriores
