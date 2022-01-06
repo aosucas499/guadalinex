@@ -9,6 +9,7 @@ sudo apt-get install git -y
 sudo apt-get remove -y opera-stable
 wget https://sourceforge.net/projects/penguins-eggs/files/packages-deb/eggs_8.17.17-1_amd64.deb
 sudo dpkg -i eggs*.deb
+sudo apt-get install -f -y
 
 # Install flatpak repo and packages
 #sudo apt-get install -y libflatpak0
