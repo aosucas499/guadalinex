@@ -7,7 +7,7 @@ sudo mv focal-sources.list /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y 
 sudo apt-get install git -y
 sudo apt-get remove -y opera-stable
-wget https://sourceforge.net/projects/penguins-eggs/files/packages-deb/oldest/eggs_7.8.39-1_amd64.deb
+wget https://sourceforge.net/projects/penguins-eggs/files/packages-deb/eggs_8.17.17-1_amd64.deb
 sudo dpkg -i eggs*.deb
 
 # Install flatpak repo and packages
@@ -44,6 +44,7 @@ sudo cp educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpape
 #instalar apps-guadalinex-20 en el sistema
 wget https://bit.ly/3tJuZ5R -O apps-educaandos
 chmod +x apps-educaandos
+./apps-educaandos
 ./apps-educaandos
 
 #copiar configuración para la ISO
