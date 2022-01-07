@@ -14,6 +14,7 @@ defaultGroups:
     - sambashare
     - sudo
     - admin
+    - dialout
 passwordRequirements:
     minLength: 0
     maxLength: 0
