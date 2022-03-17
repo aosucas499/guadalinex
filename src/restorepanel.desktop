@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=rm -r ~/.config/lxpanel && lxpanelctl restart 
+Exec=dconf reset -f /
 Icon=/usr/share/icons/EducaAndOSIcons/apps/scalable/accessories-media-converter.svg
 Terminal=true
 Name[es_ES]=Restaurar paneles del usuario actual
