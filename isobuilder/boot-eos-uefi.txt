@@ -28,8 +28,8 @@ halt
 # si arrancamos en modo uefi virtualbox
 # el grub no reconoce el arranque
 # estos son los comandos para arrancarlo
-set root=(hd0,gpt2)
-linux /boot/vmlinuz root=/dev/sda2
+set root=(hd0,msdos5)
+linux /boot/vmlinuz root=/dev/sda5
 initrd /boot/initrd.img
 boot
 
