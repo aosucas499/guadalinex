@@ -4,8 +4,8 @@
 
 gitfolder=/home/$USER/guadalinex
 gitguadalinex=https://github.com/aosucas499/guadalinex
-branch=main
-background=/usr/share/backgrounds/educaandos_wallpaper.png
+branch=slim
+background=/usr/share/backgrounds/educaandos_slim_wallpaper.png
 bgsize=$(du $background|cut -f 1)
 isConnectionAvailable=$(echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1 && echo "True" || echo "False")
 
@@ -64,12 +64,12 @@ function fixCgaupdate {
 function fixBackground {
 
 		#echo "$bgsize"
-	if [[ $bgsize = "500" ]]; then
+	if [[ $bgsize = "456" ]]; then
 		#echo "$bgsize"
 		echo "Fondo de pantalla incorrecto, corrigiendo..."
 		notify-send "Fondo de pantalla incorrecto, corrigiendo..."
-		sudo wget https://github.com/aosucas499/guadalinex/raw/main/isobuilder/eggs/educaandos_wallpaper-plus.png -O /tmp/educaandos_wallpaper-plus.png
-		sudo cp /tmp/educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
+		sudo wget https://github.com/aosucas499/guadalinex/raw/main/isobuilder/eggs/educaandos_slim_wallpaper-plus.png -O /tmp/educaandos_slim_wallpaper-plus.png
+		sudo cp /tmp/educaandos_slim_wallpaper-plus.png /usr/share/backgrounds/educaandos_slim_wallpaper.png
 	else
 		#echo "$bgsize"
 		echo "fondo de pantalla apropiado"
