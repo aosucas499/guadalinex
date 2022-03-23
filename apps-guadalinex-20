@@ -198,6 +198,8 @@ distribucion=$(lsb_release -cs)
 		chmod +x blinkoffline.sh
 		./blinkoffline.sh
 		rm ~/Escritorio/blink*
+		# Fix folder for slim
+		rm ~/Desktop/blink*
 		if [ -d "/home/usuario" ]; then
 			echo ""
 			echo "Introduce la contraseña del usuario = usuario"
@@ -206,6 +208,8 @@ distribucion=$(lsb_release -cs)
 			echo ""
            		su usuario -c ./blinkoffline.sh 				
 			sudo rm /home/usuario/Escritorio/blin*
+			# Fix folder for slim
+			sudo rm /home/usuario/Desktop/blin*
 			sudo rm blinkoffline.sh
 			else
 		rm blinkoffline.sh
@@ -218,6 +222,9 @@ distribucion=$(lsb_release -cs)
 		./smaprendizaje_1_11_0_64.run
 		sed -i -e '$a Categories=Education' /home/$USER/Escritorio/SM\ Aprendizaje.desktop
 		mv /home/$USER/Escritorio/SM\ Aprendizaje.desktop /home/$USER/.local/share/applications/
+		# Fix folder for slim
+		sed -i -e '$a Categories=Education' /home/$USER/Desktop/SM\ Aprendizaje.desktop
+		mv /home/$USER/Desktop/SM\ Aprendizaje.desktop /home/$USER/.local/share/applications/
 		# Fix para reparar el fallo de la aplicación. Olvidaron en el acceso directo renombrar al nuevo nombre de la app.
 		sudo cp /home/$USER/aprendizaje/SMAprendizaje-linux-x64/aprendizaje /home/$USER/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
 		sudo chown $USER:$USER /home/$USER/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
@@ -231,6 +238,10 @@ distribucion=$(lsb_release -cs)
 			sudo sed -i -e '$a Categories=Education' /home/usuario/Escritorio/SM\ Aprendizaje.desktop
 			sudo chown usuario:usuario /home/usuario/Escritorio/SM\ Aprendizaje.desktop
 			sudo mv /home/usuario/Escritorio/SM\ Aprendizaje.desktop /home/usuario/.local/share/applications/
+			#Fix folder for slim
+			sudo sed -i -e '$a Categories=Education' /home/usuario/Desktop/SM\ Aprendizaje.desktop
+			sudo chown usuario:usuario /home/usuario/Desktop/SM\ Aprendizaje.desktop
+			sudo mv /home/usuario/Desktop/SM\ Aprendizaje.desktop /home/usuario/.local/share/applications/
 			# Fix para reparar el fallo de la aplicación. Olvidaron en el acceso directo renombrar al nuevo nombre de la app.
 			sudo cp /home/usuario/aprendizaje/SMAprendizaje-linux-x64/aprendizaje /home/usuario/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
 			sudo chown usuario:usuario /home/usuario/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
@@ -247,6 +258,9 @@ distribucion=$(lsb_release -cs)
 		./aulavirtual-3.3.4-linux-x64-installer.run
 		sed -i -e '$a Categories=Education' /home/$USER/Escritorio/Aula\ Virtual.desktop
 		mv /home/$USER/Escritorio/Aula\ Virtual.desktop /home/$USER/.local/share/applications/
+		# Fix folder for slim
+		sed -i -e '$a Categories=Education' /home/$USER/Desktop/Aula\ Virtual.desktop
+		mv /home/$USER/Desktop/Aula\ Virtual.desktop /home/$USER/.local/share/applications/
 		if [ -d "/home/usuario" ]; then
 			echo ""
 			echo "Introduce la contraseña del usuario = usuario"
@@ -258,6 +272,9 @@ distribucion=$(lsb_release -cs)
 			sudo sed -i -e '$a Categories=Education' /home/usuario/Escritorio/Aula\ Virtual.desktop
 			sudo chown usuario:usuario /home/usuario/Escritorio/Aula\ Virtual.desktop
 			sudo mv /home/usuario/Escritorio/Aula\ Virtual.desktop /home/usuario/.local/share/applications/
+			# Fix folder for slim
+			sudo chown usuario:usuario /home/usuario/Desktop/Aula\ Virtual.desktop
+			sudo mv /home/usuario/Desktop/Aula\ Virtual.desktop /home/usuario/.local/share/applications/
 			sudo rm aulavirtual-3.3.4-linux-x64-installer.run
 			sudo rm linux.tar.gz
 			else
