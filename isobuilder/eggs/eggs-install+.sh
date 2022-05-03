@@ -40,7 +40,7 @@ sudo cp ../../imágenes/VirtualBox_guadalinex*20_5.png /usr/lib/penguins-eggs/ad
 sudo eggs prerequisites
 
 #cambiar fondo de pantalla
-sudo cp educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
+sudo cp educaandos_slim_wallpaper-plus.png /usr/share/backgrounds/educaandos_slim_wallpaper.png
 
 #instalar apps-guadalinex-20 en el sistema
 wget https://bit.ly/3tJuZ5R -O apps-educaandos
