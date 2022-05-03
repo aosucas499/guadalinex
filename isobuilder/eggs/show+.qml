@@ -48,7 +48,7 @@ Presentation
             color: "#002439"
             anchors.horizontalCenter: slide1.horizontalCenter
             anchors.top: slide1.verticalCenter
-            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+            text: qsTr("<h2>EducaAndOs SLIM Plus - Unofficial</h2><br/>"+
                   "<br/>Created by aosucas499<br/>"+
                   "<br/>sources: htts://github.com/aosucas499/guadalinex"+
                   "<br/>email: aosucas499@gmail.com")
@@ -72,7 +72,7 @@ Presentation
             color: "#002439"
             anchors.horizontalCenter: slide1.horizontalCenter
             anchors.top: slide1.verticalCenter
-            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+            text: qsTr("<h2>EducaAndOs SLIM Plus - Unofficial</h2><br/>"+
                   "<br/>Created by aosucas499<br/>"+
                   "<br/>sources: htts://github.com/aosucas499/guadalinex"+
                   "<br/>email: aosucas499@gmail.com")
@@ -97,7 +97,7 @@ Slide {
             color: "#002439"
             anchors.horizontalCenter: slide1.horizontalCenter
             anchors.top: slide1.verticalCenter
-            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+            text: qsTr("<h2>EducaAndOs SLIM Plus - Unofficial</h2><br/>"+
                   "<br/>Created by aosucas499<br/>"+
                   "<br/>sources: htts://github.com/aosucas499/guadalinex"+
                   "<br/>email: aosucas499@gmail.com")
@@ -122,7 +122,7 @@ Slide {
             color: "#002439"
             anchors.horizontalCenter: slide1.horizontalCenter
             anchors.top: slide1.verticalCenter
-            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+            text: qsTr("<h2>EducaAndOs SLIM Plus - Unofficial</h2><br/>"+
                   "<br/>Created by aosucas499<br/>"+
                   "<br/>sources: htts://github.com/aosucas499/guadalinex"+
                   "<br/>email: aosucas499@gmail.com")
@@ -147,7 +147,7 @@ Slide {
             color: "#002439"
             anchors.horizontalCenter: slide1.horizontalCenter
             anchors.top: slide1.verticalCenter
-            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+            text: qsTr("<h2>EducaAndOs SLIM Plus - Unofficial</h2><br/>"+
                   "<br/>Created by aosucas499<br/>"+
                   "<br/>sources: htts://github.com/aosucas499/guadalinex"+
                   "<br/>email: aosucas499@gmail.com")
@@ -172,7 +172,7 @@ Slide {
             color: "#002439"
             anchors.horizontalCenter: slide1.horizontalCenter
             anchors.top: slide1.verticalCenter
-            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+            text: qsTr("<h2>EducaAndOs SLIM Plus - Unofficial</h2><br/>"+
                   "<br/>Created by aosucas499<br/>"+
                   "<br/>sources: htts://github.com/aosucas499/guadalinex"+
                   "<br/>email: aosucas499@gmail.com")
@@ -197,7 +197,7 @@ Slide {
             color: "#002439"
             anchors.horizontalCenter: slide1.horizontalCenter
             anchors.top: slide1.verticalCenter
-            text: qsTr("<h2>EducaAndOs Plus - Unofficial ISO</h2><br/>"+
+            text: qsTr("<h2>EducaAndOs SLIM Plus - Unofficial</h2><br/>"+
                   "<br/>Created by aosucas499<br/>"+
                   "<br/>sources: htts://github.com/aosucas499/guadalinex"+
                   "<br/>email: aosucas499@gmail.com")
