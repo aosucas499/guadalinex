@@ -217,9 +217,9 @@ distribucion=$(lsb_release -cs)
 		}
 		
 		function installsm {
-		wget https://downloads.smaprendizaje.com/apps/smaprendizaje/smaprendizaje_1_11_0_64.run
-		chmod +x smaprendizaje_1_11_0_64.run
-		./smaprendizaje_1_11_0_64.run
+		wget https://downloads.smaprendizaje.com/apps/smaprendizaje/smaprendizaje_1_11_5_64.run
+		chmod +x smaprendizaje_1_11_5_64.run
+		./smaprendizaje_1_11_5_64.run
 		sed -i -e '$a Categories=Education' /home/$USER/Desktop/SM\ Aprendizaje.desktop
 		cp /home/$USER/Desktop/SM\ Aprendizaje.desktop /home/$USER/.local/share/applications/
 		# Fix para reparar el fallo de la aplicación. Olvidaron en el acceso directo renombrar al nuevo nombre de la app.
@@ -231,16 +231,16 @@ distribucion=$(lsb_release -cs)
 			echo ""
 			echo "para instalarlo en la cuenta usuario"
 			echo ""
-           		su usuario -c ./smaprendizaje_1_11_0_64.run 				
+           		su usuario -c ./smaprendizaje_1_11_5_64.run 				
 			sudo sed -i -e '$a Categories=Education' /home/usuario/Desktop/SM\ Aprendizaje.desktop
 			sudo chown usuario:usuario /home/usuario/Desktop/SM\ Aprendizaje.desktop
 			sudo cp /home/usuario/Desktop/SM\ Aprendizaje.desktop /home/usuario/.local/share/applications/
 			# Fix para reparar el fallo de la aplicación. Olvidaron en el acceso directo renombrar al nuevo nombre de la app.
 			sudo cp /home/usuario/aprendizaje/SMAprendizaje-linux-x64/aprendizaje /home/usuario/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
 			sudo chown usuario:usuario /home/usuario/aprendizaje/SMAprendizaje-linux-x64/SMAprendizaje
-			sudo rm smaprendizaje_1_11_0_64.run
+			sudo rm smaprendizaje_1_11_5_64.run
 			else
-		rm smaprendizaje_1_11_0_64.run
+		rm smaprendizaje_1_11_5_64.run
 		fi
 		}
 		
