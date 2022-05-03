@@ -392,6 +392,9 @@ distribucion=$(lsb_release -cs)
 		sudo apt install gparted -y
 		sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update
+		sudo sed -i -e 's/Terminal=false/Terminal=true/g' /usr/share/applications/gparted.desktop
+		sudo sed -i -e 's/Exec=/#Exec=/g' /usr/share/applications/gparted.desktop
+		sudo sed -i -e '$a Exec=sudo /usr/sbin/gparted' /usr/share/applications/gparted.desktop
 		}	
 		
 		function restore_usuario {
