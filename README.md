@@ -1,4 +1,4 @@
-## EducaAndOS + Plus - versión no oficial
+## EducaAndOS SLIM + Plus - versión no oficial
 
 Incluye:
 
@@ -8,10 +8,6 @@ Incluye:
 ### Enlace:  [link](https://bit.ly/3xnJ9vl)
 
 Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/wiki/Instalación)
-
-Edición Portátil HP Probook 455 g7: [wiki](https://github.com/aosucas499/guadalinex/wiki/hp)
-
-
 
 Si este proyecto te ayuda, puedes invitarme a un café.
 
@@ -23,7 +19,10 @@ If this project helps you,  you can give me a cup of coffee .
 
 ## Instalador
 Instala el sistema como en una distribución linux, eligiendo particiones, usuarios, etc...
-![](https://github.com/aosucas499/guadalinex/blob/main/im%C3%A1genes/educaandos_partition.png)
+
+![](https://github.com/aosucas499/guadalinex/blob/slim/im%C3%A1genes/educaandos_install.png)
+
+![](https://github.com/aosucas499/guadalinex/blob/slim/im%C3%A1genes/educaandos_partition.png)
 
 Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his amazing tool "penguin eggs" to generate the ISO and the installer calamares
 
@@ -34,11 +33,7 @@ Thanks to pieroproietti (https://github.com/pieroproietti/penguins-eggs) for his
 
 Aplicación para instalar en EducaAndOS: drivers pizarras digitales, repositorios Ubuntu 20.04, apagado automático, Editoriales SM, Santillana, blinklearning, docker...
 
-![](https://github.com/aosucas499/guadalinex/blob/main/imágenes/VirtualBox_guadalinex%2020.png)
-
-
-![](https://github.com/aosucas499/guadalinex/blob/main/im%C3%A1genes/educaandos_install.png)
-
+![](https://github.com/aosucas499/guadalinex/blob/slim/im%C3%A1genes/VirtualBox_guadalinex%2020.png)
 
 
 Si este proyecto te ayuda, puedes invitarme a un café.
