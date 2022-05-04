@@ -28,14 +28,14 @@ sudo cp users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/
 sudo cp install-debian.desktop /usr/lib/penguins-eggs/addons/eggs/theme/applications/
 sudo cp show+.qml /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/show.qml
 sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/welcome.png
-sudo cp ../../imágenes/VirtualBox_guadalinex*20.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide1.png
-sudo cp ../../imágenes/VirtualBox_guadalinex*20_3.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide1.png
-sudo cp ../../imágenes/VirtualBox_guadalinex*20_4.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide2.png
-sudo cp ../../imágenes/VirtualBox_guadalinex*20_5.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide3.png
-sudo cp ../../imágenes/VirtualBox_guadalinex*20_9.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide4.png
+sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide1.png
+sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide1.png
+sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide2.png
+sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide3.png
+sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide4.png
 sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide5.png
-sudo cp ../../imágenes/VirtualBox_guadalinex*20.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide6.png
-sudo cp ../../imágenes/VirtualBox_guadalinex*20_5.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide7.png
+sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide6.png
+sudo cp slide+.png /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/slide7.png
 
 # Seleccionar que no instalamos calamares aún
 sudo eggs prerequisites
