@@ -10,6 +10,7 @@ sudo apt-get remove -y opera-stable
 wget https://sourceforge.net/projects/penguins-eggs/files/packages-deb/oldest/eggs_7.8.39-1_amd64.deb
 sudo dpkg -i eggs*.deb
 sudo apt-get install -f -y
+sudo eggs calamares --install
 
 # Install flatpak repo and packages
 #sudo apt-get install -y libflatpak0
@@ -78,6 +79,8 @@ sudo apt-get install shim-signed -y
 # instala lo necesario para la iso y borra scripts de creación de iso
 sudo eggs produce -vs
 sudo eggs kill
+
+sudo cp eggs.yaml /etc/penguins-eggs.d/
 
 #Eliminar repositorio ubuntu
 sudo rm /etc/apt/sources.list.d/focal.list
