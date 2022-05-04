@@ -5,7 +5,7 @@ Incluye:
 + apps-guadalinex-20 (en el menu de aplicaciones/herramientas del sistema)
 + Acceso root
 
-### Enlace:  [link](https://bit.ly/3xnJ9vl)
+### Enlace:  [link](https://bit.ly/3vJgWAY)
 
 Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/wiki/Instalación)
 
