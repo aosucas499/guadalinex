@@ -489,7 +489,6 @@ opc=$( \
     False installNtpfix "Instalar corrección de hora en equipos conectados por wifi" \
     False installOpenboard "Instalar aplicación de pizarra Openboard" \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
-    #False installSmartboard480 "Instalar drivers pizarras Smartboard oficial + drivers modelo SB480 (eos+)" \
     False installSmartdre "Instalar drivers pizarras Smartboard-docker incluida SB480 (eos+)" \
     False installStarboardre "Instalar drivers pizarras Hitachi Starboard" \
     False installSigala "Instalar aplicación HGR-Sigala Servidor y cliente" \
