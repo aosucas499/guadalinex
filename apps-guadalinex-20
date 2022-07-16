@@ -317,8 +317,8 @@ distribucion=$(lsb_release -cs)
 		cd /home/$USER
 		git clone https://github.com/aosucas499/starboardre.git
 		cd starboardre
-		chmod +x install-starboardre
-		./install-starboardre
+		chmod +x install-eos
+		./install-eos
 		cd $OLDPWD
 		}
 		
