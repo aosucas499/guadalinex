@@ -104,25 +104,44 @@ distribucion=$(lsb_release -cs)
 		}
 		
 		function installDocker {
-		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
-              	sudo mv focal.list /etc/apt/sources.list.d/
-             	sudo apt update
-		#clear
-		sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+		# Por repositorio
+			#sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
+              		#sudo mv focal.list /etc/apt/sources.list.d/
+             		#sudo apt update
+			#clear
+			#sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+			#sudo apt install -f
+			#sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+			#sudo echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $distribucion stable" > docker.list
+			#sudo mv docker.list /etc/apt/sources.list.d/
+			#sudo apt-key fingerprint 0EBFCD88
+			#sudo apt update
+			#clear
+			#sudo apt install docker-ce docker-ce-cli containerd.io -y
+			#sudo usermod -aG docker $USER
+			#sudo usermod -aG docker usuario
+			#sudo rm /etc/apt/sources.list.d/focal.list
+			#sudo rm /etc/apt/sources.list.d/docker.list
+			#sudo apt update
+			#sleep 30
+			
+		# Por paquetes
+		echo ""
+		echo -e "${AZUL}Instalando Docker...${NORMAL}"
+		echo ""
+		echo -e "${AZUL}Instaling Docker...${NORMAL}"
+		echo ""
+		sudo apt update
 		sudo apt install -f
-		sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-		sudo echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $distribucion stable" > docker.list
-		sudo mv docker.list /etc/apt/sources.list.d/
-		sudo apt-key fingerprint 0EBFCD88
-		sudo apt update
-		#clear
-		sudo apt install docker-ce docker-ce-cli containerd.io -y
-		sudo usermod -aG docker $USER
-		sudo usermod -aG docker usuario
-		sudo rm /etc/apt/sources.list.d/focal.list
-		sudo rm /etc/apt/sources.list.d/docker.list
-		sudo apt update
+		sudo apt-get install screen gir1.2-appindicator3-0.1 apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+		wget https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/containerd.io_1.5.11-1_amd64.deb
+		wget https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce-cli_20.10.17~3-0~ubuntu-focal_amd64.deb
+		wget https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce_20.10.17~3-0~ubuntu-focal_amd64.deb
+		sudo dpkg -i *.deb
+		sudo apt install -f
+		sudo rm *.deb
 		sleep 30
+		
 		}
 		
 		# Función para instalar las flatpak y sus dependencias 
@@ -321,8 +340,8 @@ distribucion=$(lsb_release -cs)
 		cd /home/$USER
 		git clone https://github.com/aosucas499/starboardre.git
 		cd starboardre
-		chmod +x install-starboardre
-		./install-starboardre
+		chmod +x install-eos
+		./install-eos
 		cd $OLDPWD
 		}
 		
@@ -330,16 +349,16 @@ distribucion=$(lsb_release -cs)
 		cd /home/$USER/
 		git clone https://github.com/aosucas499/hgr-dre.git 
 		cd hgr-dre
-		chmod +x install-hgr-dre
-		./install-hgr-dre
+		chmod +x install-eos
+		./install-eos
 		}
 		
 		function installBells {
 		cd /home/$USER/
 		git clone https://github.com/aosucas499/bellscheduler-dre.git 
 		cd bellscheduler-dre
-		chmod +x install-bellscheduler-dre
-		./install-bellscheduler-dre
+		chmod +x install-eos
+		./install-eos
 		}
 		
 		function usuario {
