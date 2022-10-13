@@ -5,8 +5,12 @@
 gitfolder=/home/$USER/guadalinex
 gitguadalinex=https://github.com/aosucas499/guadalinex
 branch=slim
+source=/etc/apt/sources.list
+source2=/etc/apt/sources.list.d/educaandossc.list
 background=/usr/share/backgrounds/educaandos_slim_wallpaper.png
 bgsize=$(du $background|cut -f 1)
+sourceSize=$(du -b $source|cut -f 1)
+source2Size=$(du -b $source2|cut -f 1)
 isConnectionAvailable=$(echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1 && echo "True" || echo "False")
 
 # Comprobamos si hay internet
@@ -75,6 +79,36 @@ function fixBackground {
 		echo "fondo de pantalla apropiado"
 	fi
 }	
+
+function fixSource {
+
+	
+	if [[ $sourceSize = "77" ]]; then
+		
+		echo "Fichero sources.list apropiado"
+		notify-send "Fichero sources.list apropiado"
+	else
+		sudo wget https://raw.githubusercontent.com/aosucas499/sources/main/eos-sources.list -O /tmp/sources.list
+		sudo cp /tmp/sources.list $source
+		echo "Fichero sources.list corregido"
+		notify-send "Fichero sources.list corregido"
+	fi
+}
+
+function fixSource2 {
+
+	
+	if [[ $sourceSize2 = "330" ]]; then
+		
+		echo "Fichero sources2.list apropiado"
+		notify-send "Fichero sources2.list apropiado"
+	else
+		sudo wget https://raw.githubusercontent.com/aosucas499/sources/main/eos-educaandossc.list -O /tmp/educaandossc.list
+		sudo cp /tmp/educaandossc.list $source2
+		echo "Fichero sources.list corregido"
+		notify-send "Fichero sources.list corregido"
+	fi
+}
 
 function arduinoGroup {
 
@@ -215,5 +249,7 @@ installOnsystem
 fixCgaupdate
 fixBackground
 arduinoGroup
+fixSource
+fixSource2
 execRepo
 restorePanelapp
