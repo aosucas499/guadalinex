@@ -84,6 +84,12 @@ function arduinoGroup {
 		echo "El usuario no pertenece al grupo, corrigiendo..."
 		notify-send "El usuario no pertenece al grupo, corrigiendo..."
 		sudo usermod -a -G dialout $USER
+		sudo usermod -a -G adm $USER
+		sudo usermod -a -G cdrom $USER
+		sudo usermod -a -G dip $USER
+		sudo usermod -a -G plugdev $USER
+		sudo usermod -a -G lpadmin $USER
+		sudo usermod -a -G sambashare $USER
 	fi
 }
 
