@@ -90,6 +90,7 @@ function arduinoGroup {
 		sudo usermod -a -G plugdev $USER
 		sudo usermod -a -G lpadmin $USER
 		sudo usermod -a -G sambashare $USER
+		sudo usermod -a -G tde $USER
 	fi
 }
 
