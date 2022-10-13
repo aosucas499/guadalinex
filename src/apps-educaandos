@@ -33,8 +33,8 @@ echo ""
 
 function adminGroup {
 
-        if getent group admin |grep $USER; then
-                echo "El usuario pertenece al grupo admin, continuamos..."
+        if getent group admin tde |grep $USER; then
+                echo "El usuario pertenece al grupo admin y/o tde, continuamos..."
         else
                zenity --no-wrap \
        		--warning \
