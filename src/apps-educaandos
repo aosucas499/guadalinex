@@ -86,7 +86,6 @@ function fixSource {
 	if [[ $sourceSize = "77" ]]; then
 		
 		echo "Fichero sources.list apropiado"
-		notify-send "Fichero sources.list apropiado"
 	else
 		sudo wget https://raw.githubusercontent.com/aosucas499/sources/main/eos-sources.list -O /tmp/sources.list
 		sudo cp /tmp/sources.list $source
@@ -101,7 +100,6 @@ function fixSource2 {
 	if [[ $source2Size = "330" ]]; then
 		
 		echo "Fichero sources2.list apropiado"
-		notify-send "Fichero sources2.list apropiado"
 	else
 		sudo wget https://raw.githubusercontent.com/aosucas499/sources/main/eos-educaandossc.list -O /tmp/educaandossc.list
 		sudo cp /tmp/educaandossc.list $source2
