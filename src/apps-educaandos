@@ -29,10 +29,6 @@ echo ""
 echo "Hay conexión a Internet. Seguimos..."
 echo ""
 
-# Función que repara las actualizaciones de cga-update-manager
-# por alguna razón en las versiones previas de la versión "plus"
-# muestra un error
-
 # Función que comprueba que el usuario que lanza la app tiene derechos admin.
 
 function adminGroup {
@@ -48,6 +44,10 @@ function adminGroup {
     		exit 1;
         fi
 }
+
+# Función que repara las actualizaciones de cga-update-manager
+# por alguna razón en las versiones previas de la versión "plus"
+# muestra un error
 
 function fixCgaupdate {
 
