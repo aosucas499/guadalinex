@@ -1,5 +1,8 @@
 ## EducaAndOS SLIM + Plus - versión no oficial
 
+Versión ligera para dispositivos con menos recursos.
+(necesita cpu 64bits y al menos 3-4gb ram)
+
 Incluye:
 
 + apps-guadalinex-20 (en el menu de aplicaciones/herramientas del sistema)
