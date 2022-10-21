@@ -85,7 +85,7 @@ distribucion=$(lsb_release -cs)
 		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
               	sudo mv focal.list /etc/apt/sources.list.d/
              	sudo apt update
-		sudo apt install qshutdown
+		sudo apt instausuarioll qshutdown
 		sudo rm /etc/apt/sources.list.d/focal.list
 		sudo apt update
 		mkdir ~/.qshutdown
@@ -101,6 +101,33 @@ distribucion=$(lsb_release -cs)
 		else	
 		sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/
 		fi
+		
+		userQshutdown=$(zenity --entry \
+                --title="Instalación de apagado automático para otro usuario" \
+                --width=500 \
+                --ok-label="Aceptar" \
+                --cancel-label="Lo vamos a dejar" \
+                --text="Escriba el nombre de usuario")
+		ans=$?
+		if [ $ans -eq 0 ]
+			then
+			echo "Instalado el apagado para el usuario: ${userQshutdown}"
+		else
+    			echo "Otro día si eso..."
+    			exit
+		fi
+		
+		#Instalamos para el usuario anterior si es introducido
+		if [ -d "/home/$userQshutdown" ]; then
+			sudo mkdir /home/$userQshutdown/.qshutdown
+			sudo cp ./qshutdown/qshutdown.conf /home/$userQshutdown/.qshutdown/qshutdown.conf
+			sudo sed -i -e "s/14:01/$shutdowntime/g" /home/$userQshutdown/.qshutdown/qshutdown.conf
+			sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/
+		else	
+		sudo cp /usr/share/applications/qshutdown.desktop /etc/xdg/autostart/
+		fi
+		
+		
 		}
 		
 		function installDocker {
