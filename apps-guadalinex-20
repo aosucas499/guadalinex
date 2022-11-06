@@ -208,7 +208,7 @@ distribucion=$(lsb_release -cs)
 					sudo apt-get update -y
 					sudo apt-get install curl -y
 					curl -o flathub.flatpakrepo https://flathub.org/repo/flathub.flatpakrepo 
-					sudo flatpak remote-add --if-not-exists flathub --from flathub.flatpakrepo
+					sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 				else
     					echo "Repo flatpak NO añadido a Centro de software EOS"
 					notify-send "Repo flatpak NO añadido a Centro de software EOS"
