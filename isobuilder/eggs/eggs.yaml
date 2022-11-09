@@ -6,7 +6,7 @@ snapshot_basename: unofficial
 user_opt: admin
 user_opt_passwd: root
 root_passwd: root
-theme: eggs
+theme: guadalinex
 force_installer: true
 make_efi: true
 make_md5sum: false

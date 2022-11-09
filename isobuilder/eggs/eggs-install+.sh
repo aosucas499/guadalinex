@@ -10,9 +10,6 @@ wget https://sourceforge.net/projects/penguins-eggs/files/DEBS/versions/eggs_9.3
 sudo dpkg -i eggs*.deb
 sudo apt-get install -f -y
 
-# Seleccionar que no instalamos calamares aún
-#sudo eggs prerequisites
-
 #cambiar fondo de pantalla
 sudo cp educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
 
@@ -23,6 +20,7 @@ chmod +x apps-educaandos
 ./apps-educaandos
 
 #copiar configuración para la ISO
+sudo cp -r guadalinex /etc/penguins-eggs.d/addons
 sudo cp eggs.yaml /etc/penguins-eggs.d/
 #sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
 
