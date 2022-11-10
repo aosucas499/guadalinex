@@ -6,7 +6,7 @@ wget --no-check-certificate --content-disposition https://github.com/aosucas499/
 sudo mv focal-sources.list /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y 
 sudo apt-get install git -y
-wget https://sourceforge.net/projects/penguins-eggs/files/DEBS/versions/eggs_9.3.7_amd64.deb
+wget https://sourceforge.net/projects/penguins-eggs/files/DEBS/versions/eggs_8.0.1-1_amd64.deb
 sudo dpkg -i eggs*.deb
 sudo apt-get install -f -y
 
@@ -23,11 +23,13 @@ chmod +x apps-educaandos
 sudo cp -r guadalinex /etc/penguins-eggs.d/addons
 sudo cp eggs.yaml /etc/penguins-eggs.d/
 #sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
+sudo eggs config
+sudo eggs info
 
 #instalar calamares
 #sudo eggs calamares
 sudo apt-get update -y
-sudo eggs calamares --install
+sudo eggs calamares --install --theme=guadalinex
 
 #eliminar archivos innecesarios de EGGS
 sudo rm /usr/share/applications/calamares.desktop
