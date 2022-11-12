@@ -17,10 +17,10 @@ chmod +x apps-educaandos
 ./apps-educaandos
 
 #cambiar fondo de pantalla
-sudo cp educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
+#sudo cp educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
 
 #copiar configuración para la ISO
-sudo cp -r guadalinex /usr/lib/penguins-eggs.d/addons
+sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/guadalinex /usr/lib/penguins-eggs.d/addons
 #sudo cp eggs.yaml /etc/penguins-eggs.d/
 #sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
 sudo eggs dad -d
