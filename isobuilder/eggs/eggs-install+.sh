@@ -27,6 +27,7 @@ sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/guadalinex /usr/lib/penguins-e
 # Rellenar las opciones con las contenidas con el archivo eggs.yaml pero no copiar 
 sudo eggs dad -d
 sudo eggs dad
+
 # Con el siguiente comando le decimos que si a instalar calamares
 sudo eggs config
 sudo eggs status
@@ -44,7 +45,7 @@ sudo rm /usr/lib/penguins-eggs/assets/penguins-links-add.desktop
 # paquetes necesarios para instalación en EFI secureboot
 ##sudo dpkg -i grub-efi-amd64-signed*amd64.deb
 #sudo apt-get install grub-efi-amd64-signed -y 
-#sudo apt-get install shim-signed -y
+sudo apt-get install shim-signed -y
 
 # instala lo necesario para la iso y borra scripts de creación de iso
 sudo eggs produce --fast --theme guadalinex
