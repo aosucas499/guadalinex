@@ -23,7 +23,10 @@ chmod +x apps-educaandos
 sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/guadalinex /usr/lib/penguins-eggs/addons
 #sudo cp eggs.yaml /etc/penguins-eggs.d/
 #sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
+
+# Rellenar las opciones con las contenidas con el archivo eggs.yaml pero no copiar 
 sudo eggs dad -d
+sudo eggs dad
 # Con el siguiente comando le decimos que si a instalar calamares
 sudo eggs config
 sudo eggs status
