@@ -24,8 +24,9 @@ sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/guadalinex /usr/lib/penguins-e
 #sudo cp eggs.yaml /etc/penguins-eggs.d/
 #sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
 sudo eggs dad -d
+# Con el siguiente comando le decimos que si a instalar calamares
 sudo eggs config
-sudo eggs info
+sudo eggs status
 
 #instalar calamares
 #sudo eggs calamares
