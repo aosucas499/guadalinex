@@ -10,14 +10,14 @@ wget https://sourceforge.net/projects/penguins-eggs/files/DEBS/versions/eggs_9.3
 sudo dpkg -i eggs*.deb
 sudo apt-get install -f -y
 
-#cambiar fondo de pantalla
-sudo cp educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
-
 #instalar apps-guadalinex-20 en el sistema
 wget https://bit.ly/3tJuZ5R -O apps-educaandos
 chmod +x apps-educaandos
 ./apps-educaandos
 ./apps-educaandos
+
+#cambiar fondo de pantalla
+sudo cp educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
 
 #copiar configuración para la ISO
 sudo cp -r guadalinex /usr/lib/penguins-eggs.d/addons
