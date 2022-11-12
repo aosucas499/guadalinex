@@ -6,7 +6,7 @@ wget --no-check-certificate --content-disposition https://github.com/aosucas499/
 sudo mv focal-sources.list /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y 
 sudo apt-get install git -y
-wget https://sourceforge.net/projects/penguins-eggs/files/DEBS/versions/eggs_8.17.17-1_amd64.deb
+wget https://sourceforge.net/projects/penguins-eggs/files/DEBS/versions/eggs_8.0.1-1_amd64.deb
 sudo dpkg -i eggs*.deb
 sudo apt-get install -f -y
 
@@ -25,12 +25,12 @@ sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/guadalinex /usr/lib/penguins-e
 #sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
 
 # Rellenar las opciones con las contenidas con el archivo eggs.yaml pero no copiar 
-sudo eggs dad -d
+#sudo eggs dad -d
 sudo eggs dad
 
 # Con el siguiente comando le decimos que si a instalar calamares
 sudo eggs config
-sudo eggs status
+sudo eggs info
 
 #instalar calamares
 #sudo eggs calamares
