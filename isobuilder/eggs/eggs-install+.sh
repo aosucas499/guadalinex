@@ -23,7 +23,7 @@ sudo cp /home/$USER/guadalinex/isobuilder/eggs/educaandos/theme/calamares/module
 #sudo cp /home/$USER/guadalinex/isobuilder/eggs/ovary.js /usr/lib/penguins-eggs/dist/classes/ovary.js
 
 #copiar configuración para la ISO
-sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/educaandos /usr/lib/penguins-eggs/addons/educaandos
+sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/educaandos /usr/lib/penguins-eggs/addons/
 
 #instalar calamares
 #sudo eggs calamares
