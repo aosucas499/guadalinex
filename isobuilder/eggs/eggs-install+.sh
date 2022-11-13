@@ -10,27 +10,19 @@ wget https://sourceforge.net/projects/penguins-eggs/files/DEBS/versions/eggs_8.0
 sudo dpkg -i eggs*.deb
 sudo apt-get install -f -y
 
-#instalar apps-guadalinex-20 en el sistema
-wget https://bit.ly/3tJuZ5R -O apps-educaandos
-chmod +x apps-educaandos
-./apps-educaandos
-./apps-educaandos
-
-#cambiar fondo de pantalla
-#sudo cp educaandos_wallpaper-plus.png /usr/share/backgrounds/educaandos_wallpaper.png
-
 #copiar configuración para la ISO
 sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/guadalinex /usr/lib/penguins-eggs/addons
+
+# tenemos que modificar el archivo eggs.yaml a mano e incluir el vmlinuz y initrd con la versión, no dejar sin la versión.
 #sudo cp eggs.yaml /etc/penguins-eggs.d/
 #sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
 
 # Rellenar las opciones con las contenidas con el archivo eggs.yaml pero no copiar 
-#sudo eggs dad -d
 sudo eggs dad
 
 # Con el siguiente comando le decimos que si a instalar calamares
 sudo eggs config
-sudo eggs info
+sudo eggs status
 
 #instalar calamares
 #sudo eggs calamares
@@ -45,11 +37,18 @@ sudo rm /usr/lib/penguins-eggs/assets/penguins-links-add.desktop
 # paquetes necesarios para instalación en EFI secureboot
 ##sudo dpkg -i grub-efi-amd64-signed*amd64.deb
 #sudo apt-get install grub-efi-amd64-signed -y 
+sudo apt update -y 
 sudo apt-get install shim-signed -y
 
 # instala lo necesario para la iso y borra scripts de creación de iso
 sudo eggs produce --fast --theme guadalinex
 sudo eggs kill
+
+#instalar apps-guadalinex-20 en el sistema
+wget https://bit.ly/3tJuZ5R -O apps-educaandos
+chmod +x apps-educaandos
+./apps-educaandos
+./apps-educaandos
 
 #Eliminar repositorio ubuntu
 sudo rm /etc/apt/sources.list.d/focal.list
