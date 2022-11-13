@@ -19,6 +19,9 @@ chmod +x apps-educaandos
 #copiar configuración para la ISO
 sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/guadalinex /usr/lib/penguins-eggs/addons
 
+# modificar eggs para que cree los grupos del nuevo usuario si el tema es guadalinex
+sudo cp /home/$USER/guadalinex/isobuilder/eggs/ovary.js /usr/lib/penguins-eggs/dist/classes/ovary.js
+
 # Rellenar las opciones con las contenidas con el archivo eggs.yaml pero no copiar 
 sudo eggs dad
 
