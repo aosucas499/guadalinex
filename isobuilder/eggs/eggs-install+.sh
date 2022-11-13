@@ -61,4 +61,4 @@ sudo rm /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y
 
 #crear iso definitiva
-sudo eggs produce -v --theme guadalinex
+sudo eggs produce -v --theme educaandos
