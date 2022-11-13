@@ -1,8 +1,0 @@
-# Ubuntu Focal
-# partition
----
-efiSystemPartition: "/boot/efi"
-enableLuksAutomatedPartitioning: true
-userSwapChoices: small
-swapPartitionName: swap
-defaultFileSystemType: "ext4"
