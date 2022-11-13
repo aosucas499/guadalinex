@@ -49,7 +49,7 @@ sudo eggs dad
 #sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
 
 # instala lo necesario para la iso y borra scripts de creación de iso
-sudo eggs produce --fast --theme guadalinex
+sudo eggs produce --fast --theme educaandos
 sudo eggs kill
 
 # Con el siguiente comando le decimos que si a instalar calamares
