@@ -6,9 +6,15 @@ wget --no-check-certificate --content-disposition https://github.com/aosucas499/
 sudo mv focal-sources.list /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y 
 sudo apt-get install git -y
-wget https://sourceforge.net/projects/penguins-eggs/files/DEBS/versions/eggs_8.0.1-1_amd64.deb
+wget https://sourceforge.net/projects/penguins-eggs/files/DEBS/versions/eggs_9.3.7_amd64.deb
 sudo dpkg -i eggs*.deb
 sudo apt-get install -f -y
+
+#instalar apps-guadalinex-20 en el sistema
+wget https://bit.ly/3tJuZ5R -O apps-educaandos
+chmod +x apps-educaandos
+./apps-educaandos
+./apps-educaandos
 
 #copiar configuración para la ISO
 sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/guadalinex /usr/lib/penguins-eggs/addons
@@ -43,12 +49,6 @@ sudo apt-get install shim-signed -y
 # instala lo necesario para la iso y borra scripts de creación de iso
 sudo eggs produce --fast --theme guadalinex
 sudo eggs kill
-
-#instalar apps-guadalinex-20 en el sistema
-wget https://bit.ly/3tJuZ5R -O apps-educaandos
-chmod +x apps-educaandos
-./apps-educaandos
-./apps-educaandos
 
 #Eliminar repositorio ubuntu
 sudo rm /etc/apt/sources.list.d/focal.list
