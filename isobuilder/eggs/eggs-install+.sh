@@ -35,10 +35,6 @@ sudo eggs calamares --install --theme educaandos
 #sudo cp eggs.yaml /etc/penguins-eggs.d/
 #sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
 
-# Con el siguiente comando le decimos que si a instalar calamares
-sudo eggs config
-sudo eggs status
-
 #eliminar archivos innecesarios de EGGS
 sudo rm /usr/share/applications/calamares.desktop
 sudo rm /usr/lib/penguins-eggs/assets/penguins-eggs.desktop
@@ -54,6 +50,10 @@ sudo apt-get install shim-signed -y
 sudo eggs dad -d
 sudo eggs produce --fast --theme guadalinex
 sudo eggs kill
+
+# Con el siguiente comando le decimos que si a instalar calamares
+sudo eggs config
+sudo eggs status
 
 #Eliminar repositorio ubuntu
 sudo rm /etc/apt/sources.list.d/focal.list
