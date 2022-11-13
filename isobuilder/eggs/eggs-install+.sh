@@ -16,11 +16,6 @@ chmod +x apps-educaandos
 ./apps-educaandos
 ./apps-educaandos
 
-#instalar calamares
-#sudo eggs calamares
-sudo apt-get update -y
-sudo eggs calamares --install --theme educaandos
-
 # Modificar los grupos que instalará calamares al nuevo usuario
 sudo cp /home/$USER/guadalinex/isobuilder/eggs/guadalinex/theme/calamares/modules/users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/users.yml
 
@@ -29,6 +24,11 @@ sudo cp /home/$USER/guadalinex/isobuilder/eggs/guadalinex/theme/calamares/module
 
 #copiar configuración para la ISO
 sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/guadalinex /usr/lib/penguins-eggs/addons/educaandos
+
+#instalar calamares
+#sudo eggs calamares
+sudo apt-get update -y
+sudo eggs calamares --install --theme educaandos
 
 # tenemos que modificar el archivo eggs.yaml a mano e incluir el vmlinuz y initrd con la versión, no dejar sin la versión.
 # así como los lenguajes, Europe/Madrid para la hora
