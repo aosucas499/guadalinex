@@ -16,8 +16,13 @@ chmod +x apps-educaandos
 ./apps-educaandos
 ./apps-educaandos
 
+#instalar calamares
+#sudo eggs calamares
+sudo apt-get update -y
+sudo eggs calamares --install --theme=guadalinex
+
 #copiar configuración para la ISO
-sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/guadalinex /usr/lib/penguins-eggs/addons
+sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/educaandos /usr/lib/penguins-eggs/addons
 
 # modificar eggs para que cree los grupos del nuevo usuario si el tema es guadalinex
 sudo cp /home/$USER/guadalinex/isobuilder/eggs/ovary.js /usr/lib/penguins-eggs/dist/classes/ovary.js
@@ -32,11 +37,6 @@ sudo eggs dad
 # Con el siguiente comando le decimos que si a instalar calamares
 sudo eggs config
 sudo eggs status
-
-#instalar calamares
-#sudo eggs calamares
-#sudo apt-get update -y
-#sudo eggs calamares --install --theme=guadalinex
 
 #eliminar archivos innecesarios de EGGS
 sudo rm /usr/share/applications/calamares.desktop
