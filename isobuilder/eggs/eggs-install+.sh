@@ -27,11 +27,6 @@ sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/educaandos /usr/lib/penguins-e
 sudo apt-get update -y
 sudo eggs calamares --install --theme educaandos
 
-# tenemos que modificar el archivo eggs.yaml a mano e incluir el vmlinuz y initrd con la versión, no dejar sin la versión.
-# así como los lenguajes, Europe/Madrid para la hora
-#sudo cp eggs.yaml /etc/penguins-eggs.d/
-#sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
-
 #eliminar archivos innecesarios de EGGS
 sudo rm /usr/share/applications/calamares.desktop
 sudo rm /usr/lib/penguins-eggs/assets/penguins-eggs.desktop
@@ -46,6 +41,12 @@ sudo apt-get install shim-signed -y
 # Modificar los grupos que instalará calamares al nuevo usuario
 sudo eggs dad -d
 sudo cp /home/$USER/guadalinex/isobuilder/eggs/educaandos/theme/calamares/modules/users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/users.yml
+
+# tenemos que modificar el archivo eggs.yaml a mano e incluir el vmlinuz y initrd con la versión, no dejar sin la versión.
+# así como los lenguajes, Europe/Madrid para la hora
+sudo eggs dad
+#sudo cp eggs.yaml /etc/penguins-eggs.d/
+#sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
 
 # instala lo necesario para la iso y borra scripts de creación de iso
 sudo eggs produce --fast --theme guadalinex
