@@ -1,4 +1,4 @@
-version: 9.3.7
+version: 9.3.8
 snapshot_dir: /home/eggs/
 snapshot_prefix: EducaAndOS-plus
 snapshot_excludes: /usr/local/share/penguins-eggs/exclude.list
