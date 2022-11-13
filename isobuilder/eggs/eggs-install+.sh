@@ -19,10 +19,10 @@ chmod +x apps-educaandos
 #instalar calamares
 #sudo eggs calamares
 sudo apt-get update -y
-sudo eggs calamares --install 
+sudo eggs calamares --install --theme educaandos
 
 # Modificar los grupos que instalará calamares al nuevo usuario
-sudo cp /home/$USER/guadalinex/isobuilder/eggs/guadalinex/theme/calamares/modules/users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/user.yml
+sudo cp /home/$USER/guadalinex/isobuilder/eggs/guadalinex/theme/calamares/modules/users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/users.yml
 
 # modificar eggs para que cree los grupos del nuevo usuario si el tema es guadalinex
 #sudo cp /home/$USER/guadalinex/isobuilder/eggs/ovary.js /usr/lib/penguins-eggs/dist/classes/ovary.js
