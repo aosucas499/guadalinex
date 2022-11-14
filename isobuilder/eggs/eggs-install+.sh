@@ -16,8 +16,8 @@ chmod +x apps-educaandos
 ./apps-educaandos
 ./apps-educaandos
 
-#copiar configuración para la ISO
-#sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/educaandos /usr/lib/penguins-eggs/addons/
+#copiar teme educaandos para la ISO
+sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/educaandos /usr/lib/penguins-eggs/addons/
 
 #instalar calamares (and configure it to act without root)
 sudo eggs calamares --install --theme educaandos
