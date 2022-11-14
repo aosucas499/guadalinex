@@ -16,9 +16,6 @@ chmod +x apps-educaandos
 ./apps-educaandos
 ./apps-educaandos
 
-# modificar eggs para que cree los grupos del nuevo usuario si el tema es guadalinex
-#sudo cp /home/$USER/guadalinex/isobuilder/eggs/ovary.js /usr/lib/penguins-eggs/dist/classes/ovary.js
-
 #copiar configuración para la ISO
 sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/educaandos /usr/lib/penguins-eggs/addons/
 
@@ -38,13 +35,17 @@ sudo rm /usr/lib/penguins-eggs/assets/penguins-links-add.desktop
 sudo apt update -y 
 sudo apt-get install shim-signed -y
 
-# Modificar los grupos que instalará calamares al nuevo usuario
+# Tenemos que modificar el archivo eggs.yaml a mano e incluir el vmlinuz y initrd con la versión, no dejar sin la versión.
+# así como los lenguajes, Europe/Madrid para la hora. Usar # sudo nano /etc/penguins-eggs.d/eggs.yaml después de estos dos comandos.
 sudo eggs dad -d
-sudo cp /home/$USER/guadalinex/isobuilder/eggs/educaandos/theme/calamares/modules/users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/users.yml
-
-# tenemos que modificar el archivo eggs.yaml a mano e incluir el vmlinuz y initrd con la versión, no dejar sin la versión.
-# así como los lenguajes, Europe/Madrid para la hora
 sudo eggs dad
+
+
+# Modificar los grupos que instalará calamares al nuevo usuario
+sudo cp /home/$USER/guadalinex/isobuilder/eggs/educaandos/theme/calamares/modules/users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/users.yml
+sudo cp /home/$USER/guadalinex/isobuilder/eggs/educaandos/theme/calamares/modules/users.yml /etc/calamares/modules
+
+
 #sudo cp eggs.yaml /etc/penguins-eggs.d/
 #sudo cp exclude.list /usr/local/share/penguins-eggs/exclude.list
 
