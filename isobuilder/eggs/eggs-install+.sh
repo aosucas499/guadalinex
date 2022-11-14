@@ -28,12 +28,6 @@ sudo eggs calamares --install --theme educaandos
 #sudo apt update -y 
 #sudo apt-get install shim-signed -y
 
-# paquetes necesarios para instalación en EFI secureboot
-##sudo dpkg -i grub-efi-amd64-signed*amd64.deb
-#sudo apt-get install grub-efi-amd64-signed -y 
-sudo apt update -y 
-sudo apt-get install shim-signed -y
-
 # Modificar los grupos que instalará calamares al nuevo usuario
 sudo cp /home/$USER/guadalinex/isobuilder/eggs/educaandos/theme/calamares/modules/users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/users.yml
 
