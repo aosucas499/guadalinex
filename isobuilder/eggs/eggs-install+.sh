@@ -16,17 +16,17 @@ chmod +x apps-educaandos
 ./apps-educaandos
 ./apps-educaandos
 
+#copiar configuración para la ISO
+#sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/educaandos /usr/lib/penguins-eggs/addons/
+
 #instalar calamares (and configure it to act without root)
-sudo eggs calamares --install
+sudo eggs calamares --install --theme educaandos
 
 # paquetes necesarios para instalación en EFI secureboot
 #sudo dpkg -i grub-efi-amd64-signed*amd64.deb
 #sudo apt-get install grub-efi-amd64-signed -y 
 #sudo apt update -y 
 #sudo apt-get install shim-signed -y
-
-#copiar configuración para la ISO
-#sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/educaandos /usr/lib/penguins-eggs/addons/
 
 # paquetes necesarios para instalación en EFI secureboot
 ##sudo dpkg -i grub-efi-amd64-signed*amd64.deb
