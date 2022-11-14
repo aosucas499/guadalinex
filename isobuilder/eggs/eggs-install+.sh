@@ -28,8 +28,8 @@ sudo eggs calamares --install --theme educaandos
 #sudo apt update -y 
 #sudo apt-get install shim-signed -y
 
-# Modificar los grupos que instalará calamares al nuevo usuario
-sudo cp /home/$USER/guadalinex/isobuilder/eggs/educaandos/theme/calamares/modules/users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/users.yml
+# Modificar los grupos que instalará calamares al nuevo usuario (no necesario versión 9.3.8 eggs)
+#sudo cp /home/$USER/guadalinex/isobuilder/eggs/educaandos/theme/calamares/modules/users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/users.yml
 
 #eliminar archivos innecesarios de EGGS
 sudo rm /usr/share/applications/calamares.desktop
