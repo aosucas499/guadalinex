@@ -6,7 +6,7 @@ wget --no-check-certificate --content-disposition https://github.com/aosucas499/
 sudo mv focal-sources.list /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y 
 sudo apt-get install git -y
-wget https://sourceforge.net/projects/penguins-eggs/files/DEBS/testing/eggs_9.3.8_amd64.deb
+wget https://sourceforge.net/projects/penguins-eggs/files/DEBS/versions/eggs_9.3.7_amd64.deb
 sudo dpkg -i eggs*.deb
 sudo apt-get install -f -y
 
