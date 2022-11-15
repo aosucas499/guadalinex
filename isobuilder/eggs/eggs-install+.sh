@@ -44,7 +44,7 @@ sudo eggs dad -d
 sudo nano /etc/penguins-eggs.d/eggs.yaml
 
 # instala lo necesario para la iso y borra scripts de creación de iso
-sudo eggs produce --fast --theme educaandos 
+sudo eggs produce -vs --theme educaandos 
 sudo eggs kill
 
 #Eliminar repositorio ubuntu
