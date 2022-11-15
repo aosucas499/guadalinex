@@ -20,7 +20,7 @@ chmod +x apps-educaandos
 sudo cp -r /home/$USER/guadalinex/isobuilder/eggs/educaandos /usr/lib/penguins-eggs/addons/
 
 # Modificar los grupos que instalará calamares al nuevo usuario (no necesario versión 9.3.8 eggs)
-#sudo cp /home/$USER/guadalinex/isobuilder/eggs/educaandos/theme/calamares/modules/users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/users.yml
+sudo cp /home/$USER/guadalinex/isobuilder/eggs/educaandos/theme/calamares/modules/users.yml /usr/lib/penguins-eggs/conf/distros/focal/calamares/modules/users.yml
 
 #instalar calamares (and configure it to act without root)
 sudo eggs calamares --install --theme educaandos
