@@ -10,7 +10,7 @@ Incluye:
 
 Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/wiki/Instalación)
 
-Edición Portátil HP Probook 455 g7: [wiki](https://github.com/aosucas499/guadalinex/wiki/hp)
+Edición Portátil HP Probook 455 g7: [Enlace](https://www.madrid.es/UnidadesDescentralizadas/UrbanismoyVivienda/Urbanismo/Destacamos/ficheros/Cartelobras.jpg)
 
 Versión SLIM para PC's con menos recursos [Enlace](https://github.com/aosucas499/guadalinex/tree/slim)
 
