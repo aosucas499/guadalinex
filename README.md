@@ -12,7 +12,7 @@ Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/w
 
 ### Otras versiones
 
-Edición Portátil HP Probook 455 g7: [Enlace](https://www.madrid.es/UnidadesDescentralizadas/UrbanismoyVivienda/Urbanismo/Destacamos/ficheros/Cartelobras.jpg)
+Edición para Pc's muy modernos y Portátil HP Probook 455 g7: [Enlace](https://tinyurl.com/eosplus-up-kernel)
 
 Versión SLIM para PC's con menos recursos [Enlace](https://github.com/aosucas499/guadalinex/tree/slim)
 
