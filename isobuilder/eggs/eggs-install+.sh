@@ -52,4 +52,4 @@ sudo rm /etc/apt/sources.list.d/focal.list
 sudo apt-get update -y
 
 #crear iso definitiva
-sudo eggs produce --normal --theme educaandos --release
+sudo eggs produce --normal --theme educaandos 
