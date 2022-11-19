@@ -41,7 +41,7 @@ sudo eggs dad -d
 
 # Modify settings for iso
 #sudo nano /etc/penguins-eggs.d/eggs.yaml
-sudo cp eggs.yaml /etc/penguins-eggs.d/
+sudo cp /home/$USER/guadalinex/isobuilder/eggs/eggs.yaml /etc/penguins-eggs.d/
 
 # instala lo necesario para la iso y borra scripts de creación de iso
 sudo eggs produce -vs --theme educaandoslim
