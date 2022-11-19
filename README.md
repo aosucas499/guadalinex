@@ -8,8 +8,8 @@ Incluye:
 + apps-guadalinex-20 (en el menu de aplicaciones/herramientas del sistema)
 + Acceso root
 
-### Enlace:  [link](https://www.madrid.es/UnidadesDescentralizadas/UrbanismoyVivienda/Urbanismo/Destacamos/ficheros/Cartelobras.jpg)
-### Fecha actualización: 21 octubre 2022
+### Enlace:  [link](https://tinyurl.com/educaandosslimplus)
+### Fecha actualización: 19 noviembre 2022
 
 Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/wiki/Instalación)
 
