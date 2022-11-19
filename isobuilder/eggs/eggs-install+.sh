@@ -39,9 +39,9 @@ sudo rm /usr/lib/penguins-eggs/assets/penguins-links-add.desktop
 # NOW, we configure eggs, whit it's default 
 sudo eggs dad -d
 
-# Tenemos que modificar el archivo eggs.yaml a mano e incluir el vmlinuz y initrd con la versión, no dejar sin la versión.
-# así como los lenguajes, Europe/Madrid para la hora. Usar # sudo nano /etc/penguins-eggs.d/eggs.yaml después de estos dos comandos.
-sudo nano /etc/penguins-eggs.d/eggs.yaml
+# Modify settings for iso
+#sudo nano /etc/penguins-eggs.d/eggs.yaml
+sudo cp eggs.yaml /etc/penguins-eggs.d/
 
 # instala lo necesario para la iso y borra scripts de creación de iso
 sudo eggs produce -vs --theme educaandoslim
