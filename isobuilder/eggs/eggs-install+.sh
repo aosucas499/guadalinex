@@ -53,4 +53,4 @@ sudo apt-get update -y
 sudo eggs tools skel
 
 #crear iso definitiva
-sudo eggs produce --normal --theme educaandoslim 
+sudo eggs produce -v --theme educaandoslim 
