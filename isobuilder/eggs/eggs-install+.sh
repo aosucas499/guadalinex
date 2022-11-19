@@ -41,7 +41,7 @@ sudo eggs dad -d
 
 # Modify settings for iso
 #sudo nano /etc/penguins-eggs.d/eggs.yaml
-sudo cp eggs.yaml /etc/penguins-eggs.d/
+sudo cp /home/$USER/guadalinex/isobuilder/eggs/eggs.yaml /etc/penguins-eggs.d/
 
 # Tenemos que modificar el archivo eggs.yaml a mano e incluir el vmlinuz y initrd con la versión, no dejar sin la versión.
 # así como los lenguajes, Europe/Madrid para la hora. Usar # sudo nano /etc/penguins-eggs.d/eggs.yaml después de estos dos comandos.
