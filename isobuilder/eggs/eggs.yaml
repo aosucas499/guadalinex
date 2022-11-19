@@ -1,12 +1,12 @@
-version: 9.3.8
+version: 9.3.7
 snapshot_dir: /home/eggs/
-snapshot_prefix: EducaAndOS Plus-
+snapshot_prefix: EducaAndOS-PLUS-
 snapshot_excludes: /usr/local/share/penguins-eggs/exclude.list
 snapshot_basename: Unofficial
 user_opt: admin
 user_opt_passwd: root
 root_passwd: root
-theme: guadalinex
+theme: educaandos
 force_installer: true
 make_efi: true
 make_md5sum: false
