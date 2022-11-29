@@ -13,8 +13,24 @@ sourceSize=$(du -b $source|cut -f 1)
 source2Size=$(du -b $source2|cut -f 1)
 isConnectionAvailable=$(echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1 && echo "True" || echo "False")
 
+# Borrar el archivo de autologin de gdm pues genera problemas con el login de eos+
+#
+
+function deleteAutologin {
+	if [ -f "/etc/gdm3/custom.conf" ]; then
+	
+		echo "Autologin corrupto, corrigiendo..."
+		notify-send "Autologin corrupto, corrigiendo..."
+		sudo rm /etc/gdm3/custom.conf
+	else
+		echo "Autologin corrupto no presente...continuamos"
+	fi
+}
+
 # Comprobamos si hay internet
 # ---
+
+function isOnline {
 
 if [[ $isConnectionAvailable == "False" ]]; then
 	zenity --no-wrap \
@@ -28,6 +44,7 @@ fi
 echo ""
 echo "Hay conexión a Internet. Seguimos..."
 echo ""
+}
 
 # Función que comprueba que el usuario que lanza la app tiene derechos admin.
 
@@ -242,6 +259,8 @@ function execRepo {
 
 ## Variables a ejecutar en el script
 #
+deleteAutologin
+isOnline
 adminGroup
 installOnsystem
 fixCgaupdate
