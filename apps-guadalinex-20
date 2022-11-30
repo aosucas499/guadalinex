@@ -482,19 +482,6 @@ distribucion=$(lsb_release -cs)
 		sudo sed -i 's/Categories=GNOME;GTK;Utility;/Categories=Education;/g' /usr/share/applications/macmillaneducationteacher.desktop
 		}
 
-# Fixes
-function deleteAutologin {
-	if [ -f "/etc/gdm3/custom.conf" ]; then
-	
-		echo "Autologin corrupto, corrigiendo..."
-		notify-send "Autologin corrupto, corrigiendo..."
-		sudo rm /etc/gdm3/custom.conf
-	else
-		echo "Autologin corrupto no presente...continuamos"
-	fi
-}
-	deleteAutologin
-
 # Ejecuta la función correspondiente a cada una de las opciones del script
 # ---
 
