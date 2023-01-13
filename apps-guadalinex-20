@@ -232,6 +232,11 @@ distribucion=$(lsb_release -cs)
 		}
 		
 		function installChrome {
+		cd $HOME
+		wget http://es.archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-1_all.deb
+		sudo dpkg -i libu2f-udev*.deb
+		sudo rm *.deb
+		sudo apt install -f
 		wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 		sudo echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > chrome.list
 		sudo mv chrome.list /etc/apt/sources.list.d/
