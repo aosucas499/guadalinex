@@ -294,7 +294,7 @@ distribucion=$(lsb_release -cs)
 		}
 		
 		function installsantillana {
-		wget https://prod.santillana.com/downloads/av/linux.tar.gz
+		wget https://prod.santillana.es/downloads/av/linux.tar.gz
 		tar -xzvf linux.tar.gz
 		chmod +x aulavirtual-3.3.4-linux-x64-installer.run
 		./aulavirtual-3.3.4-linux-x64-installer.run
