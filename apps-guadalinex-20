@@ -300,8 +300,8 @@ distribucion=$(lsb_release -cs)
 		function installsantillana {
 		wget https://prod.santillana.es/downloads/av/linux.tar.gz
 		tar -xzvf linux.tar.gz
-		chmod +x aulavirtual-3.3.4-linux-x64-installer.run
-		./aulavirtual-3.3.4-linux-x64-installer.run
+		chmod +x *.run
+		./*.run
 		sed -i -e '$a Categories=Education' /home/$USER/Desktop/Aula\ Virtual.desktop
 		cp /home/$USER/Desktop/Aula\ Virtual.desktop /home/$USER/.local/share/applications/
 		if [ -d "/home/usuario" ]; then
@@ -310,15 +310,15 @@ distribucion=$(lsb_release -cs)
 			echo ""
 			echo "para instalarlo en la cuenta usuario"
 			echo ""
-           		su usuario -c ./aulavirtual-3.3.4-linux-x64-installer.run				
+           		su usuario -c ./*.run				
 			sudo chown $USER:$USER /home/usuario/Desktop/Aula\ Virtual.desktop
 			sudo sed -i -e '$a Categories=Education' /home/usuario/Desktop/Aula\ Virtual.desktop
 			sudo chown usuario:usuario /home/usuario/Desktop/Aula\ Virtual.desktop
 			sudo cp /home/usuario/Desktop/Aula\ Virtual.desktop /home/usuario/.local/share/applications/
-			sudo rm aulavirtual-3.3.4-linux-x64-installer.run
+			sudo rm *.run
 			sudo rm linux.tar.gz
 			else
-		rm aulavirtual-3.3.4-linux-x64-installer.run
+		rm *.run
 		rm linux.tar.gz
 		fi
 		}
