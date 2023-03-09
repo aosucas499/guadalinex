@@ -34,8 +34,14 @@ function userUsuario {
 		if [ -d "/home/usuario" ]; then
 			echo "El usuario = usuario existe, continuamos..."
 		else	
+		echo "El sistema no tiene al usuario = usuario, esto es necesario para alguna actualización"
+		echo ""
+		echo "del sistema original, procedemos a crearlo"
+		echo ""
 		sudo useradd -m -d /home/usuario -G adm,cdrom,dip,plugdev,lpadmin,sambashare,dialout usuario -s /bin/bash
+		echo ""
 		echo "Ingrese una contraseña para el usuario = usuario"
+		echo ""
 		sudo passwd usuario
 		echo -e "\n"echo "El usuario = usuario fue creado satisfactoriamente"
 		fi
