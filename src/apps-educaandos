@@ -280,7 +280,7 @@ function execRepo {
 ## Variables a ejecutar en el script
 #
 deleteAutologin
-userUsuario
+#userUsuario
 isOnline
 adminGroup
 installOnsystem
