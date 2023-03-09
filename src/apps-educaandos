@@ -27,6 +27,20 @@ function deleteAutologin {
 	fi
 }
 
+#Sino existe el usuario "usuario" lo crea, es necesario para no provocar algún nuevo error de actualizaciones del sistema original.
+
+function userUsuario {
+	
+		if [ -d "/home/usuario" ]; then
+			echo "El usuario = usuario existe, continuamos..."
+		else	
+		sudo useradd -m -d /home/usuario -G adm,cdrom,dip,plugdev,lpadmin,sambashare,dialout usuario -s /bin/bash
+		echo "Ingrese una contraseña para el usuario = usuario"
+		sudo passwd usuario
+		echo -e "\n"echo "El usuario = usuario fue creado satisfactoriamente"
+		fi
+}
+
 # Comprobamos si hay internet
 # ---
 
@@ -260,6 +274,7 @@ function execRepo {
 ## Variables a ejecutar en el script
 #
 deleteAutologin
+userUsuario
 isOnline
 adminGroup
 installOnsystem
