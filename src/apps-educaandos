@@ -100,7 +100,7 @@ function fixSource {
 function fixSource2 {
 
 	
-	if [[ $source2Size = "330" ]]; then
+	if [[ $source2Size = "329" ]]; then
 		
 		echo "Fichero sources2.list apropiado"
 	else
