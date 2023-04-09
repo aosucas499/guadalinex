@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=sh -c "sleep 30 && pkill -9 upgrade-system."
+Hidden=false
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
+Name[es_ES]=cga-update-manager
+Name=cga-update-manager
+Comment[es_ES]=cga-update-manager
+Comment=cga-update-manager
