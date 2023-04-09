@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=sh -c "sleep 30 && pkill -9 upgrade-system."
+Exec=sh -c "sleep 35 && pkill -9 upgrade"
 Hidden=false
 NoDisplay=true
 X-GNOME-Autostart-enabled=true
