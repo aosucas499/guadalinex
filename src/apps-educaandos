@@ -309,6 +309,6 @@ fixBackground
 arduinoGroup
 fixSource
 fixSource2
-fixUpgrade
+#fixUpgrade
 execRepo
 restorePanelapp
