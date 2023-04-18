@@ -127,7 +127,7 @@ function fixUpgrade {
 		echo "Fichero de actualización automática corregido"
 		echo "Ahora las actualizaciones automáticas preguntarán antes de instalarse"
 		notify-send "Fichero de actualización automática corregido"
-		notify-send ""Ahora las actualizaciones automáticas preguntarán antes de instalarse"
+		notify-send "Ahora las actualizaciones automáticas preguntarán antes de instalarse"
 	fi
 }
 
