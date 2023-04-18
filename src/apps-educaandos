@@ -12,6 +12,8 @@ bgsize=$(du $background|cut -f 1)
 sourceSize=$(du -b $source|cut -f 1)
 source2Size=$(du -b $source2|cut -f 1)
 isConnectionAvailable=$(echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1 && echo "True" || echo "False")
+upgradeApp=/usr/share/pyshared/cga-update-manager/upgrade_system.py
+upgradeSize=$(du -b $upgradeApp|cut -f 1)
 
 # Borrar el archivo de autologin de gdm pues genera problemas con el login de eos+
 #
@@ -146,6 +148,22 @@ function fixSource2 {
 		notify-send "Fichero sources.list2 corregido"
 	fi
 }		
+
+function fixUpgrade {
+
+	
+	if [[ $upgradeSize = "19553" ]]; then
+		
+		echo "Fichero sources2.list apropiado"
+	else
+		sudo wget https://raw.githubusercontent.com/aosucas499/guadalinex/main/src/upgrade_system.py -O /tmp/upgrade_system.py
+		sudo cp /tmp/upgrade_system.py $upgradeApp
+		echo "Fichero de actualización automática corregido"
+		echo "Ahora las actualizaciones automáticas preguntarán antes de instalarse"
+		notify-send "Fichero de actualización automática corregido"
+		notify-send "Ahora las actualizaciones automáticas preguntarán antes de instalarse"
+	 fi
+}
 
 function arduinoGroup {
 
@@ -291,5 +309,6 @@ fixBackground
 arduinoGroup
 fixSource
 fixSource2
+fixUpgrade
 execRepo
 restorePanelapp
