@@ -3,7 +3,6 @@
 
 #import gobject
 
-import gi
 import aptdaemon.client
 import os
 import logging.config
@@ -29,6 +28,7 @@ MINIMUN_BATTERY_PERCENT=30 # Valor mínimo de la batería antes de intentar actu
 NOTIFICATION_TITLE="Actualizaciones de educaAndOS"
 LOW_BATTERY='La batería está por debajo del mínimo de carga segura, conecte su equipo a la corriente eléctrica.'
 CHECK_CONNECTION='No se detecta conexión de red, verifique que la conexión a internet de su equipo es correcta.'
+
 
 def configure_logging():
    logfile = "/usr/share/pyshared/cga-update-manager/log.cfg"
@@ -310,7 +310,8 @@ class Upgrade():
    def error_simulate(self, *args):
       logging.info("Se ha producido un error.")
       logging.error(args)  
-   
+      
+      
    ## Método que lanza las diferentes notificaciones y el icono correspondiente 
    #  según el número de paquetes. 
    #Si devuelve True se lleva a cabo la actualización.
@@ -431,6 +432,7 @@ class Upgrade():
       else:
          self.ventana = self.inicialize_details_window(self.details_error, True)
       self.ventana.show()
+
         
 def main():
    configure_logging()
@@ -449,10 +451,11 @@ def main():
    [num_updates, download_human_size] = up.check_updates(up.error_simulate)
    updates_availables = up.get_updates_availables(num_updates, download_human_size)
    if updates_availables == True:
+      confirmar_actualizacion()
       up.do_install_packages()
       up.icon.set_on_packages_info_clic_handler(up.show_details_window)
    Gtk.main()
-
+   
 def confirmar_actualizacion():
     dialog = Gtk.MessageDialog(
         transient_for=None,
@@ -464,15 +467,10 @@ def confirmar_actualizacion():
     respuesta = dialog.run()
     dialog.destroy()
     if respuesta == Gtk.ResponseType.YES:
-        return True
+        sys.exit()
     else:
-        return False
-
-if confirmar_actualizacion():
-    sys.exit()
-else:
-    print ("Continuamos la actualización")
-
+        print ("Continuamos la actualización")
+      
 if __name__ == "__main__":
    os.nice(19)
    subprocess.call(["ionice","-c3", "-p",str(os.getpid())])
