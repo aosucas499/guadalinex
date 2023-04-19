@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=sh -c "rm -r ~/.config/lxpanel; lxpanelctl restart"
+Exec=sh -c "rm -r ~/.config/lxpanel/Eosslim/panels/*; cp /etc/skel/.config/lxpanel/Eosslim/panels/* ~/.config/lxpanel/Eosslim/panels/; lxpanelctl restart"
 Icon=/usr/share/icons/EducaAndOSIcons/apps/scalable/accessories-media-converter.svg
 Terminal=true
 Name[es_ES]=Restaurar paneles del usuario actual
