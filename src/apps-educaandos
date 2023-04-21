@@ -247,7 +247,7 @@ function updateRepo {
 		sleep 3
 		echo ""
 		# Copia siempre la versión actualizada del lanzador tras ser actualizado en el comando anterior.
-		#sudo cp $gitfolder/src/apps-educaandos /usr/bin
+		udo cp $gitfolder/src/apps-educaandos /usr/bin
 		
 	else
 		echo ""
