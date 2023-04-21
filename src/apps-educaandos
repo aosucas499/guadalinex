@@ -14,6 +14,8 @@ source2Size=$(du -b $source2|cut -f 1)
 isConnectionAvailable=$(echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1 && echo "True" || echo "False")
 upgradeApp=/usr/share/pyshared/cga-update-manager/upgrade_system.py
 upgradeSize=$(du -b $upgradeApp|cut -f 1)
+skelFile=/etc/skel/.config/user-dirs.dirs
+skelSize=5
 
 # Comprobamos si hay internet
 # ---
@@ -149,6 +151,18 @@ function arduinoGroup {
 	fi
 }
 
+function fixSkel {
+
+	if [[ $skelSize = "414" ]]; then
+	
+		echo "Carpetas del usuario reparadas"
+	else
+		sudo cp /etc/
+		echo "Carpetas del usuario reparadas"
+		notify-send "Carpetas del usuario reparadas"
+	fi
+}
+
 function restorePanelapp {
 
 	if [ -f "/usr/share/applications/restorepanel.desktop" ]; then
@@ -269,6 +283,7 @@ isOnline
 adminGroup
 installOnsystem
 fixCgaupdate
+#fixSkel
 fixBackground
 arduinoGroup
 fixSource
