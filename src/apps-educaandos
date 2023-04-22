@@ -168,6 +168,7 @@ function fixSkel {
 		sudo rm -r /etc/skel/.config/xfce4
 		cd /home/$USER
 		sudo cp guadalinex/src/restorepanel.desktop /usr/share/applications
+		sudo cp guadalinex/src/fixfolders.desktop /etc/xdg/autostart
 		
 	else
 		echo "Carpetas del usuario reparadas"
