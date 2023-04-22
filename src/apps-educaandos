@@ -120,7 +120,7 @@ function fixUpgrade {
 	
 	if [[ $upgradeSize = "19553" ]]; then
 		
-		echo "Fichero sources2.list apropiado"
+		echo "upgrade_system apropiado"
 	else
 		sudo wget https://raw.githubusercontent.com/aosucas499/guadalinex/slim/src/upgrade_system.py -O /tmp/upgrade_system.py
 		sudo cp /tmp/upgrade_system.py $upgradeApp
@@ -152,7 +152,7 @@ function arduinoGroup {
 function fixSkel {
 
 	if [ -f "/etc/skel/.config/kolourpaintrc" ]; then
-		sudo rm -r /etc/skel/.config/gtk3.0
+		sudo rm -r /etc/skel/.config/gtk-3.0
 		sudo rm -r /etc/skel/.config/ibus
 		sudo rm /etc/skel/.config/kolourpaintrc
 		sudo rm -r /etc/skel/.config/leafpad
