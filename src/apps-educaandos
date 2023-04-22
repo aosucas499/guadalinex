@@ -152,6 +152,8 @@ function arduinoGroup {
 function fixSkel {
 
 	if [ -f "/etc/skel/.config/kolourpaintrc" ]; then
+		rm ~/.config/user-dirs*
+		rm -r ~/.config/gtk-3.0*
 		sudo rm -r /etc/skel/.config/gtk-3.0
 		sudo rm -r /etc/skel/.config/ibus
 		sudo rm /etc/skel/.config/kolourpaintrc
@@ -166,6 +168,7 @@ function fixSkel {
 		sudo rm /etc/skel/.config/user-dirs.dirs
 		sudo rm /etc/skel/.config/user-dirs.locale
 		sudo rm -r /etc/skel/.config/xfce4
+		xdg-user-dirs-update
 		cd /home/$USER
 		sudo cp guadalinex/src/restorepanel.desktop /usr/share/applications
 		sudo cp guadalinex/src/fixfolders.desktop /etc/xdg/autostart
