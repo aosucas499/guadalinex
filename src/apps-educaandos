@@ -14,8 +14,6 @@ source2Size=$(du -b $source2|cut -f 1)
 isConnectionAvailable=$(echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1 && echo "True" || echo "False")
 upgradeApp=/usr/share/pyshared/cga-update-manager/upgrade_system.py
 upgradeSize=$(du -b $upgradeApp|cut -f 1)
-skelFile=/etc/skel/.config/user-dirs.dirs
-skelSize=5
 
 # Comprobamos si hay internet
 # ---
@@ -153,13 +151,24 @@ function arduinoGroup {
 
 function fixSkel {
 
-	if [[ $skelSize = "414" ]]; then
-	
-		echo "Carpetas del usuario reparadas"
+	if [ -f "/etc/skel/.config/kolourpaintrc" ]; then
+		sudo rm -r /etc/skel/.config/gtk3.0
+		sudo rm -r /etc/skel/.config/ibus
+		sudo rm /etc/skel/.config/kolourpaintrc
+		sudo rm -r /etc/skel/.config/leafpad
+		sudo rm -r /etc/skel/.config/libfm
+		sudo rm -r /etc/skel/.config/lxsession
+		sudo rm -r /etc/skel/.config/openbox
+		sudo rm -r /etc/skel/.config/pcmanfm
+		sudo rm -r /etc/skel/.config/pulse
+		sudo rm /etc/skel/.config/Trolltech.conf
+		sudo rm -r /etc/skel/.config/update-notifier
+		sudo rm /etc/skel/.config/user-dirs.dirs
+		sudo rm /etc/skel/.config/user-dirs.locale
+		sudo rm -r /etc/skel/.config/xfce4
+		
 	else
-		sudo cp /etc/
 		echo "Carpetas del usuario reparadas"
-		notify-send "Carpetas del usuario reparadas"
 	fi
 }
 
@@ -283,7 +292,7 @@ isOnline
 adminGroup
 installOnsystem
 fixCgaupdate
-#fixSkel
+fixSkel
 fixBackground
 arduinoGroup
 fixSource
