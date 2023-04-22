@@ -154,6 +154,8 @@ function fixSkel {
 	if [ -f "/etc/skel/.config/kolourpaintrc" ]; then
 		rm ~/.config/user-dirs*
 		rm -r ~/.config/gtk-3.0*
+		rm /home/usuario/.config/user-dirs*
+		rm -r /home/usuario/.config/gtk-3.0*
 		sudo rm -r /etc/skel/.config/gtk-3.0
 		sudo rm -r /etc/skel/.config/ibus
 		sudo rm /etc/skel/.config/kolourpaintrc
