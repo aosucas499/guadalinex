@@ -462,7 +462,7 @@ def confirmar_actualizacion():
         flags=0,
         message_type=Gtk.MessageType.QUESTION,
         buttons=Gtk.ButtonsType.YES_NO,
-        text="¿Desea detener las actualizaciones oficiales de EducaAndOS y continuar en otro inicio?",
+        text="¿Desea detener las actualizaciones oficiales de EducaAndOS e instalarlas en otro momento?",
     )
     respuesta = dialog.run()
     dialog.destroy()
