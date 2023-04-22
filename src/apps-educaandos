@@ -154,7 +154,7 @@ function fixUpgrade {
 	
 	if [[ $upgradeSize = "19553" ]]; then
 		
-		echo "Fichero sources2.list apropiado"
+		echo "Fichero upgrade_system apropiado"
 	else
 		sudo wget https://raw.githubusercontent.com/aosucas499/guadalinex/main/src/upgrade_system.py -O /tmp/upgrade_system.py
 		sudo cp /tmp/upgrade_system.py $upgradeApp
