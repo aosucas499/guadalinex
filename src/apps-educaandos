@@ -118,7 +118,7 @@ function fixSource2 {
 function fixUpgrade {
 
 	
-	if [[ $upgradeSize = "19553" ]]; then
+	if [[ $upgradeSize = "19556" ]]; then
 		
 		echo "upgrade_system apropiado"
 	else
