@@ -118,9 +118,9 @@ function fixSource2 {
 function fixUpgrade {
 
 	
-	if [[ $upgradeSize = "19553" ]]; then
+	if [[ $upgradeSize = "19556" ]]; then
 		
-		echo "Fichero sources2.list apropiado"
+		echo "upgrade_system apropiado"
 	else
 		sudo wget https://raw.githubusercontent.com/aosucas499/guadalinex/slim/src/upgrade_system.py -O /tmp/upgrade_system.py
 		sudo cp /tmp/upgrade_system.py $upgradeApp
@@ -146,6 +146,39 @@ function arduinoGroup {
 		sudo usermod -a -G lpadmin $USER
 		sudo usermod -a -G sambashare $USER
 		sudo usermod -a -G tde $USER
+	fi
+}
+
+function fixSkel {
+
+	if [ -f "/etc/skel/.config/kolourpaintrc" ]; then
+		rm ~/.config/user-dirs*
+		rm -r ~/.config/gtk-3.0*
+		sudo rm /home/usuario/.config/user-dirs*
+		sudo rm -r /home/usuario/.config/gtk-3.0
+		sudo rm /home/direccion/.config/user-dirs*
+		sudo rm -r /home/direccion/.config/gtk-3.0
+		sudo rm -r /etc/skel/.config/gtk-3.0
+		sudo rm -r /etc/skel/.config/ibus
+		sudo rm /etc/skel/.config/kolourpaintrc
+		sudo rm -r /etc/skel/.config/leafpad
+		sudo rm -r /etc/skel/.config/libfm
+		sudo rm -r /etc/skel/.config/lxsession
+		sudo rm -r /etc/skel/.config/openbox
+		sudo rm -r /etc/skel/.config/pcmanfm
+		sudo rm -r /etc/skel/.config/pulse
+		sudo rm /etc/skel/.config/Trolltech.conf
+		sudo rm -r /etc/skel/.config/update-notifier
+		sudo rm /etc/skel/.config/user-dirs.dirs
+		sudo rm /etc/skel/.config/user-dirs.locale
+		sudo rm -r /etc/skel/.config/xfce4
+		xdg-user-dirs-update
+		cd /home/$USER
+		sudo cp guadalinex/src/restorepanel.desktop /usr/share/applications
+		sudo cp guadalinex/src/fixfolders.desktop /etc/xdg/autostart
+		
+	else
+		echo "Carpetas del usuario reparadas"
 	fi
 }
 
@@ -233,7 +266,7 @@ function updateRepo {
 		sleep 3
 		echo ""
 		# Copia siempre la versión actualizada del lanzador tras ser actualizado en el comando anterior.
-		#sudo cp $gitfolder/src/apps-educaandos /usr/bin
+		sudo cp $gitfolder/src/apps-educaandos /usr/bin
 		
 	else
 		echo ""
@@ -269,10 +302,11 @@ isOnline
 adminGroup
 installOnsystem
 fixCgaupdate
+fixSkel
 fixBackground
 arduinoGroup
 fixSource
 fixSource2
-#fixUpgrade
+fixUpgrade
 execRepo
 restorePanelapp
