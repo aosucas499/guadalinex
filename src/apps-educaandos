@@ -352,7 +352,7 @@ fixBackground
 arduinoGroup
 fixSource
 fixSource2
-fixUpgrade
+#fixUpgrade
 switchAutoupdate
 execRepo
 restorePanelapp
