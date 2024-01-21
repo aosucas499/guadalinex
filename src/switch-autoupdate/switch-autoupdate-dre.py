@@ -32,24 +32,27 @@ def main():
 
 
 def menu_build(indicator):
-	"""Return a Gtk+ menu."""
-	menu = Gtk.Menu()
+    """Return a Gtk+ menu."""
+    menu = Gtk.Menu()
 
-	item_enable = Gtk.MenuItem("Activar auto-actualización")
-	item_enable.connect('activate', lambda source, ind=indicator: enable_autoupdate(ind))
-	menu.append(item_enable)
+    if os.path.exists("/usr/share/pyshared/cga-update-manager/upgrade_system.py"):
+        # Construir el menú con "Desactivar auto-actualización" y "Quit"
+        item_disable = Gtk.MenuItem("Desactivar auto-actualización")
+        item_disable.connect('activate', lambda source, ind=indicator: disable_autoupdate(ind))
+        menu.append(item_disable)
+    else:
+        # Construir el menú con "Activar auto-actualización" y "Quit"
+        item_enable = Gtk.MenuItem("Activar auto-actualización")
+        item_enable.connect('activate', lambda source, ind=indicator: enable_autoupdate(ind))
+        menu.append(item_enable)
 
-	item_disable = Gtk.MenuItem("Desactivar auto-actualización")
-	item_disable.connect('activate', lambda source, ind=indicator: disable_autoupdate(ind))
-	menu.append(item_disable)
-	
-	item_quit = Gtk.MenuItem("Quit")
-	item_quit.connect('activate', quit)
-	menu.append(item_quit)
+    item_quit = Gtk.MenuItem("Quit")
+    item_quit.connect('activate', quit)
+    menu.append(item_quit)
 
-	menu.show_all()
-	
-	return menu
+    menu.show_all()
+
+    return menu
 
 
 def enable_autoupdate(indicator):
@@ -58,6 +61,9 @@ def enable_autoupdate(indicator):
 
 	update_icon(ENABLED_ICON_PATH, indicator)
 	subprocess.run(["sudo", RUTA_ENABLE])
+	menu = indicator.get_menu()
+	menu.destroy()
+	indicator.set_menu(menu_build(indicator))
 	
 	update_icon(ENABLED_ICON_PATH, indicator)
 	
@@ -66,6 +72,9 @@ def disable_autoupdate(indicator):
 	
 	update_icon(DISABLED_ICON_PATH, indicator)
 	subprocess.run(["sudo", RUTA_DISABLE])
+	menu = indicator.get_menu()
+	menu.destroy()
+	indicator.set_menu(menu_build(indicator))
     	
 	update_icon(DISABLED_ICON_PATH, indicator)
 	
