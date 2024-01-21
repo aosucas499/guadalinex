@@ -13,7 +13,7 @@ if [ -f "/var/log/cga-update-manager/cga-updater.log" ]; then
 		echo "CGA-update-manager reparado"
     sudo mv /usr/share/pyshared/cga-update-manager/upgrade_system.py-backup /usr/share/pyshared/cga-update-manager/upgrade_system.py
     notify-send "Auto actualizaciones activado"
-    sudo apt-update
+    sudo apt update
 fi
 
 
