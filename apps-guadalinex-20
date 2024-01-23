@@ -239,7 +239,7 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		sudo apt install -f
 		sudo apt remove google-chrome-stable -y
 		wget $chromeDEB 
-		dpkg -i google-chrome*
+		sudo dpkg -i google-chrome*
 		sudo apt update
 		sudo apt install -f
 		sudo apt-mark hold google-chrome-stable
