@@ -535,24 +535,18 @@ opc=$( \
         --column="Descripción" \
         --hide-column=2 \
         --width=625 \
-        --height=800 \
+        --height=625 \
     False usuario "Crear usuario sin derechos admin. No combine esta opción con otras." \
     False restore_usuario "Restablece un usuario a valores originales. No combine esta opción con otras." \
     False installQshutdown "Instalar Apagado automático a las XX:XX horas de L-V (app qshutdown)" \
     False installNtpfix "Instalar corrección de hora en equipos conectados por wifi" \
-    False installOpenboard "Instalar aplicación de pizarra Openboard" \
     False installActivdre "Instalar drivers pizarras Promethean y aplicación ActivInspire" \
     False installSmartdre "Instalar drivers pizarras Smartboard-docker incluida SB480 (eos+)" \
     False installStarboardre "Instalar drivers pizarras Hitachi Starboard" \
     False installSigala "Instalar aplicación HGR-Sigala Servidor y cliente" \
     False installBells "Instalar Bell Scheduler - Programador alarmas con sonido" \
     False installChrome "Instalar navegador Chrome - siempre actualizado" \
-    False installsm "Instalar aplicación Editorial SM - Aprendizaje" \
-    False installsantillana "Instalar aplicación Santillana Aula Virtual" \
-    False installBlinklearning "Instalar aplicación Blinklearning - Usado en libros de Oxford" \
-    False installMee "Instalar aplicación MacMillan Education Everywhere" \
     False installkazam "Instalar grabador de escritorio Kazam" \
-    False installgparted "Instalar Gparted, manejador de disco/particiones" \
     False flatpakInstall "Instalar Flatpak" \
     False installDocker "Instalar Docker" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
