@@ -3,6 +3,7 @@
 
 ## variables
 distribucion=$(lsb_release -cs)
+chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_119.0.6045.199-1_amd64.deb
 
 #wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/apps-guadalinex-20
 
@@ -230,7 +231,21 @@ distribucion=$(lsb_release -cs)
 		sudo apt update        	
 		sudo apt install openboard -y
 		}
-		
+
+		function installChrome119 {
+		cd $HOME
+		wget http://es.archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-1_all.deb
+		sudo dpkg -i libu2f-udev*.deb
+		sudo apt install -f
+		sudo apt remove google-chrome-stable -y
+		wget $chromeDEB 
+		dpkg -i google-chrome*
+		sudo apt update
+		sudo apt install -f
+		sudo apt-mark hold google-chrome-stable
+		sudo rm *.deb
+		}
+
 		function installChrome {
 		cd $HOME
 		wget http://es.archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-1_all.deb
@@ -552,7 +567,7 @@ opc=$( \
     False installStarboardre "Instalar drivers pizarras Hitachi Starboard" \
     False installSigala "Instalar aplicación HGR-Sigala Servidor y cliente" \
     False installBells "Instalar Bell Scheduler - Programador alarmas con sonido" \
-    False installChrome "Instalar navegador Chrome - siempre actualizado" \
+    False installChrome119 "Instalar navegador Chrome - última version que funciona" \
     False installkazam "Instalar grabador de escritorio Kazam" \
     False flatpakInstall "Instalar Flatpak" \
     False installDocker "Instalar Docker" \
