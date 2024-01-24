@@ -4,9 +4,10 @@ Incluye:
 
 + apps-guadalinex-20 (en el menu de aplicaciones/herramientas del sistema)
 + Acceso root
++ app para habilitar o deshabilitar las actualizaciones automáticas del sistema oficial (deshabilitadas por defecto desde la versión de 24 enero 2024)
 
 ### Enlace:  [link](https://tinyurl.com/educaandosplus)
-### Fecha actualización: 15 noviembre 2022
+### Fecha actualización: 24 enero 20024
 
 Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/wiki/Instalación)
 
