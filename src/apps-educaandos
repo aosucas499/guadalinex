@@ -4,7 +4,7 @@
 
 gitfolder=/home/$USER/guadalinex
 gitguadalinex=https://github.com/aosucas499/guadalinex
-branch=main
+branch=stop-update
 source=/etc/apt/sources.list
 source2=/etc/apt/sources.list.d/educaandossc.list
 background=/usr/share/backgrounds/educaandos_wallpaper.png
@@ -165,6 +165,49 @@ function fixUpgrade {
 	 fi
 }
 
+function switchAutoupdate {
+
+	if [[ $upgradeSize = "19556" ]]; then
+		cd /home/$USER
+		sudo cp guadalinex/src/upgrade_system_original.py $upgradeApp
+		echo "Fichero de act. aut. original restaurado"
+		notify-send "Fichero de act. aut. original restaurado"
+	else
+		echo "Fichero de act. aut. original existente"
+	fi
+
+	if [ -f "/usr/lib/python3/dist-packages/switch-autoupdate/switch-autoupdate-dre.py" ] && [ -f "/etc/xdg/autostart/switch-autoupdate-dre-appindicator.desktop" ] && [ -f "/usr/bin/enable-au" ] && [ -f "/usr/bin/disable-au" ]; then
+	
+		echo "switch autoupdate existente"
+	else
+		cd /home/$USER
+		## Copiamos los archivos al sistema y activamos los archivos como ejecutables
+		sudo mkdir -p /usr/lib/python3/dist-packages/switch-autoupdate
+		sudo cp guadalinex/src/switch-autoupdate/switch-autoupdate-dre.py /usr/lib/python3/dist-packages/switch-autoupdate
+		sudo cp guadalinex/src/switch-autoupdate/enable-au /usr/bin/
+		sudo cp guadalinex/src/switch-autoupdate/disable-au /usr/bin
+		sudo chmod +x /usr/lib/python3/dist-packages/switch-autoupdate/switch-autoupdate-dre.py
+		sudo chmod +x /usr/bin/enable-au
+		sudo chmod +x /usr/bin/disable-au
+		
+		## Copiamos los archivos que dejan ejecutar sudo sin derechos al usuario
+		sudo chown root:root guadalinex/src/switch-autoupdate/zz-enable-au 
+		sudo chmod 0440 guadalinex/src/switch-autoupdate/zz-enable-au
+		sudo cp guadalinex/src/switch-autoupdate/zz-enable-au /etc/sudoers.d/
+		sudo chown root:root guadalinex/src/switch-autoupdate/zz-disable-au 
+		sudo chmod 0440 guadalinex/src/switch-autoupdate/zz-disable-au
+		sudo cp guadalinex/src/switch-autoupdate/zz-disable-au /etc/sudoers.d/
+		sudo chown root:root guadalinex/src/switch-autoupdate/zz-switch-autoupdate-dre
+		sudo chmod 0440 guadalinex/src/switch-autoupdate/zz-switch-autoupdate-dre
+		sudo cp guadalinex/src/switch-autoupdate/zz-switch-autoupdate-dre /etc/sudoers.d/
+		
+		## Copiamos el archivo que ejecuta el programa al inicio de la sesión para todos los usuarios
+		sudo cp guadalinex/src/switch-autoupdate/switch-autoupdate-dre-appindicator.desktop /etc/xdg/autostart/ 
+		echo "switch autoupdate copiado"
+		notify-send "switch autoupdate copiado"
+	fi 
+}
+
 function arduinoGroup {
 
 	if groups $USER | grep -q "dialout"; then
@@ -309,6 +352,7 @@ fixBackground
 arduinoGroup
 fixSource
 fixSource2
-fixUpgrade
+#fixUpgrade
+switchAutoupdate
 execRepo
 restorePanelapp

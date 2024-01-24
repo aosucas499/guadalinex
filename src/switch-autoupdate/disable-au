@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pkill -9 upgrade_system.
+sudo mv /usr/share/pyshared/cga-update-manager/upgrade_system.py /usr/share/pyshared/cga-update-manager/upgrade_system.py-backup
+notify-send "Auto actualizaciones desactivado"

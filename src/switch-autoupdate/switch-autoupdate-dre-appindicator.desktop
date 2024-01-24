@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/lib/python3/dist-packages/switch-autoupdate/switch-autoupdate-dre.py
+Terminal=false
+Name[es_ES]=switch-autoupdate-cga-dre
+Comment[es_ES]=
+
