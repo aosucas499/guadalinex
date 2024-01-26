@@ -17,7 +17,7 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		}
 
 		function unInstallUbunturepo {
- 		sudo rm /etc/apt/sources.list.dsudo apt-mark hold google-chrome-stable/focal.list
+ 		https://github.com/
 		sudo apt update
 		}
 		
