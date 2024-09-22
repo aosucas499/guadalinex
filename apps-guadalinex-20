@@ -355,6 +355,7 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		cd /home/$USER
 		wget https://d174l15oxlz83u.cloudfront.net/app/linux/AV4.zip
 		unzip AV4.zip
+		sudo rm -r /opt/AV4
 		sudo mv ~/AV4 /opt/
 		sudo chmod +x /opt/AV4/AV*.AppImage
 		wget https://play-lh.googleusercontent.com/n7vLuGJki6706j_RLp5nCx2QlE8PAiEDT6rHIEvnvlmZi_iSVXGIoQenq0jUd64tzn8=w240-h480 -O /opt/AV4/av4.png
@@ -367,7 +368,7 @@ Name=AV4
 Exec=/opt/AV/AV4_0.2.1_linux_x86_64.AppImage
 Icon=/opt/AV/av4.png
 Type=Application
-Categories=Utility;
+Categories=Education;
 Terminal=false
 EOF
 		chmod 644 /usr/share/applications/AV4.desktop
