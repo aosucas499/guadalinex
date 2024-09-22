@@ -355,14 +355,12 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		cd /home/$USER
 		wget https://d174l15oxlz83u.cloudfront.net/app/linux/AV4.zip
 		unzip AV4.zip
-		sudo rm -r /opt/AV4
+		wget https://play-lh.googleusercontent.com/n7vLuGJki6706j_RLp5nCx2QlE8PAiEDT6rHIEvnvlmZi_iSVXGIoQenq0jUd64tzn8=w240-h480 -O ~/AV/av4.png
 		sudo mv ~/AV4 /opt/
 		sudo chmod +x /opt/AV4/AV*.AppImage
-		wget https://play-lh.googleusercontent.com/n7vLuGJki6706j_RLp5nCx2QlE8PAiEDT6rHIEvnvlmZi_iSVXGIoQenq0jUd64tzn8=w240-h480 -O /opt/AV4/av4.png
 # Crear el archivo .desktop
 echo "Creando el archivo .desktop..."
 sudo tee /usr/share/applications/AV4.desktop > /dev/null <<EOF
-cat << EOF > /usr/share/applications/AV4.desktop
 [Desktop Entry]
 Name=AV4
 Exec=/opt/AV/AV4_0.2.1_linux_x86_64.AppImage
@@ -372,6 +370,8 @@ Categories=Education;
 Terminal=false
 EOF
 		chmod 644 /usr/share/applications/AV4.desktop
+		sudo rm -r ~/AV4
+		sudo rm ~/AV4.zip
 		update-desktop-database
 		}
 
