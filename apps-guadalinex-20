@@ -364,8 +364,8 @@ echo "Creando el archivo .desktop..."
 sudo tee /usr/share/applications/AV4.desktop > /dev/null <<EOF
 [Desktop Entry]
 Name=AV4
-Exec=/opt/AV/AV4_0.2.1_linux_x86_64.AppImage
-Icon=/opt/AV/av4.png
+Exec=/opt/AV4/AV4_0.2.1_linux_x86_64.AppImage
+Icon=/opt/AV4/av4.png
 Type=Application
 Categories=Education;
 Terminal=false
