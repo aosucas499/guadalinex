@@ -370,7 +370,7 @@ Type=Application
 Categories=Education;
 Terminal=false
 EOF
-		chmod 644 /usr/share/applications/AV4.desktop
+		sudo chmod 644 /usr/share/applications/AV4.desktop
 		sudo rm -r ~/AV4
 		sudo rm ~/AV4.zip
 		update-desktop-database
