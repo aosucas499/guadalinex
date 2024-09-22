@@ -518,6 +518,7 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		rm MEEPlatform-Admin-Linux-x64.zip
 		sudo dpkg -i MEEPlatform-Linux-x64.deb
 		rm MEEPlatform-Linux-x64.deb
+		sudo chmod -R a+w /usr/lib/meeplatform/
 		#sudo sed -i 's/Categories=GNOME;GTK;Utility;/Categories=Education;/g' /usr/share/applications/macmillaneducationteacher.desktop
 		sudo sed -i 's/Categories=GNOME;GTK;Utility;/Categories=Education;/g' /usr/share/applications/meeplatform.desktop
 		}
