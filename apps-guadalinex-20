@@ -218,6 +218,10 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 				
 		}
 
+		function updateFlatpak {
+		flatpak update -y
+		} 
+
 		function installNtpfix {
 		sudo cp ./ntp/fix-ntp /usr/bin
 		sudo chmod +x /usr/bin/fix-ntp
@@ -610,6 +614,7 @@ opc=$( \
     False updateFirefox "Actualizar Firefox CGA - (cuando tenemos auto-actualizaciones desactivadas) " \
     False installkazam "Instalar grabador de escritorio Kazam" \
     False flatpakInstall "Instalar Flatpak" \
+    False updateFlatpak "Actualizar versiones de aplicaciones Flatpak" \
     False installMee "Instalar MacMillan MEEPlatform" \
     False installAV4santillana "Instalar Santillana Aula Virtual 4" \
     False installDocker "Instalar Docker" \
