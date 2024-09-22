@@ -219,7 +219,7 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		}
 
 		function updateFlatpak {
-		flatpak update -y
+		sudo flatpak update -y
 		} 
 
 		function installNtpfix {
