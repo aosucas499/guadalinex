@@ -350,7 +350,29 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		rm linux.tar.gz
 		fi
 		}
-		
+
+		function installAV4santillana {
+		cd /home/$USER
+		wget https://d174l15oxlz83u.cloudfront.net/app/linux/AV4.zip
+		unzip AV4.zip
+		sudo mv ~/AV4 /opt/
+		sudo chmod +x /opt/AV4/AV*.AppImage
+		wget https://play-lh.googleusercontent.com/n7vLuGJki6706j_RLp5nCx2QlE8PAiEDT6rHIEvnvlmZi_iSVXGIoQenq0jUd64tzn8=w240-h480 -O /opt/AV4/av4.png
+		# Crear el archivo .desktop
+		echo "Creando el archivo .desktop..."
+		cat << EOF > /usr/share/applications/AV4.desktop
+		[Desktop Entry]
+		Name=AV4
+		Exec=/opt/AV/AV4_0.2.1_linux_x86_64.AppImage
+		Icon=/opt/AV/av4.png
+		Type=Application
+		Categories=Utility;
+		Terminal=false
+		EOF
+		chmod 644 /usr/share/applications/AV4.desktop
+		update-desktop-database
+		}
+
 		function installActivdre {
 		git clone https://github.com/aosucas499/activdre.git
 		cd activdre
@@ -586,6 +608,7 @@ opc=$( \
     False installkazam "Instalar grabador de escritorio Kazam" \
     False flatpakInstall "Instalar Flatpak" \
     False installMee "Instalar MacMillan MEEPlatform" \
+    False installAV4santillana "Instalar Santillana Aula Virtual 4" \
     False installDocker "Instalar Docker" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
