@@ -4,7 +4,7 @@
 
 gitfolder=/home/$USER/guadalinex
 gitguadalinex=https://github.com/aosucas499/guadalinex
-branch=main
+branch=slim
 source=/etc/apt/sources.list
 source2=/etc/apt/sources.list.d/educaandossc.list
 background=/usr/share/backgrounds/educaandos_slim_wallpaper.png
