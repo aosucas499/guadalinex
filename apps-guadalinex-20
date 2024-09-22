@@ -510,13 +510,16 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		}
 		
 		function installMee {
+		sudo apt purge --remove meeplatform -y
 		cd /home/$USER
-		wget --header="Host: lms-api.macmillan.education" --header="User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" --header="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" --header="Accept-Language: es-ES,es;q=0.9" --header="Referer: https://myclasses.macmillaneducationeverywhere.com/" "https://lms-api.macmillan.education/ACEApi/PdfExport/downloadapp?environmentId=linux64bit&appType=meeTeacherApps&userType=macmillanTeacherAdminLinux64" -c -O 'MacmillanEducationTeacher-Admin-Linux-x64.zip'
-		unzip Mac*.zip
-		rm Mac*.zip
-		sudo dpkg -i Mac*.deb
-		rm Mac*.deb
-		sudo sed -i 's/Categories=GNOME;GTK;Utility;/Categories=Education;/g' /usr/share/applications/macmillaneducationteacher.desktop
+		#wget --header="Host: lms-api.macmillan.education" --header="User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" --header="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" --header="Accept-Language: es-ES,es;q=0.9" --header="Referer: https://myclasses.macmillaneducationeverywhere.com/" "https://lms-api.macmillan.education/ACEApi/PdfExport/downloadapp?environmentId=linux64bit&appType=meeTeacherApps&userType=macmillanTeacherAdminLinux64" -c -O 'MacmillanEducationTeacher-Admin-Linux-x64.zip'
+		wget --content-disposition "https://api.mee.macmillaneducation.com/acecoreapi/api/v1/utility/downloadapp?environmentId=MEEPlatformAdminLinux64_App&appType=MEEPlatform"
+		unzip MEEPlatform-Admin-Linux-x64.zip
+		rm MEEPlatform-Admin-Linux-x64.zip
+		sudo dpkg -i MEEPlatform-Linux-x64.deb
+		rm MEEPlatform-Linux-x64.deb
+		#sudo sed -i 's/Categories=GNOME;GTK;Utility;/Categories=Education;/g' /usr/share/applications/macmillaneducationteacher.desktop
+		sudo sed -i 's/Categories=GNOME;GTK;Utility;/Categories=Education;/g' /usr/share/applications/meeplatform.desktop
 		}
 
 # Ejecuta la función correspondiente a cada una de las opciones del script
@@ -581,6 +584,7 @@ opc=$( \
     False updateFirefox "Actualizar Firefox CGA - (cuando tenemos auto-actualizaciones desactivadas) " \
     False installkazam "Instalar grabador de escritorio Kazam" \
     False flatpakInstall "Instalar Flatpak" \
+    False installMee "Instalar MacMillan MEEPlatform" \
     False installDocker "Instalar Docker" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
