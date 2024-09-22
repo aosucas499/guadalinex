@@ -363,7 +363,32 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		./educaandos.sh
 		cd ..
 		}
-		
+
+		function installAV4santillana {
+		cd /home/$USER
+		sudo rm -r /opt/AV4
+		wget https://d174l15oxlz83u.cloudfront.net/app/linux/AV4.zip
+		unzip AV4.zip
+		wget https://play-lh.googleusercontent.com/n7vLuGJki6706j_RLp5nCx2QlE8PAiEDT6rHIEvnvlmZi_iSVXGIoQenq0jUd64tzn8=w240-h480 -O ~/AV4/av4.png
+		sudo mv ~/AV4 /opt/
+		sudo chmod +x /opt/AV4/AV*.AppImage
+# Crear el archivo .desktop
+echo "Creando el archivo .desktop..."
+sudo tee /usr/share/applications/AV4.desktop > /dev/null <<EOF
+[Desktop Entry]
+Name=AV4
+Exec=/opt/AV4/AV4_0.2.1_linux_x86_64.AppImage
+Icon=/opt/AV4/av4.png
+Type=Application
+Categories=Education;
+Terminal=false
+EOF
+		sudo chmod 644 /usr/share/applications/AV4.desktop
+		sudo rm -r ~/AV4
+		sudo rm ~/AV4.zip
+		update-desktop-database
+		}
+
 		function installSmartdre {
 		git clone https://github.com/aosucas499/smartdre.git
 		cd smartdre
@@ -594,6 +619,7 @@ opc=$( \
     False installkazam "Instalar grabador de escritorio Kazam" \
     False flatpakInstall "Instalar Flatpak" \
     False installMee "Instalar MacMillan MEEPlatform" \
+    False installAV4santillana "Instalar Santillana Aula Virtual 4" \
     False installDocker "Instalar Docker" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
