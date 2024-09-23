@@ -257,6 +257,7 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		sudo dpkg -i libu2f-udev*.deb
 		sudo rm *.deb
 		sudo apt install -f
+  sudo rm /usr/share/applications/google-chrome.desktop
 		wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 		sudo echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > chrome.list
 		sudo mv chrome.list /etc/apt/sources.list.d/
@@ -271,7 +272,7 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		sudo rm /home/usuario/.config/google-chrome/LOCK
 		sudo rm /home/usuario/.config/google-chrome/SingletonLock
 		# Modifica el archivo para añadir --disable-gpu en la línea de Exec
-    		sudo sed -i 's|^Exec=.*|& --disable-gpu|' /usr/share/applications/google-chrome.desktop
+    		#sudo sed -i 's|^Exec=.*|& --disable-gpu|' /usr/share/applications/google-chrome.desktop
 		}
 
 		function updateFirefox {
@@ -611,6 +612,7 @@ opc=$( \
     False installSigala "Instalar aplicación HGR-Sigala Servidor y cliente" \
     False installBells "Instalar Bell Scheduler - Programador alarmas con sonido" \
     False installChrome "Instalar navegador Chrome - última versión " \
+    False installChrome119 "Instalar Chrome v.119 - Pc's versiones nuevas no funciona" \
     False updateFirefox "Actualizar Firefox CGA - (cuando tenemos auto-actualizaciones desactivadas) " \
     False installkazam "Instalar grabador de escritorio Kazam" \
     False flatpakInstall "Instalar Flatpak" \
