@@ -257,8 +257,8 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		sudo dpkg -i libu2f-udev*.deb
 		sudo rm *.deb
 		sudo apt install -f
-  sudo rm /usr/share/applications/google-chrome.desktop
-  sudo apt remove google-chrome-stable -y
+  		#sudo rm /usr/share/applications/google-chrome.desktop
+  		sudo apt remove google-chrome-stable -y
 		wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 		sudo echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > chrome.list
 		sudo mv chrome.list /etc/apt/sources.list.d/
