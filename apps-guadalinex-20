@@ -362,6 +362,8 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		sudo rm -r /opt/AV4
 		sudo rm AV4.zip
 		sudo rm AV4_0.2.3_linux_x86_64.AppImage
+		sudo rm /usr/share/applications/AV4.desktop
+		sudo rm -r /opt/AV4/
 		wget https://d174l15oxlz83u.cloudfront.net/app/linux/AV4.zip
 		unzip AV4.zip
 		mkdir -p ~/AV4
@@ -383,7 +385,7 @@ EOF
 		sudo chmod 644 /usr/share/applications/AV4.desktop
 		sudo rm -r ~/AV4
 		sudo rm ~/AV4.zip
-		update-desktop-database
+		sudo update-desktop-database
 		}
 
 		function installActivdre {
