@@ -360,6 +360,7 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		function installAV4santillana {
 		cd /home/$USER
 		sudo rm -r /opt/AV4
+		sudo rm AV4.zip
 		wget https://d174l15oxlz83u.cloudfront.net/app/linux/AV4.zip
 		unzip AV4.zip
 		wget https://play-lh.googleusercontent.com/n7vLuGJki6706j_RLp5nCx2QlE8PAiEDT6rHIEvnvlmZi_iSVXGIoQenq0jUd64tzn8=w240-h480 -O ~/AV4/av4.png
@@ -543,6 +544,7 @@ EOF
 		function installMee {
 		sudo apt purge --remove meeplatform -y
 		cd /home/$USER
+		sudo rm MEEPlatform-Admin-Linux-x64.zip
 		#wget --header="Host: lms-api.macmillan.education" --header="User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" --header="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" --header="Accept-Language: es-ES,es;q=0.9" --header="Referer: https://myclasses.macmillaneducationeverywhere.com/" "https://lms-api.macmillan.education/ACEApi/PdfExport/downloadapp?environmentId=linux64bit&appType=meeTeacherApps&userType=macmillanTeacherAdminLinux64" -c -O 'MacmillanEducationTeacher-Admin-Linux-x64.zip'
 		wget --content-disposition "https://api.mee.macmillaneducation.com/acecoreapi/api/v1/utility/downloadapp?environmentId=MEEPlatformAdminLinux64_App&appType=MEEPlatform"
 		unzip MEEPlatform-Admin-Linux-x64.zip
