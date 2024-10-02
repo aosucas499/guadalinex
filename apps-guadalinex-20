@@ -4,6 +4,7 @@
 ## variables
 distribucion=$(lsb_release -cs)
 chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_119.0.6045.199-1_amd64.deb
+avAppimage=AV4_0.2.3_linux_x86_64.AppImage
 
 #wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/apps-guadalinex-20
 
@@ -373,8 +374,14 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		function installAV4santillana {
 		cd /home/$USER
 		sudo rm -r /opt/AV4
+		sudo rm AV4.zip
+		sudo rm $avAppimage
+		sudo rm /usr/share/applications/AV4.desktop
+		sudo rm -r /opt/AV4/
 		wget https://d174l15oxlz83u.cloudfront.net/app/linux/AV4.zip
 		unzip AV4.zip
+		mkdir -p ~/AV4
+		mv $avAppimage ~/AV4
 		wget https://play-lh.googleusercontent.com/n7vLuGJki6706j_RLp5nCx2QlE8PAiEDT6rHIEvnvlmZi_iSVXGIoQenq0jUd64tzn8=w240-h480 -O ~/AV4/av4.png
 		sudo mv ~/AV4 /opt/
 		sudo chmod +x /opt/AV4/AV*.AppImage
@@ -383,7 +390,7 @@ echo "Creando el archivo .desktop..."
 sudo tee /usr/share/applications/AV4.desktop > /dev/null <<EOF
 [Desktop Entry]
 Name=AV4
-Exec=/opt/AV4/AV4_0.2.1_linux_x86_64.AppImage
+Exec=/opt/AV4/$avAppimage
 Icon=/opt/AV4/av4.png
 Type=Application
 Categories=Education;
@@ -392,7 +399,7 @@ EOF
 		sudo chmod 644 /usr/share/applications/AV4.desktop
 		sudo rm -r ~/AV4
 		sudo rm ~/AV4.zip
-		update-desktop-database
+		sudo update-desktop-database
 		}
 
 		function installSmartdre {
@@ -551,6 +558,7 @@ EOF
 		function installMee {
 		sudo apt purge --remove meeplatform -y
 		cd /home/$USER
+		sudo rm MEEPlatform-Admin-Linux-x64.zip
 		#wget --header="Host: lms-api.macmillan.education" --header="User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" --header="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" --header="Accept-Language: es-ES,es;q=0.9" --header="Referer: https://myclasses.macmillaneducationeverywhere.com/" "https://lms-api.macmillan.education/ACEApi/PdfExport/downloadapp?environmentId=linux64bit&appType=meeTeacherApps&userType=macmillanTeacherAdminLinux64" -c -O 'MacmillanEducationTeacher-Admin-Linux-x64.zip'
 		wget --content-disposition "https://api.mee.macmillaneducation.com/acecoreapi/api/v1/utility/downloadapp?environmentId=MEEPlatformAdminLinux64_App&appType=MEEPlatform"
 		unzip MEEPlatform-Admin-Linux-x64.zip
