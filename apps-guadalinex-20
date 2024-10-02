@@ -363,6 +363,7 @@ chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-
 		sudo rm AV4.zip
 		wget https://d174l15oxlz83u.cloudfront.net/app/linux/AV4.zip
 		unzip AV4.zip
+		mkdir -p ~/AV4
 		wget https://play-lh.googleusercontent.com/n7vLuGJki6706j_RLp5nCx2QlE8PAiEDT6rHIEvnvlmZi_iSVXGIoQenq0jUd64tzn8=w240-h480 -O ~/AV4/av4.png
 		sudo mv ~/AV4 /opt/
 		sudo chmod +x /opt/AV4/AV*.AppImage
