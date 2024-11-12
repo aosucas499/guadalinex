@@ -124,7 +124,7 @@ function fixBackground {
 function fixSource {
 
 	
-	if [[ $app = "77" ]]; then
+	if [[ $sourceSize = "77" ]]; then
 		
 		echo "Fichero sources.list apropiado"
 	else
