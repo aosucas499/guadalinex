@@ -15,7 +15,7 @@ isConnectionAvailable=$(echo -e "GET http://google.com HTTP/1.0\n\n" | nc google
 upgradeApp=/usr/share/pyshared/cga-update-manager/upgrade_system.py
 upgradeSize=$(du -b $upgradeApp|cut -f 1)
 congeladorApp=/usr/share/cga-sistema-congelacion/index.py
-congeladorSize=(du $congeladorApp|cut -f 1)
+congeladorSize=$(du -b $congeladorApp|cut -f 1)
 
 # Borrar el archivo de autologin de gdm pues genera problemas con el login de eos+
 #
@@ -371,5 +371,6 @@ fixSource
 fixSource2
 #fixUpgrade
 switchAutoupdate
+fixCongelador
 execRepo
 restorePanelapp
