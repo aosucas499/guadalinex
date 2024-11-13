@@ -564,7 +564,7 @@ EOF
 		}
 
 		function installDrivers {
-		sh -c $gitfolder/apps-drivers-20
+		sh -c $gitfolder/src/apps-drivers-20
 		}	
 
 # Ejecuta la función correspondiente a cada una de las opciones del script
