@@ -2,7 +2,7 @@
 #clear
 
 ## variables
-kernel=
+gist=https://gist.github.com/aosucas499
 
 #wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/apps-drivers-20
 
@@ -20,19 +20,17 @@ kernel=
 		sudo apt update
 		}
 		
-		
 		function install88x2bu { 
 		cd /tmp
-		git clone https://gist.github.com/aosucas499/fa6f6f2fa749ac5bbd6f70a5e161b20a
+		git clone $gist/fa6f6f2fa749ac5bbd6f70a5e161b20a
 		cd /tmp/fa6f6f2fa749ac5bbd6f70a5e161b20a
 		chmod +x rtl8822bu.sh
 		sudo ./rtl8822bu.sh
 		cd ~
 		sudo rm -r /tmp/fa6f6f2fa749ac5bbd6f70a5e161b20a
 		}
-		
-		
-		function installlbp113w { 
+			
+		function installLbp113w { 
 		wget -O /tmp/linux-UFRIILT-drv-v500-es-18.tar.gz "https://pdisp01.c-wss.com/gdl/WWUFORedirectTarget.do?id=MDEwMDAwNzAwNjA4&cmp=ABX&lang=ES"
 		tar -xzvf /tmp/linux-UFRIILT-drv-v500-es-18.tar.gz -C /tmp/
 		rm /tmp/linux-UFRIILT-drv-v500-es-18.tar.gz
@@ -93,7 +91,7 @@ opc=$( \
         --width=625 \
         --height=625 \
     False install88x2bu "Drivers Wifi con chipset RTL88x2BU" \
-    False installlbp113w "Drivers Impresora Canon LBP113W" \
+    False installLbp113w "Drivers Impresora Canon LBP113W" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
 )
