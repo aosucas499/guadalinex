@@ -5,6 +5,7 @@
 distribucion=$(lsb_release -cs)
 chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_119.0.6045.199-1_amd64.deb
 avAppimage=AV4_0.2.4_linux_x86_64.AppImage
+gitfolder=/home/$USER/guadalinex
 
 #wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/apps-guadalinex-20
 
@@ -569,7 +570,12 @@ EOF
 		#sudo sed -i 's/Categories=GNOME;GTK;Utility;/Categories=Education;/g' /usr/share/applications/macmillaneducationteacher.desktop
 		sudo sed -i 's/Categories=GNOME;GTK;Utility;/Categories=Education;/g' /usr/share/applications/meeplatform.desktop
 		}
-		
+
+		function installDrivers {
+		chmod +x $gitfolder/src/apps-drivers-20
+		sh -c $gitfolder/src/apps-drivers-20
+		}	
+
 # Ejecuta la función correspondiente a cada una de las opciones del script
 # ---
 
@@ -636,6 +642,7 @@ opc=$( \
     False updateFlatpak "Actualizar versiones de aplicaciones Flatpak" \
     False installMee "Instalar MacMillan MEEPlatform" \
     False installAV4santillana "Instalar Santillana Aula Virtual 4" \
+    False installDrivers "Instalar diferentes drivers para hardware" \
     False installDocker "Instalar Docker" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
