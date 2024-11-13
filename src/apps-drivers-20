@@ -1,0 +1,114 @@
+#!/bin/bash
+#clear
+
+## variables
+kernel=
+
+#wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/apps-drivers-20
+
+### Funciones del script
+##		
+		function installUbunturepo { 
+		sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
+		sudo mv focal.list /etc/apt/sources.list.d/
+		sudo apt update
+		sudo apt install git gdebi -y
+		}
+
+		function unInstallUbunturepo {
+ 		sudo rm /etc/apt/sources.list.d/focal.list
+		sudo apt update
+		}
+		
+		
+		function install88x2bu { 
+		cd /tmp
+		git clone https://gist.github.com/aosucas499/fa6f6f2fa749ac5bbd6f70a5e161b20a
+		cd /tmp/fa6f6f2fa749ac5bbd6f70a5e161b20a
+		chmod +x rtl8822bu.sh
+		sudo ./rtl8822bu.sh
+		cd ~
+		sudo rm -r /tmp/fa6f6f2fa749ac5bbd6f70a5e161b20a
+		}
+		
+		
+		function installlbp113w { 
+		wget -O /tmp/linux-UFRIILT-drv-v500-es-18.tar.gz "https://pdisp01.c-wss.com/gdl/WWUFORedirectTarget.do?id=MDEwMDAwNzAwNjA4&cmp=ABX&lang=ES"
+		tar -xzvf /tmp/linux-UFRIILT-drv-v500-es-18.tar.gz -C /tmp/
+		rm /tmp/linux-UFRIILT-drv-v500-es-18.tar.gz
+		sudo dpkg -i /tmp/linux-UFRIILT-drv-v500-es/64*/Debian/*.deb
+		rm -r /tmp/linux-UFRIILT-drv-v500-es
+		sudo apt update
+		sudo apt install -f
+		sudo apt update
+		}
+		
+# Ejecuta la función correspondiente a cada una de las opciones del script
+# ---
+
+function ejecutarAccionOpcional {
+
+    echo "Ejecutamos $1()"
+    ($1)
+}
+
+
+# Invocamos ("callback") las funciones asociadas a las opciones 
+# seleccionadas por el usuario
+
+
+		function procesarAccionesOpcionales {
+
+    		# Dividimos (el separador es "|" ) las opciones seleccionadas por el usuario
+   
+		IFS="|" read -a vals <<< $1
+
+	    	# Solicitamos (una a una) que se procesen dichas opciones
+
+    		for i in "${vals[@]}"
+    		do
+        	ejecutarAccionOpcional $i
+    		done
+		}
+
+# ----------------------------------------------------------------------------
+# Cuerpo del script
+# ----------------------------------------------------------------------------
+
+# Realizamos las opciones por defecto de nuestro script
+
+# Permitimos seleccionar opciones personalizadas
+
+# Mostramos las opciones personalizables
+
+opc=$( \
+    zenity \
+        --list \
+        --title="Elija las personalizaciones que desea aplicar" \
+        --checklist \
+        --column="Aplicar" \
+        --column="funcionAEjecutar" \
+        --column="Descripción" \
+        --hide-column=2 \
+        --width=625 \
+        --height=625 \
+    False install88x2bu "Drivers Wifi con chipset RTL88x2BU" \
+    False installlbp113w "Drivers Impresora Canon LBP113W" \
+    False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
+    False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
+)
+
+# Comprobamos que no se pulse el botón Cancelar
+
+	if [[ "$?" != 0 ]]; then
+    	echo "Sin problemas, ya personalizaremos otro día ;)"
+    	exit 0
+	fi
+
+# Procesamos las opciones elegidas por el usuario
+# ---
+
+	procesarAccionesOpcionales $opc
+
+#
+#
