@@ -14,6 +14,8 @@ source2Size=$(du -b $source2|cut -f 1)
 isConnectionAvailable=$(echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1 && echo "True" || echo "False")
 upgradeApp=/usr/share/pyshared/cga-update-manager/upgrade_system.py
 upgradeSize=$(du -b $upgradeApp|cut -f 1)
+congeladorApp=/usr/share/cga-sistema-congelacion/index.py
+congeladorSize=$(du -b $congeladorApp|cut -f 1)
 
 # Comprobamos si hay internet
 # ---
@@ -237,6 +239,22 @@ function restorePanelapp {
 	fi
 }
 
+
+function fixCongelador {
+
+
+	if [[ $congeladorSize = "8359" ]]; then
+
+		echo "App CGA-congelador apropiada"
+	else
+		sudo wget https://raw.githubusercontent.com/aosucas499/guadalinex/refs/heads/$branch/src/index.py -O /tmp/index.py
+		sudo cp /tmp/index.py $congeladorApp
+		sudo apt update -y
+		echo "App CGA-congelador corregido, ya no necesita servidor de centro"
+		notify-send "App CGA-congelador corregido, ya no necesita servidor de centro"
+	fi
+}	
+
 # Función para descargar repositorio en caso de que no exista en el sistema.
 # Por ejemplo, en el primer inicio. También instala la app en el sistema.
 
@@ -352,5 +370,6 @@ fixSource
 fixSource2
 #fixUpgrade
 switchAutoupdate
+fixCongelador
 execRepo
 restorePanelapp

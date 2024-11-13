@@ -570,7 +570,12 @@ EOF
 		#sudo sed -i 's/Categories=GNOME;GTK;Utility;/Categories=Education;/g' /usr/share/applications/macmillaneducationteacher.desktop
 		sudo sed -i 's/Categories=GNOME;GTK;Utility;/Categories=Education;/g' /usr/share/applications/meeplatform.desktop
 		}
-		
+
+		function installDrivers {
+		chmod +x $gitfolder/src/apps-drivers-20
+		sh -c $gitfolder/src/apps-drivers-20
+		}	
+
 # Ejecuta la función correspondiente a cada una de las opciones del script
 # ---
 
@@ -637,6 +642,7 @@ opc=$( \
     False updateFlatpak "Actualizar versiones de aplicaciones Flatpak" \
     False installMee "Instalar MacMillan MEEPlatform" \
     False installAV4santillana "Instalar Santillana Aula Virtual 4" \
+    False installDrivers "Instalar diferentes drivers para hardware" \
     False installDocker "Instalar Docker" \
     False installUbunturepo "Instalar repositorios Ubuntu 20 Focal" \
     False unInstallUbunturepo "Desinstalar repositorios Ubuntu 20 Focal" \
