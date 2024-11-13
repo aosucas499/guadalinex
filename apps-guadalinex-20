@@ -564,6 +564,7 @@ EOF
 		}
 
 		function installDrivers {
+		chmod +x $gitfolder/src/apps-drivers-20
 		sh -c $gitfolder/src/apps-drivers-20
 		}	
 
