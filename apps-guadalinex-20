@@ -393,8 +393,8 @@ EOF
 		function installActivdre {
 		git clone https://github.com/aosucas499/activdre.git
 		cd activdre
-		chmod +x educaandos.sh
-		./educaandos.sh
+		chmod +x educaandos-v2.sh
+		./educaandos-v2.sh
 		cd ..
 		}
 		
