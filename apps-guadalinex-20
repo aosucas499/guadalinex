@@ -4,7 +4,7 @@
 ## variables
 distribucion=$(lsb_release -cs)
 chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_119.0.6045.199-1_amd64.deb
-avAppimage=AV4_0.2.4_linux_x86_64.AppImage
+avAppimage=AV4_0.2.7_linux_x86_64.AppImage
 gitfolder=/home/$USER/guadalinex
 
 #wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/apps-guadalinex-20
@@ -367,8 +367,8 @@ gitfolder=/home/$USER/guadalinex
 		function installActivdre {
 		git clone https://github.com/aosucas499/activdre.git
 		cd activdre
-		chmod +x educaandos.sh
-		./educaandos.sh
+		chmod +x educaandos-v2.sh
+		./educaandos-v2.sh
 		cd ..
 		}
 
