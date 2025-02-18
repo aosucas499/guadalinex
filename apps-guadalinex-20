@@ -4,7 +4,7 @@
 ## variables
 distribucion=$(lsb_release -cs)
 chromeDEB=http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_119.0.6045.199-1_amd64.deb
-avAppimage=AV4_0.2.7_linux_x86_64.AppImage
+avAppimage=AV4_0.3.0_linux_x86_64.AppImage
 gitfolder=/home/$USER/guadalinex
 
 #wget --no-check-certificate --content-disposition https://github.com/aosucas499/guadalinex/raw/main/apps-guadalinex-20
