@@ -20,6 +20,7 @@ Fecha actualización: 7 enero 2025
 
 
 + Versión SLIM para PC's con menos recursos [Enlace](https://github.com/aosucas499/guadalinex/tree/slim)
+
 Fecha actualización: 24 enero 2024
 
 ### Colaborar
