@@ -13,13 +13,13 @@ Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/w
 
 ### Otras versiones
 
-Kernel 5.15
++ Kernel 5.15
 Edición para Pc's modernos y Portátil HP Probook 455 g7: [Enlace](https://tinyurl.com/eosplus-up-kernel)
 
 Fecha actualización: 7 enero 2025
 
 
-Versión SLIM para PC's con menos recursos [Enlace](https://github.com/aosucas499/guadalinex/tree/slim)
++ Versión SLIM para PC's con menos recursos [Enlace](https://github.com/aosucas499/guadalinex/tree/slim)
 
 ### Colaborar
 
