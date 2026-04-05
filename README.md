@@ -5,15 +5,17 @@ Incluye:
 + apps-guadalinex-20 (en el menu de aplicaciones/herramientas del sistema)
 + Acceso root
 + app para habilitar o deshabilitar las actualizaciones automáticas del sistema oficial (deshabilitadas por defecto desde la versión de 24 enero 2024)
++ Instalación de Flatpak v. 1.12.4
+
+### Enlace:  [link](https://tinyurl.com/eosplus-up-kernel)
 
 ### Enlace:  [link](https://tinyurl.com/educaandosplus)
-### Fecha actualización: 24 enero 20024
 
 Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/wiki/Instalación)
 
 ### Otras versiones
 
-Edición para Pc's muy modernos y Portátil HP Probook 455 g7: [Enlace](https://tinyurl.com/eosplus-up-kernel)
+Edición inicial con antiguo kernel 5.4: [Enlace](https://tinyurl.com/educaandosplus)
 
 Versión SLIM para PC's con menos recursos [Enlace](https://github.com/aosucas499/guadalinex/tree/slim)
 
