@@ -9,8 +9,6 @@ Incluye:
 
 ### Enlace:  [link](https://tinyurl.com/eosplus-up-kernel)
 
-### Enlace:  [link](https://tinyurl.com/educaandosplus)
-
 Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/wiki/Instalación)
 
 ### Otras versiones
