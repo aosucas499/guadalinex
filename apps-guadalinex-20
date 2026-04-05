@@ -180,17 +180,17 @@ function flatpakInstall {
     if dpkg-query -l | grep -q "gnome-software-plugin-flatpak"; then
         echo "Flatpak ya está instalado"
     else
-        echo "Instalando Flatpak 1.12+ (PPA Alex Larsson)..."
-        notify-send "Espere... Configurando repositorio Flatpak"
+        echo "Instalando Flatpak 1.12+ (Método Directo)..."
+        notify-send "Espere... Configurando Flatpak"
 
-        # 1. Añadimos la llave GPG del PPA (esencial para que no dé error de 'no firmado')
-        # La llave del PPA de Alexander Larsson es: FA1958FD121430DB
-        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FA1958FD121430DB
+        # 1. Descargamos la llave pública directamente desde Launchpad y la guardamos en el sistema
+        # Esta es la firma oficial del PPA de Alexander Larsson
+        sudo wget -qO /usr/share/keyrings/alexlarsson.gpg "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xfa1958fd121430db"
 
-        # 2. Creamos el archivo de repositorio manualmente para Ubuntu 20.04 (focal)
-        echo "deb http://ppa.launchpad.net/alexlarsson/flatpak/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/alexlarsson-flatpak.list
+        # 2. Creamos el archivo de repositorio vinculando la llave descargada
+        echo "deb [arch=amd64 signed-by=/usr/share/keyrings/alexlarsson.gpg] http://ppa.launchpad.net/alexlarsson/flatpak/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/alexlarsson-flatpak.list
 
-        # 3. Actualizamos e instalamos
+        # 3. Actualizamos e instalamos los paquetes del PPA
         sudo apt-get update -y
         sudo apt-get install -y flatpak libflatpak0 xdg-desktop-portal xdg-desktop-portal-gtk
 
@@ -200,33 +200,21 @@ function flatpakInstall {
         sudo apt-get install -f -y
         rm plugin-flatpak.deb
 
-        # 5. Borramos el repositorio para que no interfiera con tus sources de EOS+
+        # 5. Limpieza automática
         sudo rm /etc/apt/sources.list.d/alexlarsson-flatpak.list
+        sudo rm /usr/share/keyrings/alexlarsson.gpg
         sudo apt-get update -y
 
-        echo "Flatpak instalado y repo limpiado"
+        echo "Flatpak actualizado con éxito."
         notify-send "Flatpak instalado correctamente"
     fi
 
-    # Lógica de Zenity para Flathub
-    zenity --question \
-           --title="¿Añadir repositorio flathub?" \
-           --width=600 \
-           --text="¿Desea habilitar Flathub para ver las apps en el Centro de Software?"
-    
-    if [ $? -eq 0 ]; then
-        sudo apt-get install -y curl
+    # Pregunta de Zenity para Flathub
+    if zenity --question --title="¿Activar Flathub?" --width=400 --text="¿Añadir el catálogo de aplicaciones Flathub?"; then
         sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-        notify-send "Flathub activado"
-    else
-        notify-send "Flathub no añadido"
+        notify-send "Flathub configurado"
     fi
 }
-
-		function updateFlatpak {
-		sudo flatpak update -y
-		} 
-
 		function installNtpfix {
 		sudo cp ./ntp/fix-ntp /usr/bin
 		sudo chmod +x /usr/bin/fix-ntp
