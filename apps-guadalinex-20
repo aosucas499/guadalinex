@@ -176,49 +176,52 @@ gitfolder=/home/$USER/guadalinex
 		
 		# Función para instalar las flatpak y sus dependencias 
 
-		function flatpakInstall {
+function flatpakInstall {
+    if dpkg-query -l | grep -q "gnome-software-plugin-flatpak"; then
+        echo "Flatpak ya está instalado"
+    else
+        echo "Instalando Flatpak 1.12+ (PPA Alex Larsson)..."
+        notify-send "Espere... Configurando repositorio Flatpak"
 
-			if dpkg-query --list | grep gnome-software-plugin-flatpak; then
-        			echo "Flatpak instalado"
-			else
-        			echo "Flatpak no instalado"
-				notify-send "Espere...Instalando Flatpak"
-				sudo rm /etc/apt/sources.list.d/focal.list
-				sudo echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main universe multiverse restricted" > focal.list
-				sudo mv focal.list /etc/apt/sources.list.d/focal.list
-				sudo apt-get update -y 
-				sudo apt-get install -y libflatpak0
-				sudo apt-get install -y flatpak
-				sudo wget https://github.com/aosucas499/guadalinex/raw/main/src/gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
-				sudo dpkg -i gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
-				sudo rm gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb
-				sudo rm /etc/apt/sources.list.d/focal.list
-				sudo apt-get update -y 
-				echo "Flatpak instalado"
-				notify-send "Flatpak instalado"
-				fi
-			# Preguntamos al usuario si quiere añadir los repositorios flatpak a gnome-software
-			zenity --question \
-       			--title="¿Añadir repositorio flatpak a Centro de Software EducaAndOS?" \
-       			--width=600 \
-       			--text="¿Añadir repo flatpak a Centro Software EOS? En caso afirmativo, las apps le apareceran para instalar en el centro de software de EducaAndOS"
-			ans=$?		
-				if [ $ans -eq 0 ]
-				then
-    					echo "Repo flatpak añadido a Centro de software EOS"
-					notify-send "Repo flatpak añadido a Centro de software EOS"
-					notify-send "Reinicie y le aparecerán en el Centro de software EOS"
-					sudo apt-get update -y
-					sudo apt-get install curl -y
-					curl -o flathub.flatpakrepo https://flathub.org/repo/flathub.flatpakrepo 
-					sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-				else
-    					echo "Repo flatpak NO añadido a Centro de software EOS"
-					notify-send "Repo flatpak NO añadido a Centro de software EOS"
-					notify-send "Podrá instalar apps flatpak usando la terminal"
-				fi
-				
-		}
+        # 1. Añadimos la llave GPG del PPA (esencial para que no dé error de 'no firmado')
+        # La llave del PPA de Alexander Larsson es: FA1958FD121430DB
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FA1958FD121430DB
+
+        # 2. Creamos el archivo de repositorio manualmente para Ubuntu 20.04 (focal)
+        echo "deb http://ppa.launchpad.net/alexlarsson/flatpak/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/alexlarsson-flatpak.list
+
+        # 3. Actualizamos e instalamos
+        sudo apt-get update -y
+        sudo apt-get install -y flatpak libflatpak0
+
+        # 4. Instalación de tu plugin personalizado de EOS+
+        wget https://github.com/aosucas499/guadalinex/raw/main/src/gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb -O plugin-flatpak.deb
+        sudo dpkg -i plugin-flatpak.deb
+        sudo apt-get install -f -y
+        rm plugin-flatpak.deb
+
+        # 5. Borramos el repositorio para que no interfiera con tus sources de EOS+
+        sudo rm /etc/apt/sources.list.d/alexlarsson-flatpak.list
+        sudo apt-get update -y
+
+        echo "Flatpak instalado y repo limpiado"
+        notify-send "Flatpak instalado correctamente"
+    fi
+
+    # Lógica de Zenity para Flathub
+    zenity --question \
+           --title="¿Añadir repositorio flathub?" \
+           --width=600 \
+           --text="¿Desea habilitar Flathub para ver las apps en el Centro de Software?"
+    
+    if [ $? -eq 0 ]; then
+        sudo apt-get install -y curl
+        sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+        notify-send "Flathub activado"
+    else
+        notify-send "Flathub no añadido"
+    fi
+}
 
 		function updateFlatpak {
 		sudo flatpak update -y
