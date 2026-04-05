@@ -192,7 +192,7 @@ function flatpakInstall {
 
         # 3. Actualizamos e instalamos
         sudo apt-get update -y
-        sudo apt-get install -y flatpak libflatpak0
+        sudo apt-get install -y flatpak libflatpak0 xdg-desktop-portal xdg-desktop-portal-gtk
 
         # 4. Instalación de tu plugin personalizado de EOS+
         wget https://github.com/aosucas499/guadalinex/raw/main/src/gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb -O plugin-flatpak.deb
