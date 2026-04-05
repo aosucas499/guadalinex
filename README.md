@@ -13,9 +13,11 @@ Instrucciones de instalación: [wiki](https://github.com/aosucas499/guadalinex/w
 
 ### Otras versiones
 
-Edición inicial con antiguo kernel 5.4: [Enlace](https://tinyurl.com/educaandosplus)
++ Versión original kernel 5.4:  [link](https://tinyurl.com/educaandosplus)
 
-Versión SLIM para PC's con menos recursos [Enlace](https://github.com/aosucas499/guadalinex/tree/slim)
++ Versión SLIM para PC's con menos recursos [Enlace](https://github.com/aosucas499/guadalinex/tree/slim)
+
+Fecha actualización: 24 enero 2024
 
 ### Colaborar
 
