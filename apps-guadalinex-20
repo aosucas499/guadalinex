@@ -175,46 +175,60 @@ gitfolder=/home/$USER/guadalinex
 		}
 		
 		# Función para instalar las flatpak y sus dependencias 
-
 function flatpakInstall {
-    if dpkg-query -l | grep -q "gnome-software-plugin-flatpak"; then
-        echo "Flatpak ya está instalado"
-    else
-        echo "Instalando Flatpak 1.12+ (Método Directo)..."
-        notify-send "Espere... Configurando Flatpak"
+    # 1. Obtener la versión instalada (si existe)
+    # Buscamos la versión de 'flatpak', limpiamos la salida para quedarnos solo con el número
+    VERSION_INSTALADA=$(dpkg-query -W -f='${Version}' flatpak 2>/dev/null | cut -d: -f2 | cut -d- -f1)
 
-        # 1. Descargamos la llave pública directamente desde Launchpad y la guardamos en el sistema
-        # Esta es la firma oficial del PPA de Alexander Larsson
+    # 2. Definir la versión mínima deseada (1.12)
+    VERSION_MINIMA="1.12"
+
+    # Si está instalado y la versión es menor a 1.12, procedemos a limpiar
+    if [ ! -z "$VERSION_INSTALADA" ] && [ "$(printf '%s\n' "$VERSION_MINIMA" "$VERSION_INSTALADA" | sort -V | head -n1)" != "$VERSION_MINIMA" ]; then
+        echo "Versión antigua detectada ($VERSION_INSTALADA). Eliminando para actualizar..."
+        notify-send "Actualizando Flatpak" "Eliminando versión antigua ($VERSION_INSTALADA)..."
+        
+        # Eliminamos flatpak, la librería y el plugin (incluyendo configuraciones)
+        sudo apt-get purge -y flatpak libflatpak0 gnome-software-plugin-flatpak
+        sudo apt-get autoremove -y
+    fi
+
+    # 3. Comprobar si falta el plugin para decidir si instalamos la versión nueva
+    if ! dpkg-query -l | grep -q "gnome-software-plugin-flatpak"; then
+        echo "Instalando versión moderna de Flatpak (1.12+)..."
+        
+        # Firma y Repositorio (Método directo de Launchpad)
         sudo wget -qO /usr/share/keyrings/alexlarsson.gpg "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xfa1958fd121430db"
-
-        # 2. Creamos el archivo de repositorio vinculando la llave descargada
         echo "deb [arch=amd64 signed-by=/usr/share/keyrings/alexlarsson.gpg] http://ppa.launchpad.net/alexlarsson/flatpak/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/alexlarsson-flatpak.list
 
-        # 3. Actualizamos e instalamos los paquetes del PPA
         sudo apt-get update -y
+        
+        # Instalamos el motor nuevo y xdg-portals
         sudo apt-get install -y flatpak libflatpak0 xdg-desktop-portal xdg-desktop-portal-gtk
 
-        # 4. Instalación de tu plugin personalizado de EOS+
+        # Instalamos tu plugin personalizado de EOS+
         wget https://github.com/aosucas499/guadalinex/raw/main/src/gnome-software-plugin-flatpak_3.36.1-0ubuntu0.20.04.0eos_amd64.deb -O plugin-flatpak.deb
         sudo dpkg -i plugin-flatpak.deb
         sudo apt-get install -f -y
         rm plugin-flatpak.deb
 
-        # 5. Limpieza automática
+        # Limpieza del source list
         sudo rm /etc/apt/sources.list.d/alexlarsson-flatpak.list
-        sudo rm /usr/share/keyrings/alexlarsson.gpg
         sudo apt-get update -y
 
-        echo "Flatpak actualizado con éxito."
-        notify-send "Flatpak instalado correctamente"
+        echo "Flatpak 1.12+ instalado correctamente."
+        notify-send "Flatpak Actualizado" "Se ha instalado la versión 1.12 o superior."
+    else
+        echo "Flatpak ya está actualizado (Versión: $VERSION_INSTALADA)"
     fi
 
-    # Pregunta de Zenity para Flathub
-    if zenity --question --title="¿Activar Flathub?" --width=400 --text="¿Añadir el catálogo de aplicaciones Flathub?"; then
+    # --- Bloque Flathub ---
+    if zenity --question --title="¿Activar Flathub?" --width=400 --text="¿Desea habilitar el repositorio Flathub?"; then
         sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
         notify-send "Flathub configurado"
     fi
 }
+
 		function installNtpfix {
 		sudo cp ./ntp/fix-ntp /usr/bin
 		sudo chmod +x /usr/bin/fix-ntp
